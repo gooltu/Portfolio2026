@@ -110,7 +110,27 @@
         </div>
 
         <div class="highlight-card" style="border-color:var(--border);display:flex;flex-wrap:wrap;gap:24px;align-items:center;margin-top:24px;padding:24px 28px">
-          <img src="assets/leadership/ux-maturity-survey.png" alt="UX Maturity Survey: OpenEdge and DataDirect scores rising from ~2.5 in 2019 to over 4 in 2024" style="flex:1 1 320px;min-width:0;max-width:420px;height:auto;border-radius:8px">
+          <div class="maturity-chart" role="img" aria-label="UX Maturity Survey: OpenEdge rose from a score of 2.5 in 2019 to 4.5 in 2024; DataDirect rose from 2.9 in 2019 to 4.1 in 2024, on a 0–5 scale." style="flex:1 1 320px;min-width:0;max-width:420px">
+            <div class="maturity-chart-title">UX Maturity Survey</div>
+            <div class="maturity-chart-bars">
+              <div class="maturity-chart-group">
+                <div class="maturity-chart-bar maturity-chart-bar--openedge" style="height:50%"></div>
+                <div class="maturity-chart-bar maturity-chart-bar--datadirect" style="height:58%"></div>
+              </div>
+              <div class="maturity-chart-group">
+                <div class="maturity-chart-bar maturity-chart-bar--openedge" style="height:90%"></div>
+                <div class="maturity-chart-bar maturity-chart-bar--datadirect" style="height:82%"></div>
+              </div>
+            </div>
+            <div class="maturity-chart-years">
+              <div class="maturity-chart-year">2019</div>
+              <div class="maturity-chart-year">2024</div>
+            </div>
+            <div class="maturity-chart-legend">
+              <div class="maturity-chart-legend-item"><span class="maturity-chart-swatch maturity-chart-swatch--openedge"></span>OpenEdge</div>
+              <div class="maturity-chart-legend-item"><span class="maturity-chart-swatch maturity-chart-swatch--datadirect"></span>DataDirect</div>
+            </div>
+          </div>
           <div style="flex:1 1 260px;min-width:0">
             <div style="font-family:var(--font-mono);font-size:12px;color:var(--muted);margin-bottom:8px">UX maturity survey, 2019 → 2024</div>
             <p style="margin:0 0 16px;font-size:15px;line-height:1.6;color:var(--text-2)">Progress ADP teams moved from "Interested" (UX acknowledged, little support) to "Committed" (UX critical, executives actively involved).</p>

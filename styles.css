@@ -16,6 +16,7 @@
   --dim:#595d6c;
   --accent:#5b8def;
   --accent-icon:#8fb4ff;
+  --chart-datadirect:#9db9ee;
   --badge-bg:#1a2a47;
   --badge-text:#c3d6ff;
   --radius-sm:8px;
@@ -158,6 +159,22 @@ button{font-family:inherit}
 .carousel-nav:hover{border-color:var(--accent)}
 .carousel-nav.prev{left:12px}
 .carousel-nav.next{right:12px}
+
+/* UX maturity survey mini bar chart */
+.maturity-chart{border-radius:12px;border:1px solid var(--border);background:var(--bg);padding:20px 22px 16px}
+.maturity-chart-title{font-size:13px;color:var(--text-2);margin-bottom:16px}
+.maturity-chart-bars{display:flex;align-items:flex-end;gap:64px;height:150px;padding:0 4px;border-bottom:1px solid var(--border)}
+.maturity-chart-group{display:flex;align-items:flex-end;gap:16px;height:100%}
+.maturity-chart-bar{width:52px;border-radius:4px 4px 0 0}
+.maturity-chart-bar--openedge{background:var(--accent)}
+.maturity-chart-bar--datadirect{background:var(--chart-datadirect)}
+.maturity-chart-years{display:flex;gap:64px;padding:0 4px;margin-top:8px}
+.maturity-chart-year{width:120px;text-align:center;font-family:var(--font-mono);font-size:11.5px;color:var(--muted)}
+.maturity-chart-legend{display:flex;gap:16px;margin-top:14px}
+.maturity-chart-legend-item{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted-2)}
+.maturity-chart-swatch{width:9px;height:9px;border-radius:2px;display:inline-block}
+.maturity-chart-swatch--openedge{background:var(--accent)}
+.maturity-chart-swatch--datadirect{background:var(--chart-datadirect)}
 
 /* Utility */
 .visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}

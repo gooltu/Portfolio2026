@@ -43,7 +43,7 @@
     <section id="sec-overview" style="padding:72px 0 48px">
       <div class="section-label">~/work/memory-profiler.ai</div>
       <h1 style="margin:0;font-weight:500;font-size:clamp(36px,6vw,76px);line-height:1.02;letter-spacing:-.04em;max-width:18ch;text-wrap:balance">AI-enabled OpenEdge Memory Profiler</h1>
-      <div class="story-grid" style="grid-template-columns:repeat(2,1fr);margin-top:40px">
+      <div class="story-grid" style="margin-top:40px">
         <div>
           <div class="story-label">Situation</div>
           <p style="margin:0;font-size:15.5px;line-height:1.6;color:var(--text-2);text-wrap:pretty">OpenEdge is an application development platform used by over 100k+ companies globally.</p>
@@ -70,16 +70,16 @@
 
     <section id="sec-result" style="padding:80px 0">
       <div class="story-label" style="margin-bottom:16px">Result — impact of Memory Profiler after launch</div>
-      <img src="assets/mp-case/result-charts.png" alt="Customer quotes from Patrice Parrot (Proginov) and a Senior DevOps Engineer at QAD, alongside Support Tickets, Forum Enquiry and Customer Satisfaction Score charts from 2020-2025, marked at the OpenEdge 12 release and Memory Profiler launch" style="display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--border-strong);background:#000">
+      <img src="assets/mp-case/result-charts.png" alt="Customer quotes from Patrice Parrot (Proginov) and a Senior DevOps Engineer at QAD, alongside Support Tickets, Forum Enquiry and Customer Satisfaction Score charts from 2020-2025, marked at the OpenEdge 12 release and Memory Profiler launch" style="display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--border-strong);background:#000;margin-bottom:32px">
+      <div style="position:relative;width:100%;padding-top:56.25%;border-radius:12px;border:1px solid var(--border-strong);box-shadow:var(--shadow-card);overflow:hidden">
+        <iframe src="https://www.youtube-nocookie.com/embed/IscZlOF_BUU" title="Memory Profiler journey from 2022 to 2025" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe>
+      </div>
     </section>
 
     <hr class="divider">
 
     <section id="sec-actions" style="padding:80px 0">
       <div class="story-label" style="margin-bottom:16px">Actions — Memory Profiler journey from 2022 to 2025</div>
-      <div style="position:relative;width:100%;padding-top:56.25%;border-radius:12px;border:1px solid var(--border-strong);box-shadow:var(--shadow-card);overflow:hidden;margin-bottom:32px">
-        <iframe src="https://www.youtube-nocookie.com/embed/IscZlOF_BUU" title="Memory Profiler journey from 2022 to 2025" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe>
-      </div>
 
       <h3 style="margin:0 0 12px;font-weight:500;font-size:22px">User Research (early phase)</h3>
       <p style="margin:0 0 24px;max-width:760px;font-size:16px;line-height:1.6;color:var(--text-2);text-wrap:pretty">To better understand the challenges our users and support engineers faced, we held discussions with both groups. Initially, we thought providing users with memory snapshot data would help them identify and fix issues. However, when asked for feedback, most customers suggested that having the data in JSON format would make it easier for them to analyze and resolve their problems more effectively.</p>
@@ -89,7 +89,7 @@
 
       <h3 style="margin:0 0 12px;font-weight:500;font-size:22px">Issues</h3>
       <p style="margin:0 0 24px;max-width:760px;font-size:16px;line-height:1.6;color:var(--text-2);text-wrap:pretty">The adoption of version 1 was limited, with only a small number of users. Unfortunately, this did not lead to a reduction in support tickets, and our support engineers continued to struggle with extracting useful insights from the generated files. The files were large in size, which caused difficulties for third-party data analysis tools to load and process them efficiently. Additionally, the memory profiler was configured to capture a memory snapshot every 100 milliseconds, which contributed to the file size and complexity.</p>
-      <div class="highlight-card" style="margin:30px 0;max-width:760px">
+      <div class="highlight-card" style="margin:32px 0;max-width:760px">
         <p style="margin:0;font-weight:500;font-size:19px;line-height:1.5;color:var(--text-alt);text-wrap:pretty">The limited adoption of Memory Profiler Version 1 highlighted that simply providing raw data was insufficient to address the problem. It became clear that our customers require a more comprehensive memory profiler tool that not only collects data but also assists them in analyzing and identifying memory issues effectively.</p>
       </div>
 
@@ -106,10 +106,10 @@
 
       <div style="height:1px;background:rgba(233,233,237,.16);margin:40px 0 32px"></div>
 
-      <h3 style="margin:0 0 20px;font-weight:500;font-size:22px">Personas</h3>
-      <div style="display:flex;flex-wrap:wrap;gap:16px;margin-top:0">
-        <img src="assets/mp-case/persona-mia.png" alt="Persona: Mia, Senior Developer" style="flex:1 1 460px;min-width:0;width:100%;height:auto;border-radius:10px;border:1px solid var(--border)">
-        <img src="assets/mp-case/persona-farris.png" alt="Persona: Farris, Senior DevOps Engineer" style="flex:1 1 460px;min-width:0;width:100%;height:auto;border-radius:10px;border:1px solid var(--border)">
+      <div class="story-label" style="margin-bottom:16px">Personas</div>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <img src="assets/mp-case/persona-mia.png" alt="Persona: Mia, Senior Developer" style="width:100%;height:auto;border-radius:10px;border:1px solid var(--border)">
+        <img src="assets/mp-case/persona-farris.png" alt="Persona: Farris, Senior DevOps Engineer" style="width:100%;height:auto;border-radius:10px;border:1px solid var(--border)">
       </div>
       <div class="highlight-card" style="margin:32px 0 0;max-width:760px">
         <p style="margin:0;font-weight:500;font-size:20px;line-height:1.4;color:var(--text-alt);text-wrap:pretty">Brainstormed with veteran engineers who have been in the organization for some time and have a sense of what issues our customers are facing.</p>
@@ -121,7 +121,7 @@
     <section id="sec-quotes" style="padding:80px 0">
       <div class="story-label" style="margin-bottom:16px">Customer quotes</div>
       <p style="margin:0 0 24px;max-width:760px;font-size:16px;line-height:1.6;color:var(--text-2);text-wrap:pretty">Interviewed eight customers with over a million lines of OpenEdge code in production. Reviewed early designs with them and continuously iterated to improve them.</p>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:16px">
         <div class="quote-card">
           <div style="font-size:16px;font-weight:500;color:var(--text)">QAD</div>
           <div style="margin-top:2px;font-family:var(--font-mono);font-size:11px;letter-spacing:.06em;color:var(--muted)">Engineering Team (5-6 members)</div>
@@ -165,7 +165,7 @@
       </div>
       <div style="height:1px;background:rgba(233,233,237,.16);margin:40px 0 32px"></div>
       <h3 style="margin:0 0 12px;font-weight:500;font-size:22px">Memory Profiler Frontend Tool MVP</h3>
-      <p style="margin:0 0 24px;max-width:760px;font-size:16px;line-height:1.6;color:var(--text-2);text-wrap:pretty">Presented Memory Profiler designs at the Progress User Group conference with our Software Architect in Bratislava, and received valuable feedback.</p>
+      <p style="margin:0 0 24px;max-width:760px;font-size:16px;line-height:1.6;color:var(--text-2);text-wrap:pretty">Presented Memory Profiler designs at the Progress User Group conference with our Software Architect in Prague, Czech Republic, and received valuable feedback.</p>
       <div style="display:flex;flex-direction:column;gap:16px">
         <img src="assets/mp-case/mvp-screen-1.webp" alt="OpenEdge Memory Profiler: continuous profiling memory graph and profile details for QAD.ERP.Sales.Build" style="display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--border-strong);box-shadow:var(--shadow-card)">
         <img src="assets/mp-case/mvp-screen-2.webp" alt="OpenEdge Memory Profiler: Snap_t8899 object list with object type, name, memory and call stack" style="display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--border-strong);box-shadow:var(--shadow-card)">
