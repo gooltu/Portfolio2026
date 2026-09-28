@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Bulk Terraform Version Update — Mayukh Chakraborty</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+<style>
+html,body{margin:0;background:#161826;color:#e9e9ed;font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+*,*::before,*::after{box-sizing:border-box}
+a{color:#8fb4ff;text-underline-offset:3px}
+a:hover{color:#c3d6ff}
+::selection{background:rgba(91,141,239,.32)}
+:focus-visible{outline:2px solid #5b8def;outline-offset:2px}
+input::placeholder{color:#595d6c}
+</style>
+</helmet>
+<div style="min-height:100vh;background:#161826">
+  <div style="position:sticky;top:0;z-index:20;display:flex;align-items:center;height:44px;padding:0 clamp(20px,5vw,72px);gap:14px;background:rgba(19,21,33,.88);backdrop-filter:blur(10px);border-bottom:1px solid #292b31;font-family:'JetBrains Mono',monospace;font-size:12px">
+    <a href="Portfolio.dc.html" style="display:inline-flex;align-items:center;gap:8px;color:#9397ab;text-decoration:none" style-hover="color:#e9e9ed"><i class="ph ph-arrow-left"></i>mayukh.dev</a>
+    <span style="color:#3f424d">/</span><span style="color:#9397ab">work</span><span style="color:#3f424d">/</span><span style="color:#e9e9ed">bulk-version-update.agent</span>
+    <div style="flex:1"></div>
+    <a href="mailto:mayukhchakraborty1984@gmail.com" style="display:inline-flex;align-items:center;gap:8px;height:28px;padding:0 12px;border-radius:6px;border:1px solid #3f424d;color:#cfd3e5;text-decoration:none" style-hover="border-color:#5b8def;color:#e9e9ed"><i class="ph ph-envelope-simple"></i>Get in touch</a>
+  </div>
+  <div style="display:flex">
+  <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+    <aside style="position:sticky;top:44px;align-self:flex-start;height:calc(100vh - 44px);flex:0 0 272px;display:flex;border-right:1px solid #292b31;background:#131521">
+      <div style="width:48px;display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 0;border-right:1px solid #292b31">
+        <div style="width:32px;height:32px;border-radius:8px;display:grid;place-items:center;color:#8fb4ff;background:#1a2a47;font-size:18px"><i class="ph ph-files"></i></div>
+      </div>
+      <div style="flex:1;min-width:0;display:flex;flex-direction:column;font-family:'JetBrains Mono',monospace;font-size:12.5px">
+        <div style="padding:14px 14px 8px;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#75798c;font-family:Inter,sans-serif">Explorer</div>
+        <div style="padding:4px 14px 10px;display:flex;align-items:center;gap:6px;color:#cfd3e5"><i class="ph ph-caret-down" style="font-size:11px;color:#75798c"></i>BULK-VERSION-UPDATE.AGENT</div>
+        <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="12">
+          <button onClick="{{ n.go }}" style="display:flex;align-items:center;gap:8px;width:100%;text-align:left;border:0;cursor:pointer;padding:5px 14px;font:inherit;color:{{ n.color }};background:{{ n.bg }};box-shadow:{{ n.bar }}" style-hover="background:#1e2030">
+            <i class="{{ n.icon }}" style="font-size:14px;color:{{ n.iconColor }}"></i><span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ n.label }}</span>
+          </button>
+        </sc-for>
+      </div>
+    </aside>
+  </sc-if>
+  <div style="flex:1;min-width:0;max-width:1180px;padding:0 clamp(20px,5vw,72px)">
+    <section id="case" data-screen-label="Case study" style="padding:72px 0 96px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#8fb4ff;margin-bottom:18px">~/work/bulk-version-update.agent</div>
+        <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:32px">
+          <h2 style="margin:0;font-weight:500;font-size:clamp(36px,5.6vw,76px);line-height:1;letter-spacing:-.04em;max-width:15ch;text-wrap:balance">Bulk Terraform Version Update using Agentic Workforce</h2>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <div style="display:flex;align-items:baseline;gap:10px;font-weight:500;letter-spacing:-.05em;line-height:.9"><span style="font-size:clamp(36px,4vw,56px);color:#75798c">33%</span><i class="ph ph-arrow-right" style="font-size:28px;color:#595d6c"></i><span style="font-size:clamp(64px,9vw,120px);color:#5b8def">80%+</span></div>
+            <span style="max-width:30ch;font-size:14px;line-height:1.4;color:#b2b6ca">of HCP workspaces on the latest Terraform version, within two months of release</span>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:1px;margin-top:40px;background:#292b31;border:1px solid #292b31;border-radius:10px;overflow:hidden">
+          <div style="background:#161826;padding:14px 16px"><div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#75798c">Role</div><div style="margin-top:4px;font-size:14px">Lead UX designer</div></div>
+          <div style="background:#161826;padding:14px 16px"><div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#75798c">Team</div><div style="margin-top:4px;font-size:14px">2 UX designers, 2 developers, 2 Product Managers</div></div>
+          <div style="background:#161826;padding:14px 16px"><div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#75798c">Timeline</div><div style="margin-top:4px;font-size:14px">Jan – April 2026</div></div>
+          <div style="background:#161826;padding:14px 16px"><div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#75798c">Company</div><div style="margin-top:4px;font-size:14px">IBM HashiCorp</div></div>
+        </div>
+
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px 64px;margin-top:72px">
+          <div>
+            <div id="sec-situation" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#75798c;margin-bottom:10px">01 — situation</div>
+            <p style="margin:0 0 14px;font-size:16.5px;line-height:1.65;color:#cfd3e5;text-wrap:pretty">Organizations running Terraform at scale can end up with hundreds of workspaces, each pinned to a different mix of core, provider, and module versions. As security advisories and deprecations stack up, platform teams struggle to keep up with tracking and remediation across every workspace.</p>
+            <p style="margin:0 0 14px;font-size:16.5px;line-height:1.65;color:#cfd3e5;text-wrap:pretty">I worked with the platform engineering team to understand how they currently managed versions and updates, where the process broke down, and what information they needed to prioritize and act quickly. My responsibilities included mapping the existing workflow, identifying the biggest bottlenecks, and shaping a clearer, more scalable approach to monitoring and remediation.</p>
+          </div>
+          <div>
+            <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#75798c;margin-bottom:10px">02 — tasks</div>
+            <div style="display:flex;flex-direction:column;gap:14px;font-size:15.5px;line-height:1.6;color:#cfd3e5">
+              <div style="display:flex;gap:10px"><i class="ph ph-arrow-right" style="color:#5b8def;margin-top:5px"></i><span>When platform engineers need to align workspaces with a new Terraform version, they want to safely validate and execute upgrades at scale so that they can focus on core infrastructure management and avoid the operational tax of manual updates or the risk of production downtime.</span></div>
+              <div style="display:flex;gap:10px"><i class="ph ph-arrow-right" style="color:#5b8def;margin-top:5px"></i><span><strong style="font-weight:500;color:#e9e9ed">Verify at Scale:</strong> As a Workspace Operator, I want to validate the impact of a new Terraform version across my entire environment to achieve the confidence needed to upgrade without the fear of breaking infrastructure.</span></div>
+              <div style="display:flex;gap:10px"><i class="ph ph-arrow-right" style="color:#5b8def;margin-top:5px"></i><span><strong style="font-weight:500;color:#e9e9ed">Fleet-Wide Alignment:</strong> As a Workspace Operator, I want to bring all my workspaces up to a target version in a single workflow to achieve a standardized environment without the manual toil of per-workspace configuration.</span></div>
+              <div style="display:flex;gap:10px"><i class="ph ph-arrow-right" style="color:#5b8def;margin-top:5px"></i><span>Improve adoption of Terraform flagship capabilities like Search and Actions which are only available in the latest versions.</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:72px">
+          <div id="sec-result" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#75798c;margin-bottom:10px">03 — result</div>
+          <h3 style="margin:0 0 16px;font-weight:500;font-size:clamp(26px,3vw,36px);line-height:1.1;letter-spacing:-.03em">Impact of Bulk version update feature</h3>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px">
+            <div style="border-radius:14px;border:1px solid #3f424d;background:#1b1d2b;padding:24px">
+              <div style="display:flex;align-items:center;gap:10px;font-size:18px;line-height:1.3;margin-bottom:12px"><i class="ph ph-trend-up" style="color:#8fb4ff;font-size:20px"></i>Increase in number of workspaces with latest Terraform version</div>
+              <p style="margin:0;font-size:15px;line-height:1.6;color:#b2b6ca">Following the release of this feature, the proportion of HCP workspaces running the latest Terraform version increased from 33% to more than 80% within two months. This rapid adoption demonstrates strong customer uptake and validates the effectiveness of the new upgrade experience.</p>
+            </div>
+            <div style="border-radius:14px;border:1px solid #3f424d;background:#1b1d2b;padding:24px">
+              <div style="display:flex;align-items:center;gap:10px;font-size:18px;line-height:1.3;margin-bottom:12px"><i class="ph ph-currency-circle-dollar" style="color:#8fb4ff;font-size:20px"></i>Increase in RUM (Resources Under Management) – increased Business Revenue</div>
+              <p style="margin:0;font-size:15px;line-height:1.6;color:#b2b6ca">The feature release led to a marked increase in Resources Under Management (RUM). Because Terraform’s revenue scales with the number of managed resources, this RUM growth translated into a clear increase in business revenue.</p>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:96px">
+          <div id="sec-demo" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#75798c;margin-bottom:10px">04 — product demo</div>
+          <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:20px">
+            <div>
+              <h3 style="margin:0 0 16px;font-weight:500;font-size:clamp(26px,3vw,36px);line-height:1.1;letter-spacing:-.03em">Built with Claude Code and the Helios MCP server</h3>
+              <p style="margin:0;max-width:560px;font-size:15px;line-height:1.6;color:#b2b6ca">Demo developed using Claude Code and Helios Designs System MCP server. The demo is best viewed in wide desktop screens. Not suitable for mobile screens.</p>
+            </div>
+            <a href="https://bulk-terraform-version-update-agenticworkforce.vercel.app" target="_blank" style="display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 18px;border-radius:8px;border:1px solid #5b8def;color:#e9e9ed;text-decoration:none;font-size:14px;font-weight:500" style-hover="background:#1a2a47;color:#e9e9ed">Live product demo link <i class="ph ph-arrow-up-right"></i></a>
+          </div>
+          <div style="position:relative;width:100%;padding-top:56.25%;border-radius:12px;border:1px solid #3f424d;box-shadow:0 16px 40px rgba(0,0,0,.45);overflow:hidden">
+            <iframe src="https://www.youtube-nocookie.com/embed/ww8J2m0lgeo" title="Bulk Terraform Version Update — product demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe>
+          </div>
+        </div>
+
+        <div style="margin-top:96px">
+          <div id="sec-quote" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#75798c;margin-bottom:10px">05 — user research</div>
+          <blockquote style="margin:0;max-width:900px">
+            <p style="margin:0;font-weight:500;font-size:clamp(26px,3.4vw,44px);line-height:1.15;letter-spacing:-.03em;text-wrap:balance">“Upgrading modules and providers becomes <span style="color:#5b8def">hell week</span>. The full team ends up spending all their time upgrading and checking if anything has broken or not.”</p>
+            <footer style="margin-top:18px;font-size:14px;color:#9397ab"><span style="color:#e9e9ed">John Weignar</span> · JP Morgan &amp; Chase Bank (Solution Architect)</footer>
+          </blockquote>
+        </div>
+
+        <div style="margin-top:96px">
+          <div id="sec-domino" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#75798c;margin-bottom:10px">06 — the upgrade domino effect</div>
+          <h3 style="margin:0 0 16px;font-weight:500;font-size:clamp(26px,3vw,36px);line-height:1.1;letter-spacing:-.03em">Why upgrading is a complex engineering exercise</h3>
+          <img src="assets/tf-case/domino.jpg" alt="Row of falling dominoes" style="display:block;width:100%;height:auto;border-radius:12px;mix-blend-mode:lighten;margin-top:8px">
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:16px">
+            <sc-for list="{{ dominoSteps }}" as="d" hint-placeholder-count="4">
+              <div style="border-radius:10px;border:1px solid #292b31;background:#1b1d2b;padding:18px">
+                <div style="font-family:'JetBrains Mono',monospace;font-size:11.5px;letter-spacing:.08em;color:#8fb4ff">{{ d.step }}</div>
+                <div style="margin-top:8px;font-size:17px">{{ d.title }}</div>
+                <div style="margin-top:6px;font-size:14px;line-height:1.55;color:#9397ab">{{ d.body }}</div>
+              </div>
+            </sc-for>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px 40px;margin-top:28px">
+            <div style="display:flex;gap:12px"><i class="ph ph-git-fork" style="font-size:20px;color:#8fb4ff;margin-top:1px"></i><div><div style="font-size:16px">Dependency web</div><div style="margin-top:4px;font-size:14.5px;line-height:1.55;color:#9397ab">A single shared networking module upgrade can force dozens of downstream application workspaces to upgrade simultaneously to avoid configuration drift or plan failures.</div></div></div>
+            <div style="display:flex;gap:12px"><i class="ph ph-warning" style="font-size:20px;color:#8fb4ff;margin-top:1px"></i><div><div style="font-size:16px">The state trap</div><div style="margin-top:4px;font-size:14.5px;line-height:1.55;color:#9397ab">Versioning isn't just about the code, it's about the state. Once a state file is touched by a newer version of Terraform Core, older versions often cannot read it again, making rollbacks difficult.</div></div></div>
+          </div>
+        </div>
+
+        <p style="margin:96px 0 0;max-width:900px;font-weight:500;font-size:clamp(22px,2.6vw,32px);line-height:1.3;letter-spacing:-.02em;color:#cfd3e5;text-wrap:pretty">HashiCorp already provides tools to upgrade workspaces between versions, and has previously shared scripts that address parts of the process. With an <span style="color:#5b8def">AI agentic workforce</span>, we can now offer a unified experience that upgrades workspaces fully autonomously with minimal human intervention.</p>
+
+
+        <div style="margin-top:96px">
+          <div id="sec-personas" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#75798c;margin-bottom:10px">07 — personas</div>
+          <h3 style="margin:0 0 8px;font-weight:500;font-size:clamp(26px,3vw,36px);line-height:1.1;letter-spacing:-.03em">Personas of the Terraform ecosystem</h3>
+          <p style="margin:0 0 32px;font-size:15.5px;line-height:1.6;color:#9397ab">Who is affected by the bulk update?</p>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:32px 40px">
+            <sc-for list="{{ personas }}" as="p" hint-placeholder-count="4">
+              <div style="display:flex;gap:20px;padding-top:20px;border-top:1px solid #292b31">
+                <div style="flex:0 0 120px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:#75798c;text-transform:uppercase">{{ p.group }}</div>
+                <div>
+                  <div style="font-size:19px;font-weight:500">{{ p.name }}</div>
+                  <p style="margin:8px 0 0;font-size:14.5px;line-height:1.6;color:#9397ab;max-width:44ch">{{ p.body }}</p>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+        <div style="margin-top:96px">
+          <div id="sec-journey" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#75798c;margin-bottom:10px">08 — user journey</div>
+          <h3 style="margin:0 0 16px;font-weight:500;font-size:clamp(26px,3vw,36px);line-height:1.1;letter-spacing:-.03em">John upgrades hundreds of workspaces</h3>
+          <img src="assets/tf-case/user-journey.png" alt="User journey: four phases with actions, mindset quotes and an emotion curve from motivated to overwhelmed to relieved" style="display:block;width:100%;height:auto;border-radius:12px;border:1px solid #3f424d;box-shadow:0 16px 40px rgba(0,0,0,.45);margin-top:8px">
+        </div>
+
+        <div style="margin-top:96px">
+          <div id="sec-practices" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#75798c;margin-bottom:10px">09 — best practices for multi-agent UX</div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin-top:8px">
+            <sc-for list="{{ practices }}" as="b" hint-placeholder-count="4">
+              <div style="border-radius:12px;border:1px solid #292b31;background:#1b1d2b;padding:22px">
+                <i class="{{ b.icon }}" style="font-size:22px;color:#8fb4ff"></i>
+                <div style="margin-top:12px;font-size:18px;line-height:1.25">{{ b.title }}</div>
+                <div style="display:flex;flex-direction:column;gap:10px;margin-top:12px">
+                  <sc-for list="{{ b.points }}" as="pt" hint-placeholder-count="2"><div style="font-size:14px;line-height:1.55;color:#9397ab"><span style="color:#e4e7f5">{{ pt.k }}</span> {{ pt.v }}</div></sc-for>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+        <div style="margin-top:96px">
+          <div id="sec-final" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#75798c;margin-bottom:10px">10 — final designs</div>
+          <div style="position:relative;border-radius:14px;border:1px solid #3f424d;background:#0f1019;box-shadow:0 16px 40px rgba(0,0,0,.45);overflow:hidden">
+            <div style="position:relative;width:100%;aspect-ratio:1660/1000;overflow:hidden">
+              <img src="assets/tf-case/fd-campaigns.png" alt="Organisation posture and agentic workforce campaigns table" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:{{ opacity0 }};transition:opacity .45s ease">
+              <img src="assets/tf-case/fd-blast-scan.png" alt="Blast radius resources screen showing 40 workspaces and 7 sub-modules affected, with the compatibility check table" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:{{ opacity1 }};transition:opacity .45s ease">
+              <img src="assets/tf-case/fd-blast-result.png" alt="Blast radius check: 79% complete, 33 workspaces and 7 sub-modules affected" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:{{ opacity2 }};transition:opacity .45s ease">
+              <img src="assets/tf-case/fd-in-progress.png" alt="Version update in progress: 25% complete, 6 of 40 workspaces updated" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:{{ opacity3 }};transition:opacity .45s ease">
+              <img src="assets/tf-case/fd-approval.png" alt="Approval required screen listing pull requests opened per workspace, each awaiting merge" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:{{ opacity4 }};transition:opacity .45s ease">
+              <img src="assets/tf-case/fd-logs.png" alt="Agentic workforce logs showing each agent's actions, from discovery to apply" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:{{ opacity5 }};transition:opacity .45s ease">
+              <img src="assets/tf-case/fd-artifacts.png" alt="Artifacts screen listing downloadable plan outputs and summary reports for the upgrade run" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:{{ opacity6 }};transition:opacity .45s ease">
+            </div>
+            <button onClick="{{ prevSlide }}" aria-label="Previous design" style="position:absolute;left:14px;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;border:1px solid #3f424d;background:rgba(19,21,33,.75);color:#e9e9ed;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center" style-hover="background:#1a2a47;border-color:#5b8def"><i class="ph ph-arrow-left"></i></button>
+            <button onClick="{{ nextSlide }}" aria-label="Next design" style="position:absolute;right:14px;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:50%;border:1px solid #3f424d;background:rgba(19,21,33,.75);color:#e9e9ed;font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center" style-hover="background:#1a2a47;border-color:#5b8def"><i class="ph ph-arrow-right"></i></button>
+            <div style="position:absolute;left:0;right:0;bottom:0;padding:16px 20px;background:linear-gradient(to top,rgba(15,16,25,.92),transparent);display:flex;align-items:flex-end;justify-content:space-between;gap:16px">
+              <p style="margin:0;font-size:13.5px;line-height:1.5;color:#e4e7f5;max-width:70ch">{{ activeCaption }}</p>
+              <div style="display:flex;gap:6px;flex-shrink:0">
+                <sc-for list="{{ slides }}" as="s" hint-placeholder-count="7">
+                  <button onClick="{{ s.go }}" aria-label="Go to slide" style="width:{{ s.dotW }};height:6px;border-radius:99px;border:0;padding:0;cursor:pointer;background:{{ s.dotBg }}"></button>
+                </sc-for>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:96px">
+          <div id="sec-more-research" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#75798c;margin-bottom:10px">11 — more user research</div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(440px,1fr));gap:16px;margin-top:8px">
+            <sc-for list="{{ research }}" as="r" hint-placeholder-count="4">
+              <div style="display:flex;flex-direction:column;border-radius:12px;border:1px solid #292b31;background:#1b1d2b;padding:22px">
+                <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.1em;color:#75798c">{{ r.tag }}</div>
+                <div style="margin-top:8px;font-size:19px;line-height:1.25">{{ r.title }}</div>
+                <div style="display:flex;flex-direction:column;gap:18px;margin-top:18px">
+                  <sc-for list="{{ r.quotes }}" as="qq" hint-placeholder-count="1">
+                    <div>
+                      <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;color:#8fb4ff;margin-bottom:6px">{{ qq.k }}</div>
+                      <div style="font-size:15px;line-height:1.5;color:#e4e7f5">“{{ qq.q }}”</div>
+                      <div style="margin-top:6px;font-size:12.5px;color:#75798c">— {{ qq.who }}</div>
+                    </div>
+                  </sc-for>
+                </div>
+                <div style="margin-top:auto;padding-top:20px">
+                  <div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#75798c;margin-bottom:8px">UX implications</div>
+                  <div style="display:flex;flex-direction:column;gap:6px">
+                    <sc-for list="{{ r.implications }}" as="im" hint-placeholder-count="2"><div style="padding:9px 12px;border-radius:8px;background:#232532;font-size:13px;line-height:1.45;color:#cfd3e5">{{ im }}</div></sc-for>
+                  </div>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+
+        <div style="margin-top:96px;max-width:860px">
+          <div id="sec-impact" style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#75798c;margin-bottom:10px">12 — impact</div>
+          <h3 style="margin:0 0 16px;font-weight:500;font-size:clamp(26px,3vw,36px);line-height:1.1;letter-spacing:-.03em">Impact of Terraform Bulk Version Update</h3>
+          <p style="margin:0 0 14px;font-size:16.5px;line-height:1.65;color:#cfd3e5;text-wrap:pretty">The Terraform Bulk Version Update feature shows how an agentic workflow can be designed to earn trust from infrastructure teams. By pairing automation with clear guardrails—scoped permissions, auditable change logs, and human-in-the-loop checkpoints—the experience reduces manual upgrade toil while keeping teams in control. The result is faster, safer adoption of the latest Terraform versions across hundreds of workspaces, turning a risky, repetitive operation into a routine, low-friction task. For UX, this underscores a core principle for enterprise tooling: agentic systems must be as transparent and verifiable as they are powerful, so teams can confidently let automation handle scale.</p>
+        </div>
+      </section>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;padding:0 0 120px">
+      <a href="Portfolio.dc.html#work-profiler" style="display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px;border-radius:8px;border:1px solid #5b8def;color:#e9e9ed;text-decoration:none;font-size:14px;font-weight:500" style-hover="background:#1a2a47;color:#e9e9ed">Next: AI Memory Profiler <i class="ph ph-arrow-right"></i></a>
+      <a href="Portfolio.dc.html" style="display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px;border-radius:8px;border:1px solid #3f424d;color:#cfd3e5;text-decoration:none;font-size:14px" style-hover="border-color:#75798c;color:#e9e9ed"><i class="ph ph-arrow-left"></i>Back to portfolio</a>
+    </div>
+  </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { slide: 0, wide: true, active: 'sec-situation' };
+  NAV = [
+    { id: 'sec-situation', label: 'situation-tasks.md', icon: 'ph ph-file-text' },
+    { id: 'sec-result', label: 'result.md', icon: 'ph ph-trend-up' },
+    { id: 'sec-demo', label: 'product-demo.mp4', icon: 'ph ph-play-circle' },
+    { id: 'sec-quote', label: 'research-quote.md', icon: 'ph ph-quotes' },
+    { id: 'sec-domino', label: 'domino-effect.md', icon: 'ph ph-git-fork' },
+    { id: 'sec-personas', label: 'personas.md', icon: 'ph ph-users-three' },
+    { id: 'sec-journey', label: 'user-journey.png', icon: 'ph ph-image' },
+    { id: 'sec-practices', label: 'multi-agent-ux.md', icon: 'ph ph-robot' },
+    { id: 'sec-final', label: 'final-designs', icon: 'ph ph-images' },
+    { id: 'sec-more-research', label: 'more-research.md', icon: 'ph ph-magnifying-glass' },
+    { id: 'sec-impact', label: 'impact.md', icon: 'ph ph-chart-line-up' },
+  ];
+  go(id) { const el = document.getElementById(id); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 56, behavior: 'smooth' }); }
+  componentDidMount() {
+    this.onResize = () => this.setState({ wide: window.innerWidth >= 960 });
+    this.onResize();
+    window.addEventListener('resize', this.onResize);
+    this.onScroll = () => {
+      let cur = this.NAV[0].id;
+      for (const n of this.NAV) { const el = document.getElementById(n.id); if (el && el.getBoundingClientRect().top < 160) cur = n.id; }
+      this.setState({ active: cur });
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+  }
+  componentWillUnmount() { window.removeEventListener('resize', this.onResize); window.removeEventListener('scroll', this.onScroll); }
+  PERSONAS = [
+    { group: 'Architects', name: 'Platform Engineers', body: 'Define the upgrade strategy, manage the CI/CD pipelines (e.g., Atlantis, Terraform Cloud/Enterprise), and ensure the Core version stays secure across the fleet.' },
+    { group: 'Librarians', name: 'Module Authors', body: 'Maintain the internal registry. When a provider changes (e.g., AWS 4.x to 5.x), they must update the building blocks so teams can consume them safely.' },
+    { group: 'Translators', name: 'Provider Authors', body: 'Usually cloud vendors or community maintainers who release the API updates. Their release cycle is the upstream trigger for all other personas.' },
+    { group: 'Consumers', name: 'Workspace Operators', body: 'App developers or SREs managing specific environments (Dev/Prod). They feel the brunt of the domino effect when they refactor workspace code to match new module requirements.' },
+  ];
+  SLIDES = [
+    { caption: 'Organisation posture and agentic workforce campaigns, with approval gates on every run.' },
+    { caption: 'Every affected resource is listed before any change is made.' },
+    { caption: 'Blast radius check: 79% complete across 33 workspaces and 7 sub-modules.' },
+    { caption: 'Version update in progress, with live per-workspace status.' },
+    { caption: 'Approval required: every destructive change ships as a reviewable PR, never applied automatically.' },
+    { caption: 'Agentic workforce logs: each agent\u2019s actions, from discovery to apply.' },
+    { caption: 'Every run leaves an audit trail: plan outputs and a summary report, ready to download.' },
+  ];
+  prevSlide = () => this.setState(s => ({ slide: (s.slide - 1 + this.SLIDES.length) % this.SLIDES.length }));
+  nextSlide = () => this.setState(s => ({ slide: (s.slide + 1) % this.SLIDES.length }));
+  renderVals() {
+    const s = this.state;
+    return {
+      wide: s.wide,
+      navItems: this.NAV.map(n => { const on = n.id === s.active; return { label: n.label, icon: n.icon, color: on ? '#e9e9ed' : '#9397ab', iconColor: on ? '#8fb4ff' : '#595d6c', bg: on ? '#1e2030' : 'transparent', bar: on ? 'inset 2px 0 0 #5b8def' : 'none', go: () => this.go(n.id) }; }),
+      personas: this.PERSONAS,
+      slides: this.SLIDES.map((sl, i) => ({ ...sl, dotW: i === s.slide ? '22px' : '6px', dotBg: i === s.slide ? '#5b8def' : 'rgba(255,255,255,.3)', go: () => this.setState({ slide: i }) })),
+      opacity0: s.slide === 0 ? 1 : 0, opacity1: s.slide === 1 ? 1 : 0, opacity2: s.slide === 2 ? 1 : 0, opacity3: s.slide === 3 ? 1 : 0, opacity4: s.slide === 4 ? 1 : 0, opacity5: s.slide === 5 ? 1 : 0, opacity6: s.slide === 6 ? 1 : 0,
+      activeCaption: this.SLIDES[s.slide].caption,
+      prevSlide: this.prevSlide, nextSlide: this.nextSlide,
+      dominoSteps: [
+        { step: 'STEP 01', title: 'Core upgrade', body: 'Requires a certain version of a provider.' },
+        { step: 'STEP 02', title: 'Provider upgrade', body: 'May introduce breaking changes to resource arguments.' },
+        { step: 'STEP 03', title: 'Module update', body: 'The module author must release a new version to fix those breaking changes.' },
+        { step: 'STEP 04', title: 'Workspace update', body: 'Operators repoint to the new module version, often triggering a resource replace instead of an update.' },
+      ],
+      journey: [
+        { phase: 'Phase 1', summary: 'John discovers outdated workspaces and decides to plan the upgrade initiative.', actions: ['Reviews HCP Terraform release notes for new features', 'Searches Terraform docs for version upgrade paths', 'Gets buy-in from team leads on upgrade timeline', 'Creates a project board to track progress'], mindset: '“We’re missing out on real features. This upgrade is long overdue — let’s build the case.”', emotion: 'Motivated to drive change', emoTop: 14, emoColor: '#7fd39a' },
+        { phase: 'Phase 2', summary: 'John inventories all workspaces and assesses upgrade risk and dependencies.', actions: ['Runs API/CLI to list all workspaces and current versions', 'Tags workspaces by criticality (prod, staging, dev)', 'Identifies version-locked modules and provider constraints', 'Reviews run histories for recent failures or drift', 'Builds a prioritised upgrade queue'], mindset: '“I need the full picture before touching anything in prod. One bad upgrade can break deployments.”', emotion: 'Overwhelmed by 100s of workspaces', emoTop: 78, emoColor: '#e0736f' },
+        { phase: 'Phase 3', summary: 'John executes bulk upgrades and validates workspace health post-upgrade.', actions: ['Upgrades dev workspaces first as a dry run', 'Writes scripts to batch-update terraform_version field via API', 'Triggers plan runs; monitors for breaking changes', 'Escalates failures and fixes module incompatibilities', 'Rolls back problematic workspaces selectively'], mindset: '“The scripts are running. I just need to stay on top of failures and keep the team unblocked.”', emotion: 'Cautious — prod risk looming', emoTop: 46, emoColor: '#e0a55a' },
+        { phase: 'Phase 4', summary: 'John validates and documents the upgraded estate and sets governance policies.', actions: ['Confirms all workspaces on target version', 'Runs final apply cycles to verify no regressions', 'Documents upgrade runbook for future reference', 'Sets workspace version policy to prevent downgrades'], mindset: '“We made it. Now I need to make sure we never fall this far behind on versions again.”', emotion: 'Relieved — estate fully upgraded', emoTop: 10, emoColor: '#7fd39a' },
+      ],
+      practices: [
+        { icon: 'ph ph-tree-structure', title: 'Make the Workflow Topology Visible', points: [{ k: 'Map the “Team”:', v: 'Use a visual pipeline, DAG (node graph), or Kanban board so users see which agent is doing what.' }, { k: 'Separate Process from Artifact:', v: 'Keep messy agent back-and-forth/logs on one side (or in the background) and the final deliverable/canvas on the other.' }] },
+        { icon: 'ph ph-stack', title: 'Use Progressive Disclosure for Observability', points: [{ k: 'Default:', v: 'High-level milestone (e.g., “Step 2/4: Fact-checking draft”).' }, { k: 'One click:', v: 'Readable summary of agent decisions/debates.' }, { k: 'Deep dive:', v: 'Raw tool calls, API responses, and logs for debugging.' }] },
+        { icon: 'ph ph-first-aid-kit', title: 'Enable Surgical Error Recovery', points: [{ k: 'Pinpoint the Failure:', v: 'Visually highlight the exact agent/node that failed and explain why.' }, { k: 'Edit & Resume:', v: 'Never force a full restart. Let users fix the broken intermediate data and click “Rerun from this step.”' }] },
+        { icon: 'ph ph-hourglass-medium', title: 'Design for Long Latency & Async Runs', points: [{ k: 'Milestones over Spinners:', v: 'Show progress via completed sub-tasks, not indeterminate loading spinners.' }, { k: 'Async Handoffs:', v: 'Allow users to navigate away and receive notifications (Slack, email, in-app alerts) when tasks finish or need input.' }, { k: 'Early Previews:', v: 'Stream partial artifacts as they are completed by individual agents.' }] },
+      ],
+      research: [
+        { tag: 'UX RESEARCH · SSE', title: 'Core and provider upgrades', quotes: [
+          { k: '01 · Terraform Core upgrades & the scale problem', q: 'Upgrading a single workspace in the UI is trivial. Upgrading hundreds across isolated business units is an operational nightmare.', who: 'Fiona MacLeod, Lead Cloud Platform Engineer, SSE' },
+          { k: '02 · Provider upgrades & the "work cliff"', q: "When a provider drops a breaking change, we hit a work cliff. Suddenly we're staring down dozens of broken modules with zero engineering capacity to refactor them.", who: 'Liam Gallagher, Senior DevOps & Automation Engineer, SSE' },
+        ], implications: ['Upgrade workflows should be feature-driven or deprecation-driven, not routine maintenance prompts.', 'Multi-select workspace actions, batch upgrade campaigns, and organizational rollout progress trackers.', 'Early-warning CLI alerts and dashboard notifications that flag deprecation notices before upstream providers release breaking versions.'] },
+        { tag: 'UX RESEARCH · SSE', title: 'Modules, testing and AI guardrails', quotes: [
+          { k: '03 · Module lifecycle, deprecation & testing gaps', q: "A code diff tells me what syntax changed. It doesn't tell me if a module bump is going to secretly destroy and recreate a production resource.", who: 'John Kuldeep, Principal Solutions Architect, Cloud & Platform Services, SSE' },
+          { k: '04 · AI & automation guardrails', q: 'AI is welcome to write our tests and scan for syntax compatibility, but autonomous deployment is an absolute hard line. A human eye on production is non-negotiable.', who: 'Liam Gallagher, Senior DevOps & Automation Engineer, SSE' },
+        ], implications: ['Progressive deprecation workflows (soft warnings in CI → scheduled plan-phase blocks → hard deprecation).', 'Plan-level behavioral comparison views showing expected resource lifecycle changes (create/update/destroy) between module releases.', 'AI features must be designed as copilots/advisors (drafting tests, explaining diffs) rather than autonomous execution agents.'] },
+        { tag: 'UX RESEARCH · JPMORGAN CHASE', title: 'Module dependencies and custom workarounds', quotes: [
+          { k: '02 · Module dependency hell & "hell weeks"', q: 'Our modules are tightly intertwined but updated at totally different speeds. We literally lose an entire week every quarter just untangling broken module dependency chains.', who: 'David Sterling, Lead Cloud Enablement Engineer, JPMorgan Chase' },
+          { k: '03 · Custom workarounds, internal AI & Sentinel gaps', q: "We run over 1,600 Sentinel policy checks in a single pipeline to ensure governance, yet native tooling can't even tell us if an engine upgrade will break our syntax.", who: 'Sarah Chen, Staff Platform Engineer – Cloud Governance & Compliance, JPMorgan Chase' },
+        ], implications: ['Dependency visualization trees displaying downstream consumers and cross-module version compatibility.', 'In-product state migration suggestions (auto-generating moved and removed blocks).', 'Native multi-engine and multi-provider compatibility matrix testing within the private registry.', 'Private/bring-your-own-model (BYO-LLM) integration supporting iterative automated plan repair and syntax remediation.'] },
+        { tag: 'UX RESEARCH · JPMORGAN CHASE', title: 'Enterprise scale, trust and the 0.14 deadlock', quotes: [
+          { k: '01 · Enterprise scale, trust & the 0.14 deadlock', q: "Compatibility promises don't mean anything when you're managing 100,000 workspaces. With no incentive to move, we stayed on 0.14 until vendor deprecation forced our hand.", who: 'Marcus Vance, Executive Director – Enterprise Cloud Platform, JPMorgan Chase' },
+        ], implications: ['Deprecation timelines and EOL milestones tied directly to enterprise compliance status dashboards.', 'Automated syntax refactoring guidance identifying deprecated experimental syntax.', '"Strong Validation" batch testing: running speculative plans at scale in a non-destructive sandbox mode.'] },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>

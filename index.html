@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mayukh Chakraborty — DevEx Product Design</title>
+<meta name="description" content="UX strategist, human-AI orchestrator and global design manager. Twelve years turning Terraform upgrades, memory leaks and observability pipelines into workflows people trust.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="shell">
+
+  <aside class="sidebar">
+    <div class="sidebar-rail">
+      <div class="rail-icon"><i class="ph ph-files"></i></div>
+      <button class="rail-btn" id="openPaletteRail" title="Command palette (⌘K)"><i class="ph ph-magnifying-glass"></i></button>
+      <button class="rail-btn" id="focusTerminalRail" title="Terminal"><i class="ph ph-terminal-window"></i></button>
+      <div class="sidebar-spacer"></div>
+      <a class="rail-btn" href="mailto:mayukhchakraborty1984@gmail.com" title="Email"><i class="ph ph-envelope-simple"></i></a>
+    </div>
+    <div class="sidebar-body">
+      <div class="explorer-label">Explorer</div>
+      <div class="explorer-path"><i class="ph ph-caret-down" style="font-size:11px;color:var(--muted)"></i>MAYUKH.DEV</div>
+      <nav id="explorerNav">
+        <a class="explorer-file" href="#readme" data-section-id="readme" data-name="README.md"><i class="ph ph-book-open"></i><span>README.md</span></a>
+        <a class="explorer-file" href="#leadership" data-section-id="leadership" data-name="leadership.md"><i class="ph ph-users-three"></i><span>leadership.md</span></a>
+        <div class="explorer-file" style="cursor:default;color:var(--text-2)"><i class="ph ph-folder-open" style="color:var(--dim)"></i><span>work</span></div>
+        <a class="explorer-file" href="#work-terraform" data-section-id="work-terraform" data-name="bulk-version-update.agent" style="padding-left:30px"><i class="ph ph-robot"></i><span>bulk-version-update.agent</span></a>
+        <a class="explorer-file" href="#work-profiler" data-section-id="work-profiler" data-name="memory-profiler.ai" style="padding-left:30px"><i class="ph ph-cpu"></i><span>memory-profiler.ai</span></a>
+        <a class="explorer-file" href="#process" data-section-id="process" data-name="design-process.md"><i class="ph ph-flow-arrow"></i><span>design-process.md</span></a>
+        <a class="explorer-file" href="#log" data-section-id="log" data-name="experience.log"><i class="ph ph-git-commit"></i><span>experience.log</span></a>
+        <a class="explorer-file" href="#stack" data-section-id="stack" data-name="stack.json"><i class="ph ph-brackets-curly"></i><span>stack.json</span></a>
+        <a class="explorer-file" href="#contact" data-section-id="contact" data-name="contact.sh"><i class="ph ph-terminal"></i><span>contact.sh</span></a>
+      </nav>
+      <div class="sidebar-spacer"></div>
+      <div class="sidebar-note">
+        <div class="sidebar-note-title"><span class="dot-live"></span>Open to new roles</div>
+        Design leadership or senior IC in DevEx, infra and AI tooling.
+      </div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <div class="topbar">
+      <div class="tab"><i class="ph ph-book-open" id="activeTabIcon"></i><span id="activeTabName">README.md</span></div>
+      <div class="crumbs">mayukh.dev<i class="ph ph-caret-right" style="font-size:10px"></i><span class="current" id="activeCrumbName">README.md</span></div>
+      <div class="topbar-spacer"></div>
+      <button class="jump-btn" id="openPaletteJump"><i class="ph ph-magnifying-glass"></i><span>Jump to…</span><span class="kbd">⌘K</span></button>
+    </div>
+
+    <div class="container" style="padding-bottom:40px">
+
+      <section id="readme" style="padding:clamp(56px,10vw,120px) 0 48px">
+        <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px;font-family:var(--font-mono);font-size:12.5px;color:var(--muted-2);margin-bottom:28px">
+          <span style="color:var(--accent-icon)"># README.md</span><span style="color:var(--border-strong)">/</span><span>Manager, Product Design</span><span style="color:var(--border-strong)">/</span><span>12+ yrs</span><span style="color:var(--border-strong)">/</span><span>MDes, IIT Kanpur</span>
+        </div>
+        <h1 style="margin:0;font-weight:500;font-size:clamp(44px,8.2vw,116px);line-height:.96;letter-spacing:-.045em;max-width:13ch;text-wrap:balance">I design the tools developers <span style="color:var(--accent)">actually</span> want to open.</h1>
+        <p style="margin:32px 0 0;max-width:600px;font-size:clamp(17px,1.6vw,20px);line-height:1.55;color:var(--text-3);text-wrap:pretty">UX strategist, human-AI orchestrator and global design manager. Twelve years turning Terraform upgrades, memory leaks and observability pipelines into workflows people trust. I started as a software engineer, so I read the stack trace before the Figma file.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:32px">
+          <a href="#work-terraform" class="btn btn-primary">See the work <i class="ph ph-arrow-down"></i></a>
+          <button class="btn" id="openPaletteHero">Press <span class="kbd">⌘K</span> anywhere</button>
+        </div>
+
+        <div style="display:flex;flex-wrap:wrap;gap:16px;margin-top:64px">
+          <div class="card" style="flex:1 1 420px;min-width:0;background:radial-gradient(120% 90% at 20% 0%,#1d1f33 0%,#131521 70%);overflow:hidden;display:flex;flex-direction:column;border-color:var(--border)">
+            <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid var(--border);font-family:var(--font-mono);font-size:11.5px;color:var(--muted)">
+              <i class="ph ph-graph" style="color:var(--accent-icon)"></i><span style="color:var(--text-2)">infra.graph</span><span>· live</span><div style="flex:1"></div><span>hover the nodes</span>
+            </div>
+            <div id="graphWrap" style="position:relative;height:340px">
+              <canvas id="graphCanvas" style="position:absolute;inset:0;width:100%;height:100%;display:block"></canvas>
+            </div>
+          </div>
+          <div class="card" style="flex:1 1 420px;min-width:0;overflow:hidden;display:flex;flex-direction:column;cursor:text" id="terminalCard">
+            <div style="display:flex;align-items:center;gap:8px;padding:10px 14px;border-bottom:1px solid var(--border);font-family:var(--font-mono);font-size:11.5px;color:var(--muted)">
+              <span style="display:flex;gap:6px"><span style="width:10px;height:10px;border-radius:50%;background:var(--border-strong)"></span><span style="width:10px;height:10px;border-radius:50%;background:var(--border-strong)"></span><span style="width:10px;height:10px;border-radius:50%;background:var(--border-strong)"></span></span>
+              <span style="margin-left:6px;color:var(--text-2)">zsh</span><span>— mayukh@devex</span><div style="flex:1"></div><span>type help</span>
+            </div>
+            <div id="termScroll" style="height:340px;overflow-y:auto;padding:14px 16px;font-family:var(--font-mono);font-size:12.5px;line-height:1.65"></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="leadership" style="padding:96px 0 72px">
+        <div class="section-label">~/leadership.md</div>
+        <h2 style="margin:0;font-weight:500;font-size:clamp(36px,5.6vw,76px);line-height:1;letter-spacing:-.04em;max-width:16ch;text-wrap:balance">I manage teams. I also still ship.</h2>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-top:48px">
+          <div class="highlight-card" style="border-color:var(--border);padding:28px">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px"><i class="ph ph-users-three" style="font-size:22px;color:var(--accent-icon)"></i><span style="font-size:19px">As a manager</span><span style="margin-left:auto;font-family:var(--font-mono);font-size:11.5px;color:var(--muted)">5+ yrs</span></div>
+            <div style="display:flex;flex-direction:column;gap:14px;font-size:15px;line-height:1.55;color:var(--text-2)">
+              <div>Built and scaled a UX org of designers, researchers and content strategists, with hiring across India.</div>
+              <div>Ran a distributed team across time zones with a culture of mentorship and high craft.</div>
+              <div>Set up DesignOps: an accessible design system with unified Dark, Light and Classic themes that cut design debt.</div>
+              <div>Led research into the development environment and IDEs, studying how developers actually work to inform product strategy.</div>
+            </div>
+          </div>
+          <div class="highlight-card" style="border-color:var(--border);padding:28px">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px"><i class="ph ph-code" style="font-size:22px;color:var(--accent-icon)"></i><span style="font-size:19px">As an IC</span><span style="margin-left:auto;font-family:var(--font-mono);font-size:11.5px;color:var(--muted)">every week</span></div>
+            <div style="display:flex;flex-direction:column;gap:14px;font-size:15px;line-height:1.55;color:var(--text-2)">
+              <div>Defined the North Star interaction model for a VS Code extension that visualizes Terraform infrastructure inside the IDE.</div>
+              <div>Redesigned the HashiCorp Consul UI on Helios, meeting WCAG 2.2 AA.</div>
+              <div>Led design strategy for HashiCorp's move from Datadog to IBM Instana and defined shared monitoring and dashboard standards.</div>
+              <div>Designed OpenTelemetry configuration in OECC so telemetry exports to New Relic, Datadog and other platforms.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="highlight-card" style="border-color:var(--border);display:flex;flex-wrap:wrap;gap:24px;align-items:center;margin-top:24px;padding:24px 28px">
+          <img src="assets/leadership/ux-maturity-survey.png" alt="UX Maturity Survey: OpenEdge and DataDirect scores rising from ~2.5 in 2019 to over 4 in 2024" style="flex:1 1 320px;min-width:0;max-width:420px;height:auto;border-radius:8px">
+          <div style="flex:1 1 260px;min-width:0">
+            <div style="font-family:var(--font-mono);font-size:12px;color:var(--muted);margin-bottom:8px">UX maturity survey, 2019 → 2024</div>
+            <p style="margin:0 0 16px;font-size:15px;line-height:1.6;color:var(--text-2)">Progress ADP teams moved from "Interested" (UX acknowledged, little support) to "Committed" (UX critical, executives actively involved).</p>
+            <a href="leadership-case-study.html" class="btn btn-primary">Read the full leadership case study <i class="ph ph-arrow-right"></i></a>
+          </div>
+        </div>
+      </section>
+
+      <hr class="divider">
+
+      <section id="work-terraform" style="padding:96px 0 72px">
+        <div class="section-label">~/work/bulk-version-update.agent</div>
+        <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:32px">
+          <h2 style="margin:0;font-weight:500;font-size:clamp(36px,5.6vw,76px);line-height:1;letter-spacing:-.04em;max-width:14ch;text-wrap:balance">Making Terraform upgrades boring again.</h2>
+          <div style="display:flex;align-items:baseline;gap:14px">
+            <span style="font-size:clamp(64px,9vw,128px);font-weight:500;letter-spacing:-.05em;line-height:.9;color:var(--accent)">80%</span>
+            <span style="max-width:14ch;font-size:14px;line-height:1.4;color:var(--text-3)">of HCP Terraform workspaces migrated to the latest version</span>
+          </div>
+        </div>
+        <div class="meta-grid" style="margin-top:40px">
+          <div class="meta-cell"><div class="meta-cell-label">Company</div><div class="meta-cell-value">IBM HashiCorp</div></div>
+          <div class="meta-cell"><div class="meta-cell-label">Role</div><div class="meta-cell-value">Senior Product Designer, end to end</div></div>
+          <div class="meta-cell"><div class="meta-cell-label">Users</div><div class="meta-cell-value">DevOps &amp; platform engineers</div></div>
+          <div class="meta-cell"><div class="meta-cell-label">Built with</div><div class="meta-cell-value">Claude Code, Helios MCP</div></div>
+        </div>
+
+        <div class="story-grid" style="margin-top:64px">
+          <div>
+            <div class="story-label">01 — the problem</div>
+            <p class="story-text" style="margin:0">Upgrading Terraform means touching core, modules and providers at once, in production, with state on the line. Engineers postponed it for as long as they could, and old versions piled up across workspaces.</p>
+          </div>
+          <div>
+            <div class="story-label">02 — research</div>
+            <p class="story-text" style="margin:0">Foundational research with technical stakeholders at Tier-1 financial institutions, including JPMC and DBS Bank. Their Infrastructure-as-Code friction became a low-risk upgrade roadmap for large enterprise estates.</p>
+          </div>
+          <div>
+            <div class="story-label">03 — the bet</div>
+            <p class="story-text" style="margin:0">An agentic flow that does the tedious work and hands back control at every risky moment. The agent proposes, explains and waits. The engineer approves.</p>
+          </div>
+        </div>
+
+        <div class="two-col-visual" style="margin-top:56px">
+          <div class="device-col" style="border-radius:14px;border:1px solid var(--border-strong);background:var(--bg-card);box-shadow:var(--shadow-card);overflow:hidden">
+            <div style="display:flex;align-items:center;gap:10px;padding:14px 18px;border-bottom:1px solid var(--border)">
+              <i class="ph ph-robot" style="color:var(--accent-icon);font-size:18px"></i>
+              <div style="flex:1;min-width:0"><div style="font-size:14px">Upgrade assistant</div><div style="font-family:var(--font-mono);font-size:11.5px;color:var(--muted)">workspace: payments-prod</div></div>
+              <span style="font-size:11.5px;padding:3px 8px;border-radius:99px;background:var(--badge-bg);color:var(--badge-text)">Awaiting approval</span>
+            </div>
+            <div style="padding:8px 18px 18px">
+              <div style="display:flex;gap:12px;padding:10px 0;border-bottom:1px solid #232532"><i class="ph-fill ph-check-circle" style="font-size:17px;margin-top:1px;color:#5f92f2"></i><div style="flex:1;min-width:0"><div style="font-size:14px;color:var(--text)">Detect versions</div><div style="font-family:var(--font-mono);font-size:11.5px;color:var(--muted-2);margin-top:2px">core, providers and modules scanned</div></div></div>
+              <div style="display:flex;gap:12px;padding:10px 0;border-bottom:1px solid #232532"><i class="ph-fill ph-check-circle" style="font-size:17px;margin-top:1px;color:#5f92f2"></i><div style="flex:1;min-width:0"><div style="font-size:14px;color:var(--text)">Check provider constraints</div><div style="font-family:var(--font-mono);font-size:11.5px;color:var(--muted-2);margin-top:2px">compatible targets resolved</div></div></div>
+              <div style="display:flex;gap:12px;padding:10px 0;border-bottom:1px solid #232532"><i class="ph-fill ph-check-circle" style="font-size:17px;margin-top:1px;color:#5f92f2"></i><div style="flex:1;min-width:0"><div style="font-size:14px;color:var(--text)">Scan blast radius</div><div style="font-family:var(--font-mono);font-size:11.5px;color:var(--muted-2);margin-top:2px">33 workspaces, 7 sub-modules affected</div></div></div>
+              <div style="display:flex;gap:12px;padding:10px 0;border-bottom:1px solid #232532"><i class="ph-fill ph-check-circle" style="font-size:17px;margin-top:1px;color:#5f92f2"></i><div style="flex:1;min-width:0"><div style="font-size:14px;color:var(--text)">Rewrite deprecated syntax</div><div style="font-family:var(--font-mono);font-size:11.5px;color:var(--muted-2);margin-top:2px">changes staged as a diff, nothing applied</div></div></div>
+              <div style="display:flex;gap:12px;padding:10px 0;border-bottom:1px solid #232532"><i class="ph-fill ph-check-circle" style="font-size:17px;margin-top:1px;color:#5f92f2"></i><div style="flex:1;min-width:0"><div style="font-size:14px;color:var(--text)">Run policy and security checks</div><div style="font-family:var(--font-mono);font-size:11.5px;color:var(--muted-2);margin-top:2px">Sentinel and tfsec pass before apply</div></div></div>
+              <div style="display:flex;gap:12px;padding:10px 0;border-bottom:1px solid #232532"><i class="ph-fill ph-check-circle" style="font-size:17px;margin-top:1px;color:#5f92f2"></i><div style="flex:1;min-width:0"><div style="font-size:14px;color:var(--text)">Generate plan and risk summary</div><div style="font-family:var(--font-mono);font-size:11.5px;color:var(--muted-2);margin-top:2px">destructive changes flagged first</div></div></div>
+              <div style="display:flex;gap:12px;padding:10px 0;border-bottom:1px solid #232532"><i class="ph ph-hand" style="font-size:17px;margin-top:1px;color:var(--badge-text)"></i><div style="flex:1;min-width:0"><div style="font-size:14px;color:var(--text)">Your approval</div><div style="font-family:var(--font-mono);font-size:11.5px;color:var(--muted-2);margin-top:2px">the agent never applies on its own</div></div></div>
+              <div style="display:flex;gap:12px;padding:10px 0"><i class="ph ph-arrow-clockwise" style="font-size:17px;margin-top:1px;color:var(--muted)"></i><div style="flex:1;min-width:0"><div style="font-size:14px;color:var(--text)">Rollback ready</div><div style="font-family:var(--font-mono);font-size:11.5px;color:var(--muted-2);margin-top:2px">state snapshot kept if apply fails</div></div></div>
+              <div style="display:flex;gap:8px;margin-top:16px">
+                <span style="display:inline-flex;align-items:center;height:34px;padding:0 14px;border-radius:8px;border:1px solid var(--accent);font-size:13px">Review plan</span>
+                <span style="display:inline-flex;align-items:center;height:34px;padding:0 14px;border-radius:8px;border:1px solid var(--border-strong);font-size:13px;color:var(--text-3)">Roll back</span>
+              </div>
+            </div>
+          </div>
+          <div class="shots-col">
+            <img class="shot" src="assets/tf-case/blast-radius.png" alt="Bulk version management: checking blast radius, 79% complete, 33 workspaces and 7 sub-modules affected" style="border-color:var(--border-strong)">
+            <img class="shot" src="assets/tf-case/version-update.png" alt="Bulk version management: version update completed, 32 of 40 workspaces updated via agentic workforce" style="border-color:var(--border-strong)">
+            <p style="margin:0;font-size:12.5px;line-height:1.5;color:var(--muted)">The shipped flow: blast-radius check, then the agentic workforce running the update with a live log.</p>
+          </div>
+        </div>
+
+        <div class="story-grid" style="margin-top:56px">
+          <div>
+            <div class="story-label">04 — prototype in code</div>
+            <p class="story-text" style="margin:0">Prototyped with Claude Code and the Helios Design System MCP server, so reviews happened on working software built from real components rather than on static frames.</p>
+          </div>
+          <div>
+            <div class="story-label">05 — impact</div>
+            <p class="story-text" style="margin:0">80% of HCP Terraform workspaces moved to the latest version. That grew Resources Under Management, which is how the business earns revenue from Terraform.</p>
+          </div>
+        </div>
+
+        <a href="terraform-case-study.html" class="btn btn-primary btn-lg" style="margin-top:48px">Read the full case study <i class="ph ph-arrow-right"></i></a>
+      </section>
+
+      <hr class="divider">
+
+      <section id="work-profiler" style="padding:96px 0 72px">
+        <div class="section-label">~/work/memory-profiler.ai</div>
+        <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:32px">
+          <h2 style="margin:0;font-weight:500;font-size:clamp(36px,5.6vw,76px);line-height:1;letter-spacing:-.04em;max-width:13ch;text-wrap:balance">Finding the leak before the ticket.</h2>
+          <div style="display:flex;align-items:baseline;gap:14px">
+            <span style="font-size:clamp(64px,9vw,128px);font-weight:500;letter-spacing:-.05em;line-height:.9;color:var(--accent)">−50%</span>
+            <span style="max-width:14ch;font-size:14px;line-height:1.4;color:var(--text-3)">inbound support calls and forum inquiries</span>
+          </div>
+        </div>
+        <div class="meta-grid" style="margin-top:40px">
+          <div class="meta-cell"><div class="meta-cell-label">Company</div><div class="meta-cell-value">Progress Software</div></div>
+          <div class="meta-cell"><div class="meta-cell-label">Role</div><div class="meta-cell-value">Manager, User Experience</div></div>
+          <div class="meta-cell"><div class="meta-cell-label">Users</div><div class="meta-cell-value">OpenEdge developers</div></div>
+          <div class="meta-cell"><div class="meta-cell-label">Outcome</div><div class="meta-cell-value">Lower MTTR, more self-service</div></div>
+        </div>
+
+        <div class="two-col-visual" style="margin-top:56px">
+          <div class="device-col" style="border-radius:14px;border:1px solid var(--border-strong);background:var(--bg-card);box-shadow:var(--shadow-card);overflow:hidden">
+            <div style="display:flex;align-items:center;gap:10px;padding:14px 18px;border-bottom:1px solid var(--border)">
+              <i class="ph ph-cpu" style="color:var(--accent-icon);font-size:18px"></i>
+              <div style="flex:1;font-size:14px">Memory over time</div>
+              <span style="font-family:var(--font-mono);font-size:11.5px;color:var(--muted)">session · 42 min</span>
+            </div>
+            <div style="padding:18px">
+              <div style="font-size:12.5px;line-height:1.55;color:var(--muted);margin-bottom:12px">Heap size sampled every 90 seconds across a 42-minute session. The AI profiler flags the moment growth turns from normal churn into a leak, then explains why.</div>
+              <div id="heapBars" style="display:flex;align-items:flex-end;gap:4px;height:120px"></div>
+              <div style="margin-top:16px;padding:14px;border-radius:10px;border:1px solid #26406f;background:#16223a">
+                <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--badge-text)"><i class="ph ph-sparkle"></i>Likely cause</div>
+                <p style="margin:8px 0 0;font-size:14px;line-height:1.55;color:var(--text-alt)">Dynamic objects created in a loop are never deleted, so the heap grows with each call.</p>
+                <div style="margin-top:10px;font-family:var(--font-mono);font-size:11.5px;color:var(--muted-2)">suggested fix → release objects in the FINALLY block</div>
+              </div>
+              <div style="margin-top:12px;padding:14px;border-radius:10px;border:1px solid var(--border);background:var(--bg)">
+                <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--accent-icon)"><i class="ph ph-sparkle"></i>Likely cause</div>
+                <p style="margin:8px 0 0;font-size:14px;line-height:1.55;color:var(--text-alt)">A cached result set is never invalidated between sessions, so stale objects accumulate on every reconnect.</p>
+                <div style="margin-top:10px;font-family:var(--font-mono);font-size:11.5px;color:var(--muted-2)">suggested fix → scope the cache to the session lifecycle</div>
+              </div>
+            </div>
+          </div>
+          <div class="shots-col">
+            <img class="shot" src="assets/profiler-case/profile-details.webp" alt="OpenEdge Memory Profiler: live object and memory graphs alongside profile details" style="border-color:var(--border-strong)">
+            <img class="shot" src="assets/profiler-case/ai-insights.webp" alt="OpenEdge Memory Profiler: AI Insights comparing two snapshots with a summary and recommended follow-up questions" style="border-color:var(--border-strong)">
+            <p style="margin:0;font-size:12.5px;line-height:1.5;color:var(--muted)">The shipped profiler: live memory graphs and profile details, then AI-generated comparisons between snapshots.</p>
+          </div>
+        </div>
+
+        <a href="memory-profiler-case-study.html" class="btn btn-primary btn-lg" style="margin-top:48px">Read the full case study <i class="ph ph-arrow-right"></i></a>
+
+        <div class="story-grid" style="margin-top:56px">
+          <div>
+            <div class="story-label">01 — the problem</div>
+            <p class="story-text" style="margin:0">Memory leaks in OpenEdge applications were hard to trace. Developers took them to support calls and forums, and every one of those took time on both sides.</p>
+          </div>
+          <div>
+            <div class="story-label">02 — the move</div>
+            <p class="story-text" style="margin:0">An AI-enabled profiler that explains what it sees in plain language and points to where to look, so developers can solve the problem themselves.</p>
+          </div>
+          <div>
+            <div class="story-label">03 — impact</div>
+            <p class="story-text" style="margin:0">Inbound support calls and forum inquiries dropped by 50%. Self-service troubleshooting improved and Mean Time to Resolution went down.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <section style="background:radial-gradient(80% 140% at 10% 0%,#1d3d7e 0%,#132a5c 60%);padding:72px clamp(20px,5vw,72px)">
+      <div style="max-width:1036px">
+        <div style="font-family:var(--font-mono);font-size:12.5px;color:var(--badge-text);margin-bottom:28px">$ cat metrics.log | sort -r</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:36px 32px">
+          <div><div style="font-size:clamp(44px,5vw,64px);font-weight:500;letter-spacing:-.04em;line-height:1">80%</div><div style="margin-top:8px;font-size:14px;line-height:1.45;color:var(--text-alt)">increase in adoption of the latest OpenEdge versions (OECC)</div></div>
+          <div><div style="font-size:clamp(44px,5vw,64px);font-weight:500;letter-spacing:-.04em;line-height:1">+25%</div><div style="margin-top:8px;font-size:14px;line-height:1.45;color:var(--text-alt)">CSAT after the OECC redesign</div></div>
+          <div><div style="font-size:clamp(44px,5vw,64px);font-weight:500;letter-spacing:-.04em;line-height:1">30%</div><div style="margin-top:8px;font-size:14px;line-height:1.45;color:var(--text-alt)">faster product delivery from a WCAG 2.2 AA design system</div></div>
+          <div><div style="font-size:clamp(44px,5vw,64px);font-weight:500;letter-spacing:-.04em;line-height:1">50+</div><div style="margin-top:8px;font-size:14px;line-height:1.45;color:var(--text-alt)">customer interviews with global financial institutions</div></div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+
+      <section id="process" style="padding:96px 0 72px">
+        <div class="section-label">~/design-process.md</div>
+        <h2 style="margin:0;font-weight:500;font-size:clamp(34px,5vw,64px);line-height:1.06;letter-spacing:-.035em;max-width:16ch;text-wrap:balance">Designing for doing</h2>
+        <p style="margin:14px 0 0;font-size:15px;color:var(--muted);font-style:italic">The intersection of Activity-Centered Design and Lean execution</p>
+        <p style="margin:28px 0 0;max-width:680px;font-size:17px;line-height:1.65;color:var(--text-2);text-wrap:pretty">Design is not merely about making things look good; it is about making things work. My philosophy is grounded in the rigors of Design Thinking, but it is built for the speed of modern software development — marrying the strategic depth of the Double Diamond with the iterative speed of Lean Agile.</p>
+
+        <div style="margin-top:64px">
+          <div class="story-label" style="margin-bottom:16px">01 — the strategy: double diamond</div>
+          <p style="margin:0 0 24px;max-width:680px;font-size:15.5px;line-height:1.6;color:var(--text-3)">To ensure I am never solving the wrong problem, I visualize the macro-strategy using the Double Diamond. This framework prevents the "solutioneering" trap — jumping to a fix before understanding the friction.</p>
+          <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:stretch">
+            <figure style="margin:0;flex:1 1 320px;min-width:0;border-radius:12px;border:1px solid var(--border);background:var(--bg-inset);padding:28px;display:flex;align-items:center">
+              <img src="assets/process/double-diamond.png" alt="Double Diamond: Finding the Right Problem through divergence and convergence, then Finding the Right Solution through divergence and convergence" style="display:block;width:100%;height:auto;mix-blend-mode:screen">
+            </figure>
+            <div style="flex:1 1 380px;min-width:0;display:grid;grid-template-columns:repeat(2,1fr);gap:16px">
+              <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:18px">
+                <div style="font-family:var(--font-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)">Problem · diverge</div>
+                <div style="margin-top:8px;font-size:17px">Discover</div>
+                <div style="margin-top:6px;font-size:13px;line-height:1.5;color:var(--muted-2)">Cast a wide net to explore the landscape of friction.</div>
+              </div>
+              <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:18px">
+                <div style="font-family:var(--font-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)">Problem · converge</div>
+                <div style="margin-top:8px;font-size:17px">Define</div>
+                <div style="margin-top:6px;font-size:13px;line-height:1.5;color:var(--muted-2)">Synthesize data to define the core friction.</div>
+              </div>
+              <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:18px">
+                <div style="font-family:var(--font-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)">Solution · diverge</div>
+                <div style="margin-top:8px;font-size:17px">Develop</div>
+                <div style="margin-top:6px;font-size:13px;line-height:1.5;color:var(--muted-2)">Ideate and prototype in code, not just frames.</div>
+              </div>
+              <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:10px;padding:18px">
+                <div style="font-family:var(--font-mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)">Solution · converge</div>
+                <div style="margin-top:8px;font-size:17px">Deliver</div>
+                <div style="margin-top:6px;font-size:13px;line-height:1.5;color:var(--muted-2)">Refine and polish the final, shipped output.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:72px">
+          <div class="story-label" style="margin-bottom:16px">02 — the execution: lean cycle</div>
+          <p style="margin:0 0 24px;max-width:680px;font-size:15.5px;line-height:1.6;color:var(--text-3)">While the Double Diamond provides the map, Agile is the engine. I do not believe in "Big Bang" launches — I believe in shaping a product by iterating on both features and problems, day by day.</p>
+          <figure style="margin:0;border-radius:12px;border:1px solid var(--border);background:var(--bg-inset);padding:28px">
+            <img src="assets/process/lean-execution.png" alt="Lean Execution loop: Think and solve, Build and design, Launch and test, Measure and learn, then repeat" style="display:block;width:100%;max-width:920px;margin:0 auto;height:auto;mix-blend-mode:screen">
+          </figure>
+          <div style="display:flex;flex-wrap:wrap;gap:0;border-radius:10px;border:1px solid var(--border);overflow:hidden;margin-top:16px">
+            <div style="flex:1 1 220px;min-width:0;padding:20px;background:var(--bg-card)">
+              <div style="display:flex;align-items:center;gap:8px"><i class="ph ph-brain" style="color:var(--accent-icon);font-size:18px"></i><span style="font-size:16px">Think (and solve)</span></div>
+              <div style="margin-top:8px;font-size:13.5px;line-height:1.55;color:var(--muted-2)">Before the sprint begins, analyze the user story — is this the right small problem to solve now?</div>
+            </div>
+            <div style="flex:1 1 220px;min-width:0;padding:20px;background:var(--bg-card);border-left:1px solid var(--border)">
+              <div style="display:flex;align-items:center;gap:8px"><i class="ph ph-hammer" style="color:var(--accent-icon);font-size:18px"></i><span style="font-size:16px">Build (and design)</span></div>
+              <div style="margin-top:8px;font-size:13.5px;line-height:1.55;color:var(--muted-2)">Design happens in the code and components, working with engineers so the solution survives Figma to production.</div>
+            </div>
+            <div style="flex:1 1 220px;min-width:0;padding:20px;background:var(--bg-card);border-left:1px solid var(--border)">
+              <div style="display:flex;align-items:center;gap:8px"><i class="ph ph-rocket-launch" style="color:var(--accent-icon);font-size:18px"></i><span style="font-size:16px">Launch (and test)</span></div>
+              <div style="margin-top:8px;font-size:13.5px;line-height:1.55;color:var(--muted-2)">Ship fast. Getting the tool into users’ hands is the only way to validate hypotheses.</div>
+            </div>
+            <div style="flex:1 1 220px;min-width:0;padding:20px;background:var(--bg-card);border-left:1px solid var(--border)">
+              <div style="display:flex;align-items:center;gap:8px"><i class="ph ph-chart-line-up" style="color:var(--accent-icon);font-size:18px"></i><span style="font-size:16px">Measure (and learn)</span></div>
+              <div style="margin-top:8px;font-size:13.5px;line-height:1.55;color:var(--muted-2)">Look at the data. Did the solution reduce friction? If not, iterate.</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:72px">
+          <div class="story-label" style="margin-bottom:16px">03 — the philosophy: graduating to ACD</div>
+          <p style="margin:0 0 20px;max-width:680px;font-size:15.5px;line-height:1.6;color:var(--text-3)">Methodologies like Agile and Design Thinking are the how; Activity-Centered Design (ACD) is the what. Early in my career I adhered strictly to Human-Centered Design. As I specialized in Developer Experience, I realized HCD has limits in complex technical domains — in technical tools, the Activity defines the User.</p>
+          <blockquote style="margin:0 0 32px;padding-left:20px;border-left:2px solid #423a6a;max-width:640px">
+            <p style="margin:0;font-size:16.5px;line-height:1.6;color:var(--text-alt);font-style:italic">"Activity-centered design focuses on the activities to be performed... The activity definition provides a coherence that is often missing when the focus is strictly on the needs of the individual users."</p>
+            <footer style="margin-top:10px;font-size:13px;color:var(--muted);font-style:normal">— Don Norman, <em>The Design of Everyday Things</em></footer>
+          </blockquote>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px">
+            <div style="border-radius:12px;border:1px solid var(--border);background:var(--bg-card);padding:24px">
+              <div style="font-size:16px;color:var(--text)">Focus on mastery</div>
+              <p style="margin:10px 0 0;font-size:14.5px;line-height:1.6;color:var(--muted-2)">HCD asks, "Is this easy?" ACD asks, "Does this empower the user to complete the task?" Developers will tolerate a learning curve if the tool provides the precision the activity requires.</p>
+            </div>
+            <div style="border-radius:12px;border:1px solid var(--border);background:var(--bg-card);padding:24px">
+              <div style="font-size:16px;color:var(--text)">Ecosystem awareness</div>
+              <p style="margin:10px 0 0;font-size:14.5px;line-height:1.6;color:var(--muted-2)">HCD often looks at linear journeys. ACD looks at the ecosystem — a developer isn't just "using a CLI," they're debugging a microservice while checking logs and committing to Git. ACD designs for that chaotic, non-linear reality.</p>
+            </div>
+          </div>
+        </div>
+
+        <p style="margin:72px 0 0;max-width:760px;font-weight:500;font-size:clamp(20px,2.2vw,26px);line-height:1.4;letter-spacing:-.015em;color:var(--text-2);text-wrap:pretty">My design process is a hybrid of strategic depth and tactical speed. The Double Diamond ensures I solve the right problem. Activity-Centered Design ensures the solution fits the complex reality of the workflow. Lean Agile cycles ensure we deliver value and validate assumptions every single day.</p>
+      </section>
+
+      <section id="log" style="padding:48px 0 72px">
+        <div class="section-label">$ git log --career --oneline</div>
+        <h2 style="margin:0 0 40px;font-weight:500;font-size:clamp(32px,4.4vw,56px);line-height:1;letter-spacing:-.035em">Commit history</h2>
+        <div style="border-left:1px solid var(--border-strong);margin-left:6px">
+
+          <div style="position:relative;padding:0 0 32px 28px">
+            <span style="position:absolute;left:-6px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--bg);border:2px solid var(--accent)"></span>
+            <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;font-family:var(--font-mono);font-size:12px">
+              <span style="color:var(--accent-icon)">a1f9e3c</span><span style="color:var(--muted)">Jan–Jul 2026</span><span style="padding:1px 7px;border-radius:99px;border:1px solid #34569a;color:var(--badge-text);font-size:11px">HEAD</span>
+            </div>
+            <div style="margin-top:6px;font-size:19px;letter-spacing:-.01em">Senior Product Designer <span style="color:var(--muted)">@ IBM HashiCorp</span></div>
+            <div style="margin-top:6px;max-width:680px;font-size:14.5px;line-height:1.55;color:var(--text-3);text-wrap:pretty">Agentic Terraform upgrades (80% of workspaces migrated). North Star for a Terraform visualization VS Code extension. Consul UI on Helios with WCAG 2.2 AA. Datadog to Instana observability strategy.</div>
+          </div>
+
+          <div style="position:relative;padding:0 0 32px 28px">
+            <span style="position:absolute;left:-6px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--bg);border:2px solid #4270c9"></span>
+            <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;font-family:var(--font-mono);font-size:12px">
+              <span style="color:var(--accent-icon)">7c2d0b8</span><span style="color:var(--muted)">May 2018–Jun 2025</span>
+            </div>
+            <div style="margin-top:6px;font-size:19px;letter-spacing:-.01em">Manager, User Experience <span style="color:var(--muted)">@ Progress Software</span></div>
+            <div style="margin-top:6px;max-width:680px;font-size:14.5px;line-height:1.55;color:var(--text-3);text-wrap:pretty">Scaled the UX org across India. OECC strategy: 80% more adoption of the latest OpenEdge, +25% CSAT. AI Memory Profiler: 50% fewer support calls. OTel workflows. Design system that sped delivery by 30%.</div>
+          </div>
+
+          <div style="position:relative;padding:0 0 32px 28px">
+            <span style="position:absolute;left:-6px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--bg);border:2px solid #34569a"></span>
+            <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;font-family:var(--font-mono);font-size:12px">
+              <span style="color:var(--accent-icon)">4e81a6f</span><span style="color:var(--muted)">May 2016–Apr 2018</span>
+            </div>
+            <div style="margin-top:6px;font-size:19px;letter-spacing:-.01em">Head of Product Design <span style="color:var(--muted)">@ Healers at Home</span></div>
+            <div style="margin-top:6px;max-width:680px;font-size:14.5px;line-height:1.55;color:var(--text-3);text-wrap:pretty">Led design and front-end teams, architected the Healer Management System UX, and ran A/B-tested landing pages that lifted lead conversion by 75%.</div>
+          </div>
+
+          <div style="position:relative;padding:0 0 32px 28px">
+            <span style="position:absolute;left:-6px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--bg);border:2px solid #34569a"></span>
+            <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;font-family:var(--font-mono);font-size:12px">
+              <span style="color:var(--accent-icon)">19bb3d2</span><span style="color:var(--muted)">Jan 2013–Apr 2016</span>
+            </div>
+            <div style="margin-top:6px;font-size:19px;letter-spacing:-.01em">Co-founder, Head of Product Design <span style="color:var(--muted)">@ CitiTalk</span></div>
+            <div style="margin-top:6px;max-width:680px;font-size:14.5px;line-height:1.55;color:var(--text-3);text-wrap:pretty">A local social network, from idea to launch. 50,000+ installs, 5,000+ DAU, CAC around ₹15.</div>
+          </div>
+
+          <div style="position:relative;padding:0 0 32px 28px">
+            <span style="position:absolute;left:-6px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--bg);border:2px solid #26406f"></span>
+            <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;font-family:var(--font-mono);font-size:12px">
+              <span style="color:var(--accent-icon)">c03f7e1</span><span style="color:var(--muted)">Aug 2011–Jul 2013</span>
+            </div>
+            <div style="margin-top:6px;font-size:19px;letter-spacing:-.01em">Master in Design <span style="color:var(--muted)">@ IIT Kanpur</span></div>
+            <div style="margin-top:6px;max-width:680px;font-size:14.5px;line-height:1.55;color:var(--text-3);text-wrap:pretty">Where the engineer learned to ask why before how. Also: a patent for medical device design.</div>
+          </div>
+
+          <div style="position:relative;padding:0 0 32px 28px">
+            <span style="position:absolute;left:-6px;top:6px;width:11px;height:11px;border-radius:50%;background:var(--bg);border:2px solid #26406f"></span>
+            <div style="display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;font-family:var(--font-mono);font-size:12px">
+              <span style="color:var(--accent-icon)">0000001</span><span style="color:var(--muted)">Aug 2007–Apr 2011</span>
+            </div>
+            <div style="margin-top:6px;font-size:19px;letter-spacing:-.01em">Senior Software Engineer <span style="color:var(--muted)">@ Wipro</span></div>
+            <div style="margin-top:6px;max-width:680px;font-size:14.5px;line-height:1.55;color:var(--text-3);text-wrap:pretty">Led an 11-person automation team onsite in Ohio. Built a tool that cut manual test scripting by 90% and won the Hercules Award.</div>
+          </div>
+
+        </div>
+      </section>
+
+      <section id="stack" style="padding:48px 0 72px">
+        <div class="section-label">~/stack.json</div>
+        <div style="display:flex;flex-wrap:wrap;gap:40px 56px">
+          <div style="flex:1 1 280px">
+            <h2 style="margin:0;font-weight:500;font-size:clamp(32px,4.4vw,56px);line-height:1;letter-spacing:-.035em;max-width:10ch">Fluent in both dialects.</h2>
+            <p style="margin:20px 0 0;max-width:380px;font-size:16px;line-height:1.6;color:var(--text-3);text-wrap:pretty">B.Tech in IT, four years as an engineer at Wipro, then an MDes at IIT Kanpur. I talk to engineers in their terms, and I prototype in real code when a static frame can't answer the question.</p>
+          </div>
+          <pre style="flex:1.4 1 420px;min-width:0;margin:0;padding:24px;border-radius:14px;border:1px solid var(--border);background:var(--bg-inset);font-family:var(--font-mono);font-size:12.5px;line-height:1.75;color:var(--muted-2);white-space:pre-wrap;overflow:auto">{
+  <span style="color:var(--accent-icon)">"design"</span>: [<span style="color:var(--text-alt)">"Figma"</span>, <span style="color:var(--text-alt)">"Adobe XD"</span>, <span style="color:var(--text-alt)">"Miro"</span>],
+  <span style="color:var(--accent-icon)">"ai"</span>: [<span style="color:var(--text-alt)">"Claude Code"</span>, <span style="color:var(--text-alt)">"Gemini Code Assist"</span>, <span style="color:var(--text-alt)">"IBM Bob"</span>, <span style="color:var(--text-alt)">"Google Stitch"</span>],
+  <span style="color:var(--accent-icon)">"code"</span>: [<span style="color:var(--text-alt)">"HTML"</span>, <span style="color:var(--text-alt)">"CSS"</span>, <span style="color:var(--text-alt)">"JavaScript"</span>, <span style="color:var(--text-alt)">"React"</span>, <span style="color:var(--text-alt)">"React Native"</span>, <span style="color:var(--text-alt)">"Node.js"</span>, <span style="color:var(--text-alt)">"Java"</span>],
+  <span style="color:var(--accent-icon)">"ides"</span>: [<span style="color:var(--text-alt)">"VS Code"</span>, <span style="color:var(--text-alt)">"Cursor"</span>, <span style="color:var(--text-alt)">"Antigravity"</span>, <span style="color:var(--text-alt)">"n8n"</span>, <span style="color:var(--text-alt)">"Android Studio"</span>],
+  <span style="color:var(--accent-icon)">"infra"</span>: [<span style="color:var(--text-alt)">"Terraform"</span>, <span style="color:var(--text-alt)">"Vault"</span>, <span style="color:var(--text-alt)">"Docker"</span>, <span style="color:var(--text-alt)">"Kubernetes"</span>, <span style="color:var(--text-alt)">"AWS"</span>, <span style="color:var(--text-alt)">"GCP"</span>, <span style="color:var(--text-alt)">"Azure"</span>, <span style="color:var(--text-alt)">"Chef"</span>],
+  <span style="color:var(--accent-icon)">"observability"</span>: [<span style="color:var(--text-alt)">"OpenTelemetry"</span>, <span style="color:var(--text-alt)">"Instana"</span>, <span style="color:var(--text-alt)">"Datadog"</span>, <span style="color:var(--text-alt)">"New Relic"</span>, <span style="color:var(--text-alt)">"Grafana"</span>],
+  <span style="color:var(--accent-icon)">"analytics"</span>: [<span style="color:var(--text-alt)">"Pendo"</span>, <span style="color:var(--text-alt)">"Google Analytics"</span>],
+  <span style="color:var(--accent-icon)">"a11y"</span>: <span style="color:var(--text-alt)">"WCAG 2.2 AA"</span>,
+  <span style="color:var(--accent-icon)">"awards"</span>: [<span style="color:var(--text-alt)">"Patent: medical device design"</span>, <span style="color:var(--text-alt)">"Samsung App Contest winner, 2012"</span>, <span style="color:var(--text-alt)">"Hercules Award, Wipro"</span>]
+}</pre>
+        </div>
+      </section>
+
+      <section id="contact" style="padding:72px 0 120px">
+        <div class="section-label">$ ./contact.sh</div>
+        <h2 style="margin:0;font-weight:500;font-size:clamp(44px,8vw,112px);line-height:.96;letter-spacing:-.045em;max-width:12ch;text-wrap:balance">terraform apply <span style="color:var(--accent)">-auto-approve</span></h2>
+        <p style="margin:24px 0 0;max-width:520px;font-size:18px;line-height:1.55;color:var(--text-3)">Hiring for DevEx, infrastructure or AI tooling? I'd like to hear what you're building.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:36px">
+          <a href="mailto:mayukhchakraborty1984@gmail.com" class="btn btn-primary btn-xl" style="box-shadow:0 0 28px rgba(91,141,239,.2)"><i class="ph ph-envelope-simple"></i>mayukhchakraborty1984@gmail.com</a>
+          <button class="btn btn-xl" id="copyEmailBtn"><i class="ph ph-copy"></i><span class="copy-label">Copy</span></button>
+          <a href="#" class="btn btn-xl"><i class="ph ph-linkedin-logo"></i>LinkedIn</a>
+          <a href="#" class="btn btn-xl"><i class="ph ph-github-logo"></i>GitHub</a>
+          <a href="#" class="btn btn-xl"><i class="ph ph-file-pdf"></i>Résumé</a>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<div class="status-bar">
+  <span style="display:flex;align-items:center;gap:6px"><i class="ph ph-git-branch"></i>main</span>
+  <span style="display:flex;align-items:center;gap:6px"><i class="ph ph-check-circle"></i>0 problems</span>
+  <span>12+ yrs · DevEx</span>
+  <div class="status-spacer"></div>
+  <span>Ln <span id="statusLine">1</span>, Col 1</span>
+  <span>UTF-8</span>
+  <button id="openPaletteStatus">⌘K commands</button>
+</div>
+
+<div class="palette-overlay" id="paletteOverlay">
+  <div class="palette" id="paletteBox">
+    <div class="palette-input-row">
+      <i class="ph ph-magnifying-glass"></i>
+      <input id="paletteInput" placeholder="Type a command or jump to a file…" aria-label="Command palette" class="palette-input">
+      <span class="kbd">esc</span>
+    </div>
+    <div class="palette-results" id="paletteResults"></div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+<script src="home.js"></script>
+</body>
+</html>

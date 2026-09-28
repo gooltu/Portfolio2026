@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>AI-enabled OpenEdge Memory Profiler — Mayukh Chakraborty</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+<script src="https://unpkg.com/@phosphor-icons/web@2.1.1"></script>
+<style>
+html,body{margin:0;background:#161826;color:#e9e9ed;font-family:Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+*,*::before,*::after{box-sizing:border-box}
+a{color:#8fb4ff;text-underline-offset:3px}
+a:hover{color:#c3d6ff}
+::selection{background:rgba(91,141,239,.32)}
+:focus-visible{outline:2px solid #5b8def;outline-offset:2px}
+</style>
+</helmet>
+
+<div style="min-height:100vh;background:#161826">
+  <div style="position:sticky;top:0;z-index:20;display:flex;align-items:center;height:44px;padding:0 clamp(20px,5vw,72px);gap:14px;background:rgba(19,21,33,.88);backdrop-filter:blur(10px);border-bottom:1px solid #292b31;font-family:'JetBrains Mono',monospace;font-size:12px">
+    <a href="Portfolio.dc.html" style="display:inline-flex;align-items:center;gap:8px;color:#9397ab;text-decoration:none" style-hover="color:#e9e9ed"><i class="ph ph-arrow-left"></i>mayukh.dev</a>
+    <span style="color:#3f424d">/</span><span style="color:#9397ab">work</span><span style="color:#3f424d">/</span><span style="color:#e9e9ed">memory-profiler.ai</span>
+    <div style="flex:1"></div>
+    <a href="mailto:mayukhchakraborty1984@gmail.com" style="display:inline-flex;align-items:center;gap:8px;height:28px;padding:0 12px;border-radius:6px;border:1px solid #3f424d;color:#cfd3e5;text-decoration:none" style-hover="border-color:#5b8def;color:#e9e9ed"><i class="ph ph-envelope-simple"></i>Get in touch</a>
+  </div>
+
+  <div style="display:flex">
+  <sc-if value="{{ wide }}" hint-placeholder-val="{{ true }}">
+    <aside style="position:sticky;top:44px;align-self:flex-start;height:calc(100vh - 44px);flex:0 0 272px;display:flex;border-right:1px solid #292b31;background:#131521">
+      <div style="width:48px;display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 0;border-right:1px solid #292b31">
+        <div style="width:32px;height:32px;border-radius:8px;display:grid;place-items:center;color:#8fb4ff;background:#1a2a47;font-size:18px"><i class="ph ph-files"></i></div>
+      </div>
+      <div style="flex:1;min-width:0;display:flex;flex-direction:column;font-family:'JetBrains Mono',monospace;font-size:12.5px">
+        <div style="padding:14px 14px 8px;font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:#75798c;font-family:Inter,sans-serif">Explorer</div>
+        <div style="padding:4px 14px 10px;display:flex;align-items:center;gap:6px;color:#cfd3e5"><i class="ph ph-caret-down" style="font-size:11px;color:#75798c"></i>MEMORY-PROFILER.AI</div>
+        <sc-for list="{{ navItems }}" as="n" hint-placeholder-count="9">
+          <button onClick="{{ n.go }}" style="display:flex;align-items:center;gap:8px;width:100%;text-align:left;border:0;cursor:pointer;padding:5px 14px;font:inherit;color:{{ n.color }};background:{{ n.bg }};box-shadow:{{ n.bar }}" style-hover="background:#1e2030">
+            <i class="{{ n.icon }}" style="font-size:14px;color:{{ n.iconColor }}"></i><span style="white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ n.label }}</span>
+          </button>
+        </sc-for>
+      </div>
+    </aside>
+  </sc-if>
+  <div style="flex:1;min-width:0;max-width:1180px;padding:0 clamp(20px,5vw,72px)">
+
+    <section id="sec-overview" style="padding:72px 0 48px">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#8fb4ff;margin-bottom:18px">~/work/memory-profiler.ai</div>
+      <h1 style="margin:0;font-weight:500;font-size:clamp(36px,6vw,76px);line-height:1.02;letter-spacing:-.04em;max-width:18ch;text-wrap:balance">AI-enabled OpenEdge Memory Profiler</h1>
+      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:40px 64px;margin-top:40px">
+        <div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#75798c;margin-bottom:8px">Situation</div>
+          <p style="margin:0;font-size:15.5px;line-height:1.6;color:#cfd3e5;text-wrap:pretty">OpenEdge is an application development platform used by over 100k+ companies globally.</p>
+          <p style="margin:12px 0 0;font-size:15.5px;line-height:1.6;color:#cfd3e5;text-wrap:pretty">When existing OpenEdge users attempted to migrate their application code to OpenEdge v12, they encountered numerous memory-related issues. Despite their efforts, they struggled to identify the root causes of these problems. As a result, they submitted support tickets seeking assistance in resolving the issues. However, even our support engineers faced challenges in addressing these problems due to the lack of a suitable tool for profiling OpenEdge memory. This limitation hindered their ability to diagnose and resolve the memory issues effectively.</p>
+        </div>
+        <div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#75798c;margin-bottom:8px">Tasks</div>
+          <div style="display:flex;flex-direction:column;gap:10px;font-size:15.5px;line-height:1.55;color:#cfd3e5">
+            <div style="display:flex;gap:10px"><i class="ph ph-arrow-right" style="color:#5b8def;margin-top:5px;font-size:14px"></i><span>Provide OpenEdge developers tools to diagnose memory-related problems in their applications</span></div>
+            <div style="display:flex;gap:10px"><i class="ph ph-arrow-right" style="color:#5b8def;margin-top:5px;font-size:14px"></i><span>Improve turnaround time of memory-related support tickets</span></div>
+            <div style="display:flex;gap:10px"><i class="ph ph-arrow-right" style="color:#5b8def;margin-top:5px;font-size:14px"></i><span>Improve Customer Satisfaction (CSAT) score of OpenEdge</span></div>
+          </div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px;margin-top:40px;background:#292b31;border:1px solid #292b31;border-radius:10px;overflow:hidden">
+        <div style="background:#161826;padding:14px 16px"><div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#75798c">My role</div><div style="margin-top:4px;font-size:14px">Principal UX Designer</div></div>
+        <div style="background:#161826;padding:14px 16px"><div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#75798c">Tools</div><div style="margin-top:4px;font-size:14px">Figma, Atlassian Confluence, Miro</div></div>
+        <div style="background:#161826;padding:14px 16px"><div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#75798c">Team</div><div style="margin-top:4px;font-size:14px">2 senior designers, PM, senior eng manager, senior eng fellow, 7 engineers</div></div>
+        <div style="background:#161826;padding:14px 16px"><div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#75798c">Personas</div><div style="margin-top:4px;font-size:14px">OpenEdge Developer, OpenEdge DevOps Engineer</div></div>
+      </div>
+    </section>
+
+    <div style="height:1px;background:linear-gradient(to right,transparent,rgba(233,233,237,.16) 48px,rgba(233,233,237,.16) calc(100% - 48px),transparent)"></div>
+
+    <section id="sec-result" style="padding:80px 0">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#75798c;margin-bottom:16px">Result — impact of Memory Profiler after launch</div>
+      <img src="assets/mp-case/result-charts.png" alt="Customer quotes from Patrice Parrot (Proginov) and a Senior DevOps Engineer at QAD, alongside Support Tickets, Forum Enquiry and Customer Satisfaction Score charts from 2020-2025, marked at the OpenEdge 12 release and Memory Profiler launch" style="display:block;width:100%;height:auto;border-radius:12px;border:1px solid #3f424d;background:#000">
+    </section>
+
+    <div style="height:1px;background:linear-gradient(to right,transparent,rgba(233,233,237,.16) 48px,rgba(233,233,237,.16) calc(100% - 48px),transparent)"></div>
+
+    <section id="sec-actions" style="padding:80px 0">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#75798c;margin-bottom:16px">Actions — Memory Profiler journey from 2022 to 2025</div>
+      <div style="position:relative;width:100%;padding-top:56.25%;border-radius:12px;border:1px solid #3f424d;box-shadow:0 16px 40px rgba(0,0,0,.45);overflow:hidden;margin-bottom:32px">
+        <iframe src="https://www.youtube-nocookie.com/embed/IscZlOF_BUU" title="Memory Profiler journey from 2022 to 2025" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="" style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe>
+      </div>
+
+      <h3 style="margin:0 0 12px;font-weight:500;font-size:22px">User Research (early phase)</h3>
+      <p style="margin:0 0 24px;max-width:760px;font-size:16px;line-height:1.6;color:#cfd3e5;text-wrap:pretty">To better understand the challenges our users and support engineers faced, we held discussions with both groups. Initially, we thought providing users with memory snapshot data would help them identify and fix issues. However, when asked for feedback, most customers suggested that having the data in JSON format would make it easier for them to analyze and resolve their problems more effectively.</p>
+
+      <h3 style="margin:0 0 12px;font-weight:500;font-size:22px">Memory Profiler v1</h3>
+      <p style="margin:0 0 24px;max-width:760px;font-size:16px;line-height:1.6;color:#cfd3e5;text-wrap:pretty">Memory Profiler v1 was just a command line tool that when enabled started profiling the OpenEdge Virtual Machine's memory consumption and exported the data to a file.</p>
+
+      <h3 style="margin:0 0 12px;font-weight:500;font-size:22px">Issues</h3>
+      <p style="margin:0 0 24px;max-width:760px;font-size:16px;line-height:1.6;color:#cfd3e5;text-wrap:pretty">The adoption of version 1 was limited, with only a small number of users. Unfortunately, this did not lead to a reduction in support tickets, and our support engineers continued to struggle with extracting useful insights from the generated files. The files were large in size, which caused difficulties for third-party data analysis tools to load and process them efficiently. Additionally, the memory profiler was configured to capture a memory snapshot every 100 milliseconds, which contributed to the file size and complexity.</p>
+      <div style="margin:30px 0;max-width:760px;border-radius:12px;border:1px solid #3f424d;background:#1b1d2b;padding:24px 28px">
+        <p style="margin:0;font-weight:500;font-size:19px;line-height:1.5;color:#e4e7f5;text-wrap:pretty">The limited adoption of Memory Profiler Version 1 highlighted that simply providing raw data was insufficient to address the problem. It became clear that our customers require a more comprehensive memory profiler tool that not only collects data but also assists them in analyzing and identifying memory issues effectively.</p>
+      </div>
+
+      <div style="height:1px;background:rgba(233,233,237,.16);margin:40px 0 32px"></div>
+
+      <div style="display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start">
+        <div style="flex:1 1 320px;min-width:0">
+          <h3 style="margin:0 0 12px;font-weight:500;font-size:20px">Analysing Popular Profiler Tools</h3>
+          <p style="margin:0 0 14px;font-size:15px;line-height:1.6;color:#b2b6ca">As part of our research, we explored several popular profilers to gather inspiration. YourKit, a well-regarded Java profiler, was recommended by members of our engineering team. Additionally, we examined Pyroscope, a Y Combinator-funded profiler company recently acquired by Grafana, whose user interface impressed us. We also investigated Google Cloud and AWS profilers.</p>
+          <p style="margin:0;font-size:15px;line-height:1.6;color:#b2b6ca">Each of these profilers serves distinct purposes. Cloud profilers are optimized for handling massive scale, while tools like the Chrome profiler are tailored for front-end development. Throughout our exploration, we remained mindful of the differences between these profilers and our specific use case, ensuring that any insights we gained would be relevant and applicable to our needs.</p>
+        </div>
+        <img src="assets/mp-case/tools-final.png" alt="Profilers reviewed: YourKit Java Profiler, Chrome profiler, Pyroscope open-source profiler, GCP profiler, AWS CodeGuru profiler" style="flex:1 1 320px;min-width:0;width:100%;max-width:400px;height:auto;border-radius:10px;align-self:flex-start">
+      </div>
+
+      <div style="height:1px;background:rgba(233,233,237,.16);margin:40px 0 32px"></div>
+
+      <h3 style="margin:0 0 20px;font-weight:500;font-size:22px">Personas</h3>
+      <div style="display:flex;flex-wrap:wrap;gap:16px;margin-top:0">
+        <img src="assets/mp-case/persona-mia.png" alt="Persona: Mia, Senior Developer" style="flex:1 1 460px;min-width:0;width:100%;height:auto;border-radius:10px;border:1px solid #292b31">
+        <img src="assets/mp-case/persona-farris.png" alt="Persona: Farris, Senior DevOps Engineer" style="flex:1 1 460px;min-width:0;width:100%;height:auto;border-radius:10px;border:1px solid #292b31">
+      </div>
+      <div style="margin:32px 0 0;max-width:760px;border-radius:12px;border:1px solid #3f424d;background:#1b1d2b;padding:24px 28px">
+        <p style="margin:0;font-weight:500;font-size:20px;line-height:1.4;color:#e4e7f5;text-wrap:pretty">Brainstormed with veteran engineers who have been in the organization for some time and have a sense of what issues our customers are facing.</p>
+      </div>
+    </section>
+
+    <div style="height:1px;background:linear-gradient(to right,transparent,rgba(233,233,237,.16) 48px,rgba(233,233,237,.16) calc(100% - 48px),transparent)"></div>
+
+    <section id="sec-quotes" style="padding:80px 0">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#75798c;margin-bottom:16px">Customer quotes</div>
+      <p style="margin:0 0 24px;max-width:760px;font-size:16px;line-height:1.6;color:#cfd3e5;text-wrap:pretty">Interviewed eight customers with over a million lines of OpenEdge code in production. Reviewed early designs with them and continuously iterated to improve them.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:16px">
+        <sc-for list="{{ quotes }}" as="q" hint-placeholder-count="4">
+          <div style="border-radius:12px;border:1px solid #292b31;background:#1b1d2b;padding:22px">
+            <div style="font-size:16px;font-weight:500;color:#e9e9ed">{{ q.company }}</div>
+            <div style="margin-top:2px;font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.06em;color:#75798c">{{ q.who }}</div>
+            <div style="display:flex;flex-direction:column;gap:12px;margin-top:16px">
+              <sc-for list="{{ q.lines }}" as="l" hint-placeholder-count="4"><p style="margin:0;font-size:14px;line-height:1.55;color:#cfd3e5;font-style:italic">"{{ l }}"</p></sc-for>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="height:1px;background:rgba(233,233,237,.16);margin:40px 0 32px"></div>
+      <h3 style="margin:0 0 12px;font-weight:500;font-size:22px">Memory Profiler Frontend Tool MVP</h3>
+      <p style="margin:0 0 24px;max-width:760px;font-size:16px;line-height:1.6;color:#cfd3e5;text-wrap:pretty">Presented Memory Profiler designs at the Progress User Group conference with our Software Architect in Bratislava, and received valuable feedback.</p>
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <img src="assets/mp-case/mvp-screen-1.webp" alt="OpenEdge Memory Profiler: continuous profiling memory graph and profile details for QAD.ERP.Sales.Build" style="display:block;width:100%;height:auto;border-radius:12px;border:1px solid #3f424d;box-shadow:0 16px 40px rgba(0,0,0,.45)">
+        <img src="assets/mp-case/mvp-screen-2.webp" alt="OpenEdge Memory Profiler: Snap_t8899 object list with object type, name, memory and call stack" style="display:block;width:100%;height:auto;border-radius:12px;border:1px solid #3f424d;box-shadow:0 16px 40px rgba(0,0,0,.45)">
+      </div>
+    </section>
+
+    <div style="height:1px;background:linear-gradient(to right,transparent,rgba(233,233,237,.16) 48px,rgba(233,233,237,.16) calc(100% - 48px),transparent)"></div>
+
+    <section id="sec-ai" style="padding:80px 0">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#75798c;margin-bottom:16px">AI-enabled comparison view</div>
+      <figure style="margin:0 0 40px">
+        <img src="assets/mp-case/ai-cmp-final.webp" alt="AI-enabled comparison view: Snap_t10250 vs Snap_t10222, showing memory differences per object" style="display:block;width:100%;height:auto;border-radius:12px;border:1px solid #3f424d;box-shadow:0 16px 40px rgba(0,0,0,.45)">
+      </figure>
+
+      <div style="display:flex;flex-wrap:wrap;gap:40px;margin:0 0 20px">
+        <div style="flex:1 1 380px;min-width:0">
+          <h3 style="margin:0 0 12px;font-weight:500;font-size:22px">User Research for AI incorporation</h3>
+          <p style="margin:0 0 14px;font-size:16px;line-height:1.6;color:#cfd3e5;text-wrap:pretty">We wanted to understand how well developers can understand the profiler data, find memory bottlenecks, and find possible solutions.</p>
+          <p style="margin:0 0 14px;font-size:16px;line-height:1.6;color:#cfd3e5;text-wrap:pretty">We conducted the research through our community (CVP) website. We sent the same memory recording file to 25+ developers and asked them to use the tool to find memory issues.</p>
+          <div style="display:flex;flex-direction:column;gap:6px;font-size:15px;line-height:1.6;color:#b2b6ca">
+            <div>What's causing the memory issues?</div>
+            <div>Root Cause: Why is it happening?</div>
+            <div>Recommended Fix: How would you resolve it?</div>
+          </div>
+        </div>
+        <img src="assets/mp-case/quiz-solo.webp" alt="Memory Profiler Data Analysis Quiz test: accuracy by Experts, Advanced, Beginners and AI" style="flex:1 1 340px;min-width:0;max-width:400px;width:100%;height:auto;border-radius:10px;border:1px solid #292b31;align-self:center">
+      </div>
+      <p style="margin:0 0 14px;max-width:760px;font-size:16px;line-height:1.6;color:#cfd3e5;text-wrap:pretty">Based on experience and role, we divided the users into Expert, Advanced, &amp; Beginners. We had about 20% Expert developers, 35% Advanced developers, and the rest beginners.</p>
+      <p style="margin:0 0 24px;max-width:760px;font-size:16px;line-height:1.6;color:#cfd3e5;text-wrap:pretty">We later quizzed all participants on their analysis. It was reviewed by OpenEdge Senior Architects.</p>
+      <p style="margin:0 0 10px;max-width:760px;font-weight:500;font-size:16px;line-height:1.6;color:#e4e7f5">We also asked the same question to an AI. We tested with the following prompt.</p>
+      <p style="margin:0 0 6px;max-width:760px;font-size:15px;line-height:1.6;color:#9397ab;font-style:italic">Interpret this memory recording for me and answer the following three questions.</p>
+      <div style="margin:0 0 32px;max-width:760px;font-size:15px;line-height:1.6;color:#9397ab;font-style:italic">— What's slowing things down?<br>— Root Cause: Why is this happening?<br>— Recommended Fix: How can we resolve it?</div>
+      <p style="margin:0 0 40px;max-width:760px;font-weight:500;font-size:19px;line-height:1.5;color:#e4e7f5;text-wrap:pretty">These initial results at least point towards a great opportunity in adding value to most users by incorporating Artificial Intelligence (AI).</p>
+      <figure style="margin:0 0 24px">
+        <img src="assets/profiler-case/ai-insights.webp" alt="OpenEdge Memory Profiler: AI Insights comparing two snapshots with a summary and recommended follow-up questions" style="display:block;width:100%;height:auto;border-radius:12px;border:1px solid #3f424d;box-shadow:0 16px 40px rgba(0,0,0,.45)">
+      </figure>
+      <figure style="margin:0">
+        <img src="assets/mp-case/ai-insights-2.webp" alt="OpenEdge Memory Profiler AI Insights tab showing an interpreted memory recording with answers on what's slowing things down, why, and how to resolve it, plus sources and recommended follow-up questions" style="display:block;width:100%;height:auto;border-radius:12px;border:1px solid #3f424d;box-shadow:0 16px 40px rgba(0,0,0,.45)">
+      </figure>
+    </section>
+
+    <div style="height:1px;background:linear-gradient(to right,transparent,rgba(233,233,237,.16) 48px,rgba(233,233,237,.16) calc(100% - 48px),transparent)"></div>
+
+    <section id="sec-leaks" style="padding:80px 0">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#75798c;margin-bottom:16px">Memory leaks</div>
+      <p style="margin:0 0 14px;max-width:780px;font-size:16.5px;line-height:1.65;color:#cfd3e5;text-wrap:pretty">A memory leak occurs when a program allocates memory but fails to release it after use, leading to a gradual depletion of available memory. This issue can be particularly challenging to detect, as leaks often grow slowly over time and do not immediately disrupt application behavior. They may only become evident when the system starts to exhibit performance degradation or crashes unexpectedly, making them elusive during standard testing. In production environments, undetected memory leaks can lead to severe consequences, such as system downtime, increased server costs, or even complete application failure. Identifying the source of a memory leak requires expertise and the use of specialized tools like profilers or memory analysis utilities, as tracing the exact point where memory is not freed can be complex, especially in large codebases or dynamic execution paths.</p>
+      <p style="margin:0 0 40px;max-width:780px;font-size:16.5px;line-height:1.65;color:#cfd3e5;text-wrap:pretty">Our users needed better tools to spot memory leaks. Just comparing snapshots was not a good enough solution. After brainstorming and talking to many customers we provided a few more features that help users spot memory leaks.</p>
+
+      <h3 style="margin:0 0 12px;font-weight:500;font-size:22px">Tags Explorer</h3>
+      <p style="margin:0 0 20px;max-width:780px;font-size:16px;line-height:1.6;color:#cfd3e5;text-wrap:pretty">Developers can strategically embed tags within their code to track specific areas of interest. Those tags are then reflected in snapshot data, which can be plotted over time to identify slow-growing memory leaks. The development of this feature was directly influenced by valuable feedback gathered during one-on-one interactions between our senior architect and customers at developer conferences. These interactions provided crucial insights into the needs of our users, leading to the implementation of this powerful diagnostic tool.</p>
+      <img src="assets/mp-case/tags-final2.webp" alt="Tags Explorer: memory tags AUTO, EndOfRequest, PreCleanup and _functionX plotted over time" style="display:block;width:100%;height:auto;border-radius:12px;border:1px solid #3f424d;box-shadow:0 16px 40px rgba(0,0,0,.45);margin-bottom:56px">
+
+      <h3 style="margin:0 0 12px;font-weight:500;font-size:22px">Requests Explorer</h3>
+      <p style="margin:0 0 20px;max-width:780px;font-size:16px;line-height:1.6;color:#cfd3e5;text-wrap:pretty">In the presence of a memory leak, memory consumption typically increases from the start to the end of a request. Responding to strong customer demand, we have introduced a feature that provides a list of requests and their corresponding start request snapshot link and end request snapshot link.</p>
+      <img src="assets/mp-case/requests-final2.webp" alt="Requests Explorer: list of requests with start and end snapshot links" style="display:block;width:100%;height:auto;border-radius:12px;border:1px solid #3f424d;box-shadow:0 16px 40px rgba(0,0,0,.45);margin-bottom:56px">
+
+      <h3 style="margin:0 0 12px;font-weight:500;font-size:22px">Objects Explorer</h3>
+      <p style="margin:0 0 20px;max-width:780px;font-size:16px;line-height:1.6;color:#cfd3e5;text-wrap:pretty">To pinpoint memory leaks, developers typically monitor an object's memory usage over time. Objects showing a consistent upward trend in memory consumption are prime candidates for leaks. Additionally, we've developed an advanced automatic memory leak detection algorithm that systematically analyzes all objects to identify those that exhibit sustained growth patterns, streamlining the identification process.</p>
+      <img src="assets/mp-case/objects-find.webp" alt="Objects Explorer: memory usage per object over time, with a Find Memory Leaks action" style="display:block;width:100%;height:auto;border-radius:12px;border:1px solid #3f424d;box-shadow:0 16px 40px rgba(0,0,0,.45);margin-bottom:24px">
+      <img src="assets/mp-case/objects-progress.webp" alt="Objects Explorer: Finding Memory Leaks progress bar analysing objects, with Cancel and View Report actions" style="display:block;width:100%;height:auto;border-radius:12px;border:1px solid #3f424d;box-shadow:0 16px 40px rgba(0,0,0,.45);margin-bottom:24px">
+      <img src="assets/mp-case/objects-report.webp" alt="Report: Memory Leaked Objects, showing three objects with sustained upward memory growth" style="display:block;width:100%;height:auto;border-radius:12px;border:1px solid #3f424d;box-shadow:0 16px 40px rgba(0,0,0,.45)">
+    </section>
+
+    <div style="height:1px;background:linear-gradient(to right,transparent,rgba(233,233,237,.16) 48px,rgba(233,233,237,.16) calc(100% - 48px),transparent)"></div>
+
+    <section id="sec-impact" style="padding:80px 0 96px;max-width:820px">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#75798c;margin-bottom:16px">Impact of OpenEdge Memory Profiler</div>
+      <p style="margin:0;font-size:16.5px;line-height:1.65;color:#cfd3e5;text-wrap:pretty">The AI-enabled Memory Profiler has proven to be a transformative tool for enhancing developer productivity and customer satisfaction. By providing intuitive insights into memory usage, this technology has empowered coders to effectively address memory-related issues, which subsequently enables customer queries more efficiently. The impact is evident in a 50% reduction in support calls, indicating improved user satisfaction and reduced support burdens. Furthermore, the profiler has contributed to increased adoption of the latest OpenEdge 12+ version, as developers can now leverage its advanced features. Overall, this innovative solution has not only streamlined development processes but also elevated the overall user experience.</p>
+    </section>
+
+    <div style="display:flex;flex-wrap:wrap;gap:10px;padding:0 0 120px">
+      <a href="Portfolio.dc.html#leadership" style="display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px;border-radius:8px;border:1px solid #5b8def;color:#e9e9ed;text-decoration:none;font-size:14px;font-weight:500" style-hover="background:#1a2a47;color:#e9e9ed">Next: Leadership <i class="ph ph-arrow-right"></i></a>
+      <a href="Portfolio.dc.html" style="display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 18px;border-radius:8px;border:1px solid #3f424d;color:#cfd3e5;text-decoration:none;font-size:14px" style-hover="border-color:#75798c;color:#e9e9ed"><i class="ph ph-arrow-left"></i>Back to portfolio</a>
+    </div>
+  </div>
+  </div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { wide: true, active: 'sec-overview' };
+  NAV = [
+    { id: 'sec-overview', label: 'situation-tasks.md', icon: 'ph ph-file-text' },
+    { id: 'sec-result', label: 'result.md', icon: 'ph ph-trend-up' },
+    { id: 'sec-actions', label: 'actions.md', icon: 'ph ph-list-checks' },
+    { id: 'sec-quotes', label: 'customer-quotes.md', icon: 'ph ph-quotes' },
+    { id: 'sec-ai', label: 'ai-comparison.md', icon: 'ph ph-sparkle' },
+    { id: 'sec-leaks', label: 'memory-leaks.md', icon: 'ph ph-bug' },
+    { id: 'sec-impact', label: 'impact.md', icon: 'ph ph-chart-line-up' },
+  ];
+  go(id) { const el = document.getElementById(id); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 56, behavior: 'smooth' }); }
+  componentDidMount() {
+    this.onResize = () => this.setState({ wide: window.innerWidth >= 960 });
+    this.onResize();
+    window.addEventListener('resize', this.onResize);
+    this.onScroll = () => {
+      let cur = this.NAV[0].id;
+      for (const n of this.NAV) { const el = document.getElementById(n.id); if (el && el.getBoundingClientRect().top < 160) cur = n.id; }
+      this.setState({ active: cur });
+    };
+    window.addEventListener('scroll', this.onScroll, { passive: true });
+  }
+  componentWillUnmount() { window.removeEventListener('resize', this.onResize); window.removeEventListener('scroll', this.onScroll); }
+  renderVals() {
+    const s = this.state;
+    return {
+      wide: s.wide,
+      navItems: this.NAV.map(n => { const on = n.id === s.active; return { label: n.label, icon: n.icon, color: on ? '#e9e9ed' : '#9397ab', iconColor: on ? '#8fb4ff' : '#595d6c', bg: on ? '#1e2030' : 'transparent', bar: on ? 'inset 2px 0 0 #5b8def' : 'none', go: () => this.go(n.id) }; }),
+      quotes: [
+        { company: 'QAD', who: 'Engineering Team (5-6 members)', lines: [
+          'It is challenging to isolate memory leaks.',
+          'Memory leaks have a significant global impact on production as it takes the system down.',
+          'It is time-consuming and challenging to keep track of particular objects that are not garbage collected, like temp-table objects.',
+          "A big issue is that sometimes it is almost impossible to determine where that object was created/born in the code and why it still exists.",
+          "Handling clean up when dealing with datasets and temp-tables gets complex due to the different ways they are used — almost passed by reference, value has been initialized or not, is it static or dynamic. Some edge cases are always left out that then result in leaks.",
+        ] },
+        { company: 'Clearhout Computer Engineering', who: 'Software Architect', lines: [
+          "It is not possible to get reliable profiling information in a GC .NET environment (CPU and memory).",
+          "We don't know how much memory is being used by the application and what is using that memory.",
+          'We have no good way of knowing the memory requirements to run a version of our application.',
+          "We had issues with memory leaks in the past. It took months of time to resolve them, due to which we adopted the practice to delete each object created as we don't trust garbage collection.",
+          "It's hard to distinguish why an object is not garbage collected — is it because a variable, or an object, still references somewhere.",
+        ] },
+        { company: 'COINS', who: 'Engineering Team (2-3 members)', lines: [
+          'Deploying on the cloud eats extra resources they are using due to leaks or ineffective code — an additional hosting cost for them.',
+          'Understanding memory use is good for making better design decisions.',
+          'Doing live profiling of an application running on a production server would be nice to have. Being able to collect profiling data at the production server and analyze it later on the developer machine would be very useful.',
+        ] },
+        { company: 'ProAlpha', who: 'Two senior engineers', lines: [
+          'Our focus is to reduce resource requirements of their application to be cloud-ready.',
+          'We want the ability to collect profiling information in the production environment, as the load, data, and hardware specifications are different in production, and analyze it in the profiler tool.',
+          'We need to track the time spent in processing a request in the server.',
+        ] },
+      ],
+    };
+  }
+}
+</script>
+</body>
+</html>
