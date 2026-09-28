@@ -2,45 +2,20 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Repository state
+## What this is
 
-This repo currently contains **design handoff files only** — there is no implemented site, no package.json, no build tooling, and no git repository initialized yet. The actual task (per `README.md`) is to recreate these designs as a real site in whatever framework is appropriate (React, Vue, static site generator, etc.), choosing the framework if none exists.
+A static, no-build-step portfolio site: a landing page (`index.html`) and three case-study pages (`terraform-case-study.html`, `memory-profiler-case-study.html`, `leadership-case-study.html`), sharing `styles.css` and `script.js`. `index.html` additionally loads `home.js` for its terminal easter egg, command palette, and animated canvas graph. Deployed to Vercel from the `main` branch on GitHub (`gooltu/Portfolio2026`).
 
-## What's here
+## Commands
 
-- `Portfolio.dc.html` — landing page design spec (hero, career timeline, three case-study summaries, footer)
-- `Bulk Terraform Case Study.dc.html`, `Memory Profiler Case Study.dc.html`, `Leadership Case Study.dc.html` — full case-study page specs
-- `assets/` — real product screenshots referenced by the pages (`tf-case/`, `mp-case/`, `mp-crop/`, `profiler-case/`, `leadership/`, `process/`) — these are final assets to carry over, not placeholders
-- `README.md` — the authoritative handoff spec: design tokens, layout rules, section-by-section structure, interaction notes
+- Run locally: `npx serve .` (or any static file server) — no build, no install step required for the site itself.
+- Deploy: `vercel --prod` (project is linked; see `.vercel/project.json`). Push to `main` on GitHub for history; Vercel→GitHub auto-deploy is not yet authorized (the Vercel GitHub App needs a one-time grant to the `gooltu` account in the Vercel dashboard) — until then, ship with `vercel --prod` directly.
 
-## Critical: `.dc.html` files are not source code
+## Architecture
 
-The `.dc.html` files are in a proprietary prototyping format ("Design Components") — they use `<x-dc>`, `<sc-if>`, `<sc-for>`, and `{{ }}` template bindings that are **not valid HTML/JS and don't belong in production output**. Treat them purely as a visual/structural spec to read and translate:
-
-- `<sc-if value="{{ cond }}">` = conditional rendering
-- `<sc-for list="{{ items }}" as="x">` = list iteration
-- `{{ expr }}` = data bindings / event handlers (`onClick="{{ handler }}"`)
-- Inline `style="..."` = final, pixel-accurate CSS values (colors, spacing, radii are final — do not redesign)
-- `style-hover="..."` = hover-state styles to reimplement (CSS `:hover` or equivalent)
-
-Do not literally ship these files. When implementing, re-express each section in the target framework's real components/state, using the inline styles as the literal design values.
-
-## Design spec (from README.md)
-
-- **Landing page** (`Portfolio.dc.html`): dark theme, single scroll. Order: hero/intro → 3 case-study summaries (Terraform, Memory Profiler, Leadership) → career timeline (git-log styled) → footer/contact. Each case-study summary: monospace section label → headline + stat callout → 4-up metadata strip (Company/Role/Users/Built with) → 3-up numbered story grid (problem/research/bet) → two-column visual (left "device" card + right two stacked screenshots, both columns equal height via `flex; align-items:stretch`, images `flex:1; min-height:0; object-fit:cover`) → "Read the full case study" link.
-- **Case study pages**: hero title → Situation/Task/Role block → research narrative with screenshots → pull-quote highlight cards → persona section → customer-quotes grid → results section with charts/quotes. Sections divided by `1px` hairlines (`rgba(233,233,237,.16)`, inset ~48px via gradient mask).
-- **Navigation**: plain anchor links between pages, no SPA routing required. Static content site — no modals, no complex client state. Animation limited to hover transitions (~150–200ms).
-
-### Design tokens
-- Backgrounds: `#0d0e16`–`#131521` (page), `#1b1d2b` / `#161826` (cards)
-- Borders: `#292b31` (subtle), `#3f424d` (card borders)
-- Text: `#e9e9ed` / `#e4e7f5` (primary), `#cfd3e5` / `#b2b6ca` (secondary), `#75798c` / `#9397ab` (muted/label)
-- Accent: `#5b8def` (primary/links), `#8fb4ff` (icon accent), `#c3d6ff` on `#1a2a47` (badge)
-- Fonts: JetBrains Mono (labels/metadata/timestamps), Inter (body/headings)
-- Radius: `8px` (buttons/badges), `10–14px` (cards/images)
-- Card elevation shadow: `0 16px 40px rgba(0,0,0,.45)`
-- Highlight card: `border-radius:12px; border:1px solid #3f424d; background:#1b1d2b; padding:24px 28px`
-
-## Once an implementation exists
-
-There is no build/lint/test tooling yet. When a framework is chosen and scaffolded, update this file with the actual commands (dev server, build, lint) rather than assuming any.
+- **No framework, no bundler.** Every page is hand-written HTML with inline styles for one-off layout and shared classes (defined in `styles.css`) for repeated patterns: `.sidebar`/`.explorer-file` (file-explorer nav), `.topbar`/`.subbar` (top bars), `.meta-grid`, `.story-grid`, `.highlight-card`, `.persona-card`, `.quote-card`, `.divider`, `.btn`, `.carousel`. CSS custom properties in `:root` (`--bg`, `--accent`, `--border`, etc.) hold the design tokens — reuse them instead of hardcoding hex values.
+- **`script.js`** — utilities shared by all four pages: `initExplorerNav(navSelector, offset)` wires sidebar links to smooth-scroll and highlights the active one via scrollspy; `initCopyEmail(btnSelector, email)`; `initCarousel(root, captions)` (used by the Terraform case study's image carousel); `smoothGo(id, offset)`.
+- **`home.js`** — landing-page-only behavior: the fake terminal REPL (a small command interpreter — `help`, `whoami`, `terraform plan|apply`, `hire`, etc.), the Cmd+K command palette, the animated canvas "infra graph," and the sidebar/topbar active-file tracking tied to scroll position. Case-study pages don't load this file; they only need `initExplorerNav`.
+- **Case-study pages** each have their own sidebar nav list (`id="explorerNav"`) whose `data-section-id` values must match real section `id`s on that page — if you add/remove/rename a section, update both.
+- **`design-source/`** holds the original high-fidelity design spec this site was built from (`.dc.html` prototype files in a proprietary templating format, plus `DESIGN_HANDOFF.md`). These are reference-only, not served by the site — don't link to them or treat their `{{ }}`/`sc-for`/`sc-if` syntax as something to reproduce elsewhere.
+- **Résumé/LinkedIn/GitHub links** in the contact section currently point to `#` — the Résumé PDF referenced by the original design (`uploads/Resume_...pdf`) doesn't exist in this repo. Add the real file and update the three links in `index.html` when available.
