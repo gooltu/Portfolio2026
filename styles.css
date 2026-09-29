@@ -84,7 +84,7 @@ button{font-family:inherit}
 .subbar-home:hover{color:var(--text)}
 .subbar-sep{color:var(--border-strong)}
 .subbar-seg{color:var(--muted-2)}
-.subbar-cur{color:var(--text)}
+.subbar-cur{color:var(--text);min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
 .subbar-cta{display:inline-flex;align-items:center;gap:8px;height:28px;padding:0 12px;border-radius:6px;border:1px solid var(--border-strong);color:var(--text-2);text-decoration:none}
 .subbar-cta:hover{border-color:var(--accent);color:var(--text)}
 
