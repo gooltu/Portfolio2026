@@ -6,8 +6,34 @@ function smoothGo(id, offset) {
   window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - (offset || 48), behavior: 'smooth' });
 }
 
+// Fires a GA4 event via gtag if it's loaded; a silent no-op otherwise (e.g. ad-blocked).
+function gaEvent(name, params) {
+  if (typeof gtag === 'function') gtag('event', name, params || {});
+}
+
+// Fires a `scroll_depth` event the first time the page crosses each threshold.
+function initScrollDepthTracking() {
+  var thresholds = [25, 50, 75, 90, 100];
+  var fired = {};
+  function check() {
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    if (max <= 0) return;
+    var pct = (window.scrollY / max) * 100;
+    thresholds.forEach(function (t) {
+      if (pct >= t && !fired[t]) {
+        fired[t] = true;
+        gaEvent('scroll_depth', { percent: t });
+      }
+    });
+  }
+  window.addEventListener('scroll', check, { passive: true });
+  check();
+}
+
 // Highlights the sidebar/nav link whose data-section-id matches the section
 // nearest the top of the viewport, and wires each link to smooth-scroll.
+// Also fires a `section_reached` event the first time the reader scrolls
+// as far as each section, so we can see how far down the page people get.
 function initExplorerNav(navSelector, offset) {
   var links = Array.prototype.slice.call(document.querySelectorAll(navSelector));
   if (!links.length) return;
@@ -20,16 +46,21 @@ function initExplorerNav(navSelector, offset) {
   });
 
   var ids = links.map(function (l) { return l.dataset.sectionId; }).filter(Boolean);
+  var maxIdx = -1;
 
   function update() {
-    var cur = ids[0];
+    var cur = ids[0], curIdx = 0;
     for (var i = 0; i < ids.length; i++) {
       var el = document.getElementById(ids[i]);
-      if (el && el.getBoundingClientRect().top < 160) cur = ids[i];
+      if (el && el.getBoundingClientRect().top < 160) { cur = ids[i]; curIdx = i; }
     }
     links.forEach(function (link) {
       link.classList.toggle('active', link.dataset.sectionId === cur);
     });
+    if (curIdx > maxIdx) {
+      maxIdx = curIdx;
+      gaEvent('section_reached', { section_id: cur, section_index: curIdx + 1, section_count: ids.length });
+    }
   }
 
   window.addEventListener('scroll', update, { passive: true });

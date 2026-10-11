@@ -28,12 +28,13 @@
   var tabIcon = document.getElementById('activeTabIcon');
   var crumbName = document.getElementById('activeCrumbName');
   var statusLine = document.getElementById('statusLine');
+  var maxSectionIdx = -1;
 
   function updateActive() {
-    var cur = ids[0];
+    var cur = ids[0], curIdx = 0;
     for (var i = 0; i < ids.length; i++) {
       var el = document.getElementById(ids[i]);
-      if (el && el.getBoundingClientRect().top < 160) cur = ids[i];
+      if (el && el.getBoundingClientRect().top < 160) { cur = ids[i]; curIdx = i; }
     }
     explorerLinks.forEach(function (link) {
       link.classList.toggle('active', link.dataset.sectionId === cur);
@@ -46,6 +47,10 @@
       var h = document.documentElement.scrollHeight - window.innerHeight;
       statusLine.textContent = Math.max(1, Math.round((window.scrollY / Math.max(1, h)) * 842));
     }
+    if (curIdx > maxSectionIdx) {
+      maxSectionIdx = curIdx;
+      gaEvent('section_reached', { section_id: cur, section_name: f.name, section_index: curIdx + 1, section_count: ids.length });
+    }
   }
   explorerLinks.forEach(function (link) {
     link.addEventListener('click', function (e) {
@@ -55,6 +60,7 @@
   });
   window.addEventListener('scroll', updateActive, { passive: true });
   updateActive();
+  initScrollDepthTracking();
 
   /* ---------- copy email ---------- */
   initCopyEmail('#copyEmailBtn', EMAIL);
@@ -154,8 +160,16 @@
       termInput.value = pendingInput;
       termInput.addEventListener('keydown', onTermKey);
       termInput.addEventListener('input', function (e) { pendingInput = e.target.value; });
+      termInput.addEventListener('focus', onTerminalFocus);
       termInput.focus();
     }
+  }
+
+  var terminalFocused = false;
+  function onTerminalFocus() {
+    if (terminalFocused) return;
+    terminalFocused = true;
+    gaEvent('terminal_focus', {});
   }
 
   function escapeHtml(s) {
@@ -188,6 +202,7 @@
     var arg = rest.join(' ');
     var hi = '#c3d6ff';
     var res = [];
+    if (c) gaEvent('terminal_command', { command: c, command_text: cmd.slice(0, 100) });
     switch (c) {
       case '': break;
       case 'help':
@@ -305,6 +320,7 @@
     var nodes = defs.map(function (dd, i) { return { label: dd[0], bx: dd[1], by: dd[2], hub: !!dd[3], ph: i * 1.7, x: 0, y: 0, ox: 0, oy: 0 }; });
     var edges = [[0, 1], [0, 2], [0, 3], [0, 4], [0, 5], [0, 6], [1, 7], [2, 8], [3, 7], [4, 8], [5, 9], [6, 10], [9, 1], [10, 4], [1, 5], [2, 5], [3, 6], [4, 6]];
     var pulses = [], W = 0, H = 0, mouse = { x: -999, y: -999 }, t = 0, raf;
+    var graphInteracted = false, lastHotNode = -1;
 
     function size() {
       var r = wrap.getBoundingClientRect(), dpr = window.devicePixelRatio || 1;
@@ -313,8 +329,12 @@
     }
     size();
     new ResizeObserver(size).observe(wrap);
-    cv.onmousemove = function (e) { var r = cv.getBoundingClientRect(); mouse = { x: e.clientX - r.left, y: e.clientY - r.top }; };
-    cv.onmouseleave = function () { mouse = { x: -999, y: -999 }; };
+    cv.onmousemove = function (e) {
+      var r = cv.getBoundingClientRect();
+      mouse = { x: e.clientX - r.left, y: e.clientY - r.top };
+      if (!graphInteracted) { graphInteracted = true; gaEvent('graph_interact', {}); }
+    };
+    cv.onmouseleave = function () { mouse = { x: -999, y: -999 }; lastHotNode = -1; };
 
     function loop() {
       t += 0.012; ctx.clearRect(0, 0, W, H);
@@ -326,6 +346,10 @@
         else { n.ox *= .9; n.oy *= .9; }
         n.x = x + n.ox; n.y = y + n.oy; if (dist < 36) hot = i;
       });
+      if (hot !== -1 && hot !== lastHotNode) {
+        lastHotNode = hot;
+        gaEvent('graph_node_hover', { node: nodes[hot].label });
+      }
       if (Math.random() < .08) { var e = edges[(Math.random() * edges.length) | 0]; pulses.push({ a: e[0], b: e[1], p: 0, s: .008 + Math.random() * .012 }); }
       edges.forEach(function (e) {
         var a = e[0], b = e[1], lit = hot === a || hot === b;
