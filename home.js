@@ -4,6 +4,7 @@
     { id: 'leadership', name: 'leadership.md', icon: 'ph ph-users-three' },
     { id: 'work-terraform', name: 'bulk-version-update.agent', icon: 'ph ph-robot' },
     { id: 'work-profiler', name: 'memory-profiler.ai', icon: 'ph ph-cpu' },
+    { id: 'work-oecc', name: 'oecc-pas.ux', icon: 'ph ph-hard-drives' },
     { id: 'process', name: 'design-process.md', icon: 'ph ph-flow-arrow' },
     { id: 'log', name: 'experience.log', icon: 'ph ph-git-commit' },
     { id: 'stack', name: 'stack.json', icon: 'ph ph-brackets-curly' },
@@ -22,6 +23,14 @@
   }
 
   /* ---------- active-file tracking: sidebar, topbar tab, status line ---------- */
+  // Optional sections (added by some variants) only exist on some pages.
+  FILES = FILES.filter(function (f) { return document.getElementById(f.id); });
+  // Follow the page's own order: variants can reorder sections.
+  FILES.sort(function (a, b) {
+    var x = document.getElementById(a.id), y = document.getElementById(b.id);
+    if (!x || !y) return 0;
+    return x.compareDocumentPosition(y) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1;
+  });
   var ids = FILES.map(function (f) { return f.id; });
   var explorerLinks = Array.prototype.slice.call(document.querySelectorAll('#explorerNav .explorer-file[data-section-id]'));
   var tabName = document.getElementById('activeTabName');
@@ -161,7 +170,7 @@
       termInput.addEventListener('keydown', onTermKey);
       termInput.addEventListener('input', function (e) { pendingInput = e.target.value; });
       termInput.addEventListener('focus', onTerminalFocus);
-      termInput.focus();
+      termInput.focus({ preventScroll: true }); // on load, focus must not scroll past the hero
     }
   }
 
@@ -186,6 +195,7 @@
       process: 'process', 'design-process.md': 'process', philosophy: 'process',
       work: 'work-terraform', terraform: 'work-terraform', 'terraform-upgrade.agent': 'work-terraform', 'bulk-version-update.agent': 'work-terraform', bulk: 'work-terraform',
       profiler: 'work-profiler', memory: 'work-profiler', 'memory-profiler.ai': 'work-profiler',
+      oecc: 'work-oecc', pas: 'work-oecc', 'oecc-pas.ux': 'work-oecc', 'command-center': 'work-oecc',
       leadership: 'leadership', 'leadership.md': 'leadership',
       experience: 'log', log: 'log', 'experience.log': 'log',
       stack: 'stack', skills: 'stack', 'stack.json': 'stack',
@@ -209,7 +219,7 @@
         res = [out('whoami        who is this'), out('ls [work]     list files'), out('open <file>   jump to a section (also: cd, cat)'), out('process       my design process'), out('experience    career summary'), out('skills        the stack'), out('terraform plan | apply'), out('hire          the important one'), out('clear         wipe the screen'), out('…and a few undocumented ones.', '#595d6c')];
         break;
       case 'whoami':
-        res = [out('Mayukh Chakraborty, Manager, Product Design', hi), out('12+ yrs in UX, 5+ leading teams. DevEx, IaC, observability, agentic AI.'), out('MDes, IIT Kanpur. Former software engineer.')];
+        res = [out('Mayukh Chakraborty, Manager, Product Design', hi), out('13+ yrs in UX, 5+ leading teams. DevEx, IaC, observability, agentic AI.'), out('MDes, IIT Kanpur. Former software engineer.')];
         break;
       case 'process':
       case 'philosophy':
@@ -231,7 +241,7 @@
         break;
       }
       case 'experience':
-        res = [out('2026  IBM HashiCorp — Senior Product Designer', hi), out('2018  Progress Software — Manager, UX (7 yrs)'), out('2016  Healers at Home — Head of Product Design'), out('2013  CitiTalk — Co-founder, Head of Product Design'), out('2011  IIT Kanpur — MDes'), out('2007  Wipro — Senior Software Engineer')];
+        res = [out('2026  IBM HashiCorp — Senior Product Designer', hi), out('2020  Progress Software — Manager, UX'), out('2020  Progress Software — Principal UX Designer'), out('2018  Progress Software — Senior UX Designer'), out('2016  Healers at Home — Head of Product Design'), out('2013  CitiTalk — Co-founder, Head of Product Design'), out('2011  IIT Kanpur — MDes'), out('2007  Wipro — Senior Software Engineer')];
         setTimeout(function () { smoothGo('log'); }, 600);
         break;
       case 'skills':
@@ -239,7 +249,7 @@
         break;
       case 'terraform':
         if (rest[0] === 'apply') res = [out('Apply needs approval. Run hire to approve.', hi)];
-        else if (rest[0] === 'plan') res = [out('Terraform will perform the following actions:'), out('  + resource "designer" "mayukh" {', hi), out('      experience = "12+ years"'), out('      domain     = "devex"'), out('      mode       = "manager + ic"'), out('    }', hi), out('Plan: 1 to add, 0 to change, 0 to destroy.', '#e9e9ed')];
+        else if (rest[0] === 'plan') res = [out('Terraform will perform the following actions:'), out('  + resource "designer" "mayukh" {', hi), out('      experience = "13+ years"'), out('      domain     = "devex"'), out('      mode       = "manager + ic"'), out('    }', hi), out('Plan: 1 to add, 0 to change, 0 to destroy.', '#e9e9ed')];
         else res = [out('Usage: terraform plan | apply')];
         break;
       case 'hire':

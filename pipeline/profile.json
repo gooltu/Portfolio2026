@@ -153,6 +153,14 @@
       "status": "stated"
     },
     {
+      "id": "oecc-customer-quote",
+      "text": "Customer quote on the OECC case study, approved for publishing by Mayukh on 2026-11-05: \"OECC PAS UI is very intuitive and is helping us manage 1000s of our customers servers easily and efficiently.\" Benny Scott, Software Architect, QAD. Use only as this attributed quote; 1000s is the customer's own figure, not a measured product metric.",
+      "metric": "1000s",
+      "where": "progress-mgr",
+      "source": "oecc-case-study.html",
+      "status": "stated"
+    },
+    {
       "id": "csat",
       "text": "OpenEdge platform CSAT improved by 25%. OECC and the Memory Profiler are parts of that platform. Always attribute to the platform, never to one project.",
       "metric": "25%",
@@ -458,8 +466,12 @@
       "why": "Progress must not show one 2018-2025 Manager range; use NOV 2020 - JUNE 2025 plus the earlier roles."
     },
     {
-      "docPattern": "\\b12\\+ ?(years|yrs)",
+      "docPattern": "\\b12\\+ ?(years|yrs)|\\btwelve years\\b",
       "why": "UX experience is 13+ years (Jan 2013 start). Never round up."
+    },
+    {
+      "docPattern": "Progress Software[^\\n]{0,40}\\b7 yrs",
+      "why": "Progress must not be shown as one 7-year Manager role; it is three roles."
     }
   ],
   "required_when": [

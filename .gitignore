@@ -6,3 +6,5 @@ pipeline/jobs/
 pipeline/resume/out/
 pipeline/resume/cmp/
 node_modules
+
+variants/

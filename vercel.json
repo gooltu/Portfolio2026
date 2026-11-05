@@ -1,0 +1,17 @@
+{
+  "routes": [
+    { "src": "/variants(?:/.*)?", "status": 404 },
+    {
+      "src": "/.*",
+      "has": [{ "type": "host", "value": "[a-hjkmnp-z2-9]{6}\\.mayukhonline\\.in" }],
+      "headers": { "X-Robots-Tag": "noindex, nofollow" },
+      "continue": true
+    },
+    {
+      "src": "/(?:index\\.html)?",
+      "has": [{ "type": "host", "value": "(?<slug>[a-hjkmnp-z2-9]{6})\\.mayukhonline\\.in" }],
+      "dest": "/variants/$slug/index.html"
+    },
+    { "handle": "filesystem" }
+  ]
+}

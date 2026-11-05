@@ -9,7 +9,8 @@ A static, no-build-step portfolio site: a landing page (`index.html`) and three 
 ## Commands
 
 - Run locally: `npx serve .` (or any static file server) — no build, no install step required for the site itself.
-- Deploy: `vercel --prod` (project is linked; see `.vercel/project.json`). Push to `main` on GitHub for history; Vercel→GitHub auto-deploy is not yet authorized (the Vercel GitHub App needs a one-time grant to the `gooltu` account in the Vercel dashboard) — until then, ship with `vercel --prod` directly.
+- Deploy: `node pipeline/scripts/deploy.mjs` (project is linked; see `.vercel/project.json`). It rebuilds variants and checks the uploaded files before promoting; use it instead of `vercel --prod`. Push to `main` on GitHub for history. Do not authorize Vercel→GitHub auto-deploy: `variants/` is git-ignored, so a Git-based deploy would take every variant down.
+- `.vercelignore` is an allowlist. A new public page must be added there and to `ALLOWED_ROOT` in `pipeline/scripts/deploy.mjs`.
 
 ## Architecture
 
@@ -21,11 +22,11 @@ A static, no-build-step portfolio site: a landing page (`index.html`) and three 
 
 ## Job application pipeline
 
-`pipeline/` generates a tailored résumé and cover letter for each job description (portfolio variants and deployment come in later phases). Read `pipeline/README.md` before touching it.
+`pipeline/` generates a tailored résumé, cover letter and portfolio variant for each job description, and deploys the variants to subdomains. Read `pipeline/README.md` before touching it. `data-variant` attributes in `index.html` are the slots the variant builder fills; keep them when editing those elements.
 
 - **`pipeline/profile.json` is the only source of facts.** Résumés and letters may select, reorder and rephrase its claims, never add one. When a fact changes, edit `profile.json` first.
-- **Per job:** `node pipeline/scripts/new-job.mjs "<label>" "<Company>" "<Role>"`, paste the JD into `jobs/<slug>/jd.txt`, then write `jd.json`, `match.md`, `resume.json` (start from `pipeline/resume/data/base.json`) and `cover-letter.md`. Run `node pipeline/scripts/check.mjs <slug>` and `build-job.mjs <slug>`.
+- **Per job:** `node pipeline/scripts/new-job.mjs "<label>" "<Company>" "<Role>"`, paste the JD into `jobs/<slug>/jd.txt`, then write `jd.json`, `match.md`, `resume.json` (start from `pipeline/resume/data/base.json`), `cover-letter.md` and `variant.json`. Run `node pipeline/scripts/check.mjs <slug>`, `build-job.mjs <slug>`, `build-variant.mjs <slug>` and `deploy.mjs`.
 - **Never claim what the fact bank does not support.** Report gaps in `match.md` instead. Follow the counting rules in `profile.json` (13+ years UX, 5+ years design leadership, Progress shown as three roles, CSAT +25% is platform-level, 250K is "across Progress and HashiCorp", Wipro framed case by case).
-- `pipeline/jobs/` is git-ignored (it names the companies applied to). Do not commit it or paste its contents anywhere public.
+- `pipeline/jobs/` and `variants/` are git-ignored (they name or hint at the companies applied to). Do not commit them, archive them into tracked files, or paste their contents anywhere public.
 - Variant subdomains use random neutral slugs, never company names. Do not use company logos or branding on any page.
 - PDFs need Google Chrome (the builder finds it on macOS).

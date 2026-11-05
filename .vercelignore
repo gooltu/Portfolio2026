@@ -1,0 +1,14 @@
+# Allowlist: only these reach the public site. Anything new stays private until it is listed here.
+/*
+!/index.html
+!/terraform-case-study.html
+!/memory-profiler-case-study.html
+!/leadership-case-study.html
+!/oecc-case-study.html
+!/styles.css
+!/script.js
+!/home.js
+!/favicon.svg
+!/assets
+!/variants
+.DS_Store
