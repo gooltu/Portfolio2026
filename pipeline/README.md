@@ -8,7 +8,7 @@ and rephrase what is in it. They may never add a claim that is not in it.
 - Phase 0 (fact bank, corrected timeline): done
 - Phase 1 (résumé and cover letter): done
 - Phase 2 (portfolio variant generator): done
-- Phase 3 (wildcard subdomain and deploy): built, but variant URLs are not reachable yet (see "DNS setup")
+- Phase 3 (variant subdomains and deploy): done, with one CNAME per job (see "DNS for each variant"). The wildcard is not active (see "Wildcard DNS")
 - Phase 4 (QA and tracker): not built yet
 
 ## Layout
@@ -17,12 +17,15 @@ pipeline/
   profile.json            facts, counting rules, checker rules, resolved/open conflicts
   resume/                 PDF builder (Roboto, A4). data/base.json is the corrected base résumé
   scripts/
-    new-job.mjs           scaffolds jobs/<slug>/ with a random neutral slug
+    new-job.mjs           scaffolds jobs/<slug>/ with the next free slug from slug-pool.json
     check.mjs             fact-checks résumé, cover letter and variant copy against profile.json; JD keyword coverage
     build-job.mjs         runs the check, then builds the PDF
+    build-letter.mjs      runs the check, then builds cover-letter.md into a one-page PDF
     build-variant.mjs     builds variants/<slug>/index.html from index.html and variant.json
     deploy.mjs            rebuilds variants, deploys, checks, promotes, verifies live URLs
     preview.mjs           serves the main site and every variant locally, using the real vercel.json and .vercelignore
+    list-pages.mjs        writes jobs/pages.html; new-job.mjs and deploy.mjs also refresh it
+  jobs/pages.html         GIT-IGNORED. Every public URL, with company and role beside each variant, plus résumé and letter links
   jobs/<slug>/            GIT-IGNORED. status.json, jd.txt, jd.json, match.md, resume.json, cover-letter.md, variant.json, PDF
 ../variants/<slug>/       GIT-IGNORED. Generated page, uploaded to Vercel by deploy.mjs
 ```
@@ -43,7 +46,8 @@ so deploy from here, and turning on Vercel's GitHub auto-deploy would take every
 7. `node pipeline/scripts/check.mjs <slug>` then `node pipeline/scripts/build-job.mjs <slug>`.
 8. Read the PDF yourself before sending. The checker catches wrong numbers and stale claims, not bad judgment.
 9. **Variant** (Claude): write `jobs/<slug>/variant.json` (format below), then `node pipeline/scripts/build-variant.mjs <slug>`.
-10. `node pipeline/scripts/deploy.mjs`. Once the variant URL is verified, this marks the job live and rebuilds the résumé
+10. Slugs from the pool already have a subdomain, so skip this step unless `new-job.mjs` says the pool is empty. Then set one up (see "DNS for each variant") before step 11 and before opening the URL.
+11. `node pipeline/scripts/deploy.mjs`. Once the variant URL is verified, this marks the job live and rebuilds the résumé
     so its Portfolio link points at the variant. **Send the PDF after this step**, since earlier PDFs link to the main site.
 
 ## variant.json
@@ -62,7 +66,9 @@ so deploy from here, and turning on Vercel's GitHub auto-deploy would take every
 }
 ```
 `meta` and `hero` are required. Copy is plain text; `*word*` in a heading gives the accent colour.
-Every `focus` item must cite the claims that back it. `sectionOrder` keeps `readme` first and `contact` last,
+`"years": "10+"` is optional. It sets the figure in the status bar and terminal, which otherwise say 13+. The figure in `meta` and `hero` copy is written by hand, so keep them matching.
+Use `focus` for domain work the page does not otherwise show. If the JD is about leadership, focus would repeat the leadership section, so leave it out and use `"leadership": { "heading": "...", "manager": [{ "text": "...", "claims": [] }], "ic": [{ "text": "...", "claims": [] }] }`, which replaces that section's heading and the lists in its two cards.
+Every `focus` and `leadership` item must cite the claims that back it. `sectionOrder` keeps `readme` first and `contact` last,
 `leadership` and the two `work-*` sections in the first three slots (the metrics band follows them), and the `work-*` sections adjacent.
 
 A variant replaces only `index.html`. CSS, JS, images and case studies are shared with the main site, so rebuild and deploy after changing the base page.
@@ -82,7 +88,33 @@ The build refuses to write a page if:
 - `deploy.mjs` creates the deployment unpromoted and checks its real file list against that allowlist. Anything unexpected stops the deploy before it is public.
 - `deploy.mjs --dry-run` stops before promoting. To undo a release: `vercel rollback --yes`.
 
-## DNS setup
+## DNS for each variant
+Each variant needs its own subdomain on the Vercel project and its own CNAME at BigRock. This leaves the nameservers and the main site's records alone.
+
+`slug-pool.json` lists subdomains that are set up ahead of time, and `new-job.mjs` takes the first one no job is using. An unused one shows the normal portfolio with `noindex`, so a spare is harmless.
+
+### Topping up the pool
+Generate new random slugs from the alphabet in `new-job.mjs`, follow steps 1-4 below for each, then add them to `slug-pool.json`. Keep slugs in the file once used, because a job folder is what marks one as taken.
+
+### Setting one up
+
+**Order matters.** Finish these steps before running `deploy.mjs` or opening the URL. A lookup made before the record is visible gets "doesn't exist", and resolvers can keep that answer for up to an hour.
+
+1. Add the subdomain to the project:
+   `vercel domains add <slug>.mayukhonline.in portfolio2026`
+2. Get the record's value. Use the first `recommendedCNAME` from:
+   `vercel api /v6/domains/<slug>.mayukhonline.in/config`
+3. At BigRock, add a new CNAME record to the `mayukhonline.in` zone. Host: `<slug>`, without the domain. Value: the value from step 2. Change nothing else.
+4. Wait until all four BigRock servers return it. This took about 25 minutes the first time. Ask them directly, so nothing else looks the name up early:
+   `for n in 1 2 3 4; do dig +short CNAME <slug>.mayukhonline.in @dns$n.bigrock.in; done`
+5. Run `node pipeline/scripts/deploy.mjs`. If the certificate is not ready, the variant stays not live and the résumé keeps linking to the main site. Run `deploy.mjs --verify` again a few minutes later.
+
+If a resolver still says the name doesn't exist, compare the serial in its answer with BigRock's. An older serial means it saved the answer before the record existed, and it clears when that answer's TTL runs out:
+`dig <slug>.mayukhonline.in @9.9.9.9 +noall +authority`
+`dig SOA mayukhonline.in @dns1.bigrock.in +short`
+
+## Wildcard DNS
+Not active. It would remove the per-job CNAME, but it needs Vercel's nameservers.
 Vercel only issues wildcard certificates for domains on its own nameservers, and `*.mayukhonline.in` is already added to the project.
 
 **Do not point the nameservers at Vercel until Vercel is ready to answer for the domain.** On 2026-11-05 that switch took DNS down for about 1 hour 45 minutes, until the nameservers were set back at BigRock: `ns1.vercel-dns.com` returned `REFUSED`, public resolvers returned `SERVFAIL`, and `vercel dns add` failed with `not a DNS zone`. Vercel's domain record showed `"zone": false` and an empty `intendedNameservers`. Sites can keep loading on a device that has saved the old answer, so test with `dig www.mayukhonline.in @1.1.1.1`.

@@ -1,4 +1,6 @@
 (function () {
+  // A variant can state a different figure through <html data-years>; the main site has none.
+  var YEARS = document.documentElement.getAttribute('data-years') || '13+';
   var FILES = [
     { id: 'readme', name: 'README.md', icon: 'ph ph-book-open' },
     { id: 'leadership', name: 'leadership.md', icon: 'ph ph-users-three' },
@@ -219,7 +221,7 @@
         res = [out('whoami        who is this'), out('ls [work]     list files'), out('open <file>   jump to a section (also: cd, cat)'), out('process       my design process'), out('experience    career summary'), out('skills        the stack'), out('terraform plan | apply'), out('hire          the important one'), out('clear         wipe the screen'), out('…and a few undocumented ones.', '#595d6c')];
         break;
       case 'whoami':
-        res = [out('Mayukh Chakraborty, Manager, Product Design', hi), out('13+ yrs in UX, 5+ leading teams. DevEx, IaC, observability, agentic AI.'), out('MDes, IIT Kanpur. Former software engineer.')];
+        res = [out('Mayukh Chakraborty, Manager, Product Design', hi), out(YEARS + ' yrs of experience, 5+ leading teams. DevEx, IaC, observability, agentic AI.'), out('MDes, IIT Kanpur. Former software engineer.')];
         break;
       case 'process':
       case 'philosophy':
@@ -249,7 +251,7 @@
         break;
       case 'terraform':
         if (rest[0] === 'apply') res = [out('Apply needs approval. Run hire to approve.', hi)];
-        else if (rest[0] === 'plan') res = [out('Terraform will perform the following actions:'), out('  + resource "designer" "mayukh" {', hi), out('      experience = "13+ years"'), out('      domain     = "devex"'), out('      mode       = "manager + ic"'), out('    }', hi), out('Plan: 1 to add, 0 to change, 0 to destroy.', '#e9e9ed')];
+        else if (rest[0] === 'plan') res = [out('Terraform will perform the following actions:'), out('  + resource "designer" "mayukh" {', hi), out('      experience = "' + YEARS + ' years"'), out('      domain     = "devex"'), out('      mode       = "manager + ic"'), out('    }', hi), out('Plan: 1 to add, 0 to change, 0 to destroy.', '#e9e9ed')];
         else res = [out('Usage: terraform plan | apply')];
         break;
       case 'hire':

@@ -75,12 +75,12 @@
 
     <section id="sec-problem" style="padding:80px 0">
       <div class="story-label" style="margin-bottom:16px">The problem — a chaotic information architecture</div>
-      <div style="display:flex;flex-wrap:wrap;gap:32px;align-items:flex-start">
-        <div style="flex:1 1 340px;min-width:0">
+      <div style="display:flex;flex-direction:column;gap:32px">
+        <div style="max-width:760px">
           <p style="margin:0 0 14px;font-size:16px;line-height:1.6;color:var(--text-2);text-wrap:pretty">The existing server management tool had a very chaotic information architecture, 5-6 levels deep. Users had to click through many links to reach certain configuration pages, and pages kept reloading.</p>
           <p style="margin:0;font-size:16px;line-height:1.6;color:var(--text-2);text-wrap:pretty">In our interviews, users told us they got lost in the deep hierarchy. Breadcrumbs were present, but they ran long and added to the confusion.</p>
         </div>
-        <img src="assets/oecc-case/chaotic-ia.webp" alt="Diagram of the existing PAS administration information architecture: Progress Application Server, ABL Applications, Web Applications and Services, with actions such as start, stop, deploy and undeploy at each level, five to six levels deep" style="flex:1 1 340px;min-width:0;max-width:480px;width:100%;height:auto;border-radius:12px;border:1px solid var(--border-strong);box-shadow:var(--shadow-card)">
+        <img src="assets/oecc-case/chaotic-ia.webp" alt="Diagram of the existing PAS administration information architecture: Progress Application Server, ABL Applications, Web Applications and Services, with actions such as start, stop, deploy and undeploy at each level, five to six levels deep" style="display:block;max-width:760px;width:100%;height:auto;padding:24px;background:#111;border-radius:12px;border:1px solid var(--border-strong);box-shadow:var(--shadow-card)">
       </div>
 
       <div style="height:1px;background:rgba(233,233,237,.16);margin:56px 0 40px"></div>
@@ -101,11 +101,11 @@
       <p style="margin:0 0 24px;max-width:760px;font-size:16px;line-height:1.6;color:var(--text-2);text-wrap:pretty">We looked at other server management software in the market for inspiration, and we revisited our interview notes and thought carefully about our personas.</p>
       <div style="display:flex;flex-direction:column;gap:20px">
         <figure style="margin:0">
-          <img src="assets/oecc-case/tools.webp" alt="Server management and deployment tools we reviewed: Amazon ECS, Amazon EC2, Azure, Google Cloud, Harness, Spinnaker, Chef and Heroku" style="display:block;width:100%;max-width:760px;height:auto;border-radius:12px;border:1px solid var(--border);background:#fff">
+          <img src="assets/oecc-case/tools.webp" alt="Server management and deployment tools we reviewed: Amazon Web Services, Amazon RDS, Amazon EC2, Azure, Google Cloud, Harness, Spinnaker, Chef and Heroku" style="display:block;width:100%;max-width:760px;height:auto;border-radius:12px;border:1px solid var(--border);background:#fff">
           <figcaption style="margin-top:10px;font-size:12.5px;line-height:1.5;color:var(--muted)">Some of the software we looked into.</figcaption>
         </figure>
         <figure style="margin:0">
-          <img src="assets/oecc-case/personas.webp" alt="Two OpenEdge personas: Farris, Senior DevOps Engineer, and Mia, Senior Developer, each with a quote about how they work" style="display:block;width:100%;max-width:900px;height:auto;border-radius:12px;border:1px solid var(--border)">
+          <img src="assets/oecc-case/personas.webp" alt="Two OpenEdge personas: Farris, Senior DevOps Engineer, and Mia, Senior Developer, each with a quote about how they work" style="display:block;width:100%;max-width:760px;height:auto;border-radius:12px;border:1px solid var(--border)">
           <figcaption style="margin-top:10px;font-size:12.5px;line-height:1.5;color:var(--muted)">The two personas behind the redesign.</figcaption>
         </figure>
       </div>
@@ -114,7 +114,7 @@
         <div class="story-label" style="margin-bottom:10px">Eureka</div>
         <p style="margin:0;font-weight:500;font-size:19px;line-height:1.5;color:var(--text-alt);text-wrap:pretty">Based on our personas, we realized the ABL Developer cares about ABL application configuration and not much about PAS configuration, while the DevOps Engineer cares about server configuration. So we split the information architecture into two much more manageable pieces.</p>
       </div>
-      <img src="assets/oecc-case/new-ia.webp" alt="New information architecture: DevOps Engineer view with PAS, ABL apps and web apps; ABL App Developer view centered on the ABL Application with its PROPATH, environment variables, database and services" style="display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--border-strong);box-shadow:var(--shadow-card)">
+      <img src="assets/oecc-case/new-ia.webp" alt="New information architecture: DevOps Engineer view with PAS, ABL apps and web apps; ABL App Developer view centered on the ABL Application with its PROPATH, environment variables, database and services" style="display:block;width:100%;max-width:760px;height:auto;padding:24px;background:#111;border-radius:12px;border:1px solid var(--border-strong);box-shadow:var(--shadow-card)">
       <p style="margin:10px 0 0;font-size:12.5px;line-height:1.5;color:var(--muted)">New information architecture, based on our user personas.</p>
     </section>
 
@@ -139,7 +139,7 @@
       </div>
 
       <h3 style="margin:0 0 12px;font-weight:500;font-size:22px">Light and dark themed screens</h3>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:16px">
+      <div style="display:flex;flex-direction:column;gap:20px">
         <img src="assets/oecc-case/themed-light.webp" alt="OECC ABL Applications screen in the light theme" style="display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--border-strong);box-shadow:var(--shadow-card)">
         <img src="assets/oecc-case/themed-dark.webp" alt="OECC ABL Applications screen in the dark theme" style="display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--border-strong);box-shadow:var(--shadow-card)">
       </div>

@@ -8,6 +8,8 @@ export const ORDER_GROUPS = [
 
 const plain = (s) => String(s ?? '').replace(/\*/g, '');
 
+const leadershipItems = (v) => [...(v.leadership?.manager ?? []), ...(v.leadership?.ic ?? [])];
+
 // Every string a visitor will read, without the *accent* markup.
 export function variantUnits(v) {
   const u = [
@@ -18,9 +20,12 @@ export function variantUnits(v) {
     v.hero?.sub,
     v.sidebarNote,
     v.contactLine,
+    v.years && `${v.years} years`,
     v.focus?.label,
     v.focus?.heading,
     ...(v.focus?.items ?? []).flatMap((i) => [i.title, i.text]),
+    v.leadership?.heading,
+    ...leadershipItems(v).map((i) => i.text),
   ];
   return u.filter(Boolean).map(plain);
 }
@@ -55,11 +60,16 @@ export function variantProblems(v, status, jd, errors, warns) {
     ['hero.eyebrow', v.hero?.eyebrow?.length],
   ]) if (!ok) errors.push(`variant: ${k} is required`);
 
+  if (v.leadership && !(v.leadership.heading && v.leadership.manager?.length && v.leadership.ic?.length)) {
+    errors.push('variant: leadership needs a heading and at least one manager and one ic item');
+  }
+
   const ids = new Set(profile.claims.map((c) => c.id));
-  for (const item of v.focus?.items ?? []) {
-    if (!item.claims?.length) errors.push(`variant: focus item "${item.title}" cites no claim ids`);
+  for (const item of [...(v.focus?.items ?? []), ...leadershipItems(v)]) {
+    const name = item.title || item.text;
+    if (!item.claims?.length) errors.push(`variant: item "${name}" cites no claim ids`);
     for (const id of item.claims ?? []) {
-      if (!ids.has(id)) errors.push(`variant: focus item "${item.title}" cites unknown claim "${id}"`);
+      if (!ids.has(id)) errors.push(`variant: item "${name}" cites unknown claim "${id}"`);
       const claim = profile.claims.find((c) => c.id === id);
       if (claim && /\bconfirm/i.test(`${claim.source} ${claim.text}`)) warns.push(`variant: claim "${id}" is still marked for your confirmation`);
     }

@@ -15,14 +15,40 @@
         </div>
 
         <div class="two-col-visual" style="margin-top:56px">
-          <div class="shots-col" style="flex:1 1 420px">
+          <div class="device-col" style="border-radius:14px;border:1px solid var(--border-strong);background:var(--bg-card);box-shadow:var(--shadow-card);overflow:hidden">
+            <div style="display:flex;align-items:center;gap:10px;padding:14px 18px;border-bottom:1px solid var(--border)">
+              <i class="ph ph-tree-structure" style="color:var(--accent-icon);font-size:18px"></i>
+              <div style="flex:1;font-size:14px">PAS administration</div>
+              <span style="font-family:var(--font-mono);font-size:11.5px;color:var(--muted)">was 5-6 levels</span>
+            </div>
+            <div style="padding:18px">
+              <div style="font-size:12.5px;line-height:1.55;color:var(--muted);margin-bottom:12px">Users got lost in the old hierarchy, and its breadcrumbs ran long. Each persona cares about a different part of it, so each now gets its own path.</div>
+              <div style="padding:14px;border-radius:10px;border:1px solid var(--border);background:var(--bg)">
+                <div style="font-family:var(--font-mono);font-size:11.5px;color:var(--muted);margin-bottom:10px">before → one deep hierarchy</div>
+                <div style="font-family:var(--font-mono);font-size:12.5px;line-height:1.9;color:var(--text-3)">
+                  <div>Progress Application Server</div>
+                  <div style="padding-left:14px">└ ABL Applications</div>
+                  <div style="padding-left:28px">└ Web Application</div>
+                  <div style="padding-left:42px">└ Services</div>
+                  <div style="padding-left:56px">└ URI, status</div>
+                </div>
+              </div>
+              <div style="margin-top:12px;padding:14px;border-radius:10px;border:1px solid #26406f;background:#16223a">
+                <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--badge-text)"><i class="ph ph-hard-drives"></i>DevOps Engineer</div>
+                <p style="margin:8px 0 0;font-size:14px;line-height:1.55;color:var(--text-alt)">Manages and configures servers, and checks their status, active transports and running services.</p>
+                <div style="margin-top:10px;font-family:var(--font-mono);font-size:11.5px;color:var(--muted-2)">path → PAS for OpenEdge Instances</div>
+              </div>
+              <div style="margin-top:12px;padding:14px;border-radius:10px;border:1px solid #26406f;background:#16223a">
+                <div style="display:flex;align-items:center;gap:8px;font-size:13px;color:var(--badge-text)"><i class="ph ph-code"></i>ABL Developer</div>
+                <p style="margin:8px 0 0;font-size:14px;line-height:1.55;color:var(--text-alt)">Looks inside an application: its web applications and services, PROPATH, environment variables and database connections.</p>
+                <div style="margin-top:10px;font-family:var(--font-mono);font-size:11.5px;color:var(--muted-2)">path → ABL Applications</div>
+              </div>
+            </div>
+          </div>
+          <div class="shots-col">
             <img class="shot" src="assets/oecc-case/pas-instances.webp" alt="OECC page PAS for OpenEdge Instances, designed for the DevOps Engineer" style="border-color:var(--border-strong)">
             <img class="shot" src="assets/oecc-case/abl-apps.webp" alt="OECC page ABL Applications, designed for the ABL Developer" style="border-color:var(--border-strong)">
-            <p style="margin:0;font-size:12.5px;line-height:1.5;color:var(--muted)">One server-management IA, split by persona: PAS for DevOps Engineers, ABL Applications for developers.</p>
-          </div>
-          <div class="shots-col" style="flex:1 1 320px">
-            <img class="shot" src="assets/oecc-case/chaotic-ia.webp" alt="Diagram of the previous PAS information architecture, five to six levels deep" style="border-color:var(--border-strong);object-fit:contain;background:#000;height:auto;flex:none">
-            <p style="margin:0;font-size:12.5px;line-height:1.5;color:var(--muted)">Before: a 5-6 level hierarchy where users got lost and breadcrumbs ran long.</p>
+            <p style="margin:0;font-size:12.5px;line-height:1.5;color:var(--muted)">The shipped pages: PAS instances for DevOps Engineers, ABL Applications for developers.</p>
           </div>
         </div>
 

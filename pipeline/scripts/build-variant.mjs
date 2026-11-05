@@ -81,6 +81,20 @@ function focusSection(f) {
 `;
 }
 
+// Puts the tailored points into the leadership section's own heading and its manager and IC cards,
+// for a variant whose focus would only repeat that section. Its survey band and case study link stay.
+function tailorLeadership(html, l) {
+  const block = html.match(/      <section id="leadership"[\s\S]*?\n      <\/section>\n/);
+  if (!block) throw new Error('index.html: section "leadership" not found');
+  const lists = /(<div style="display:flex;flex-direction:column;gap:14px[^>]*>)[\s\S]*?(\n            <\/div>)/g;
+  if (block[0].match(lists)?.length !== 2) throw new Error('index.html: expected the manager and IC lists in the leadership section. Did the base page change?');
+  const items = [l.manager, l.ic];
+  const out = block[0]
+    .replace(/(<h2\b[^>]*>)[\s\S]*?(<\/h2>)/, (_, a, b) => a + rich(l.heading) + b)
+    .replace(lists, (_, a, b) => a + items.shift().map((i) => `\n              <div>${esc(i.text)}</div>`).join('') + b);
+  return html.replace(block[0], () => out);
+}
+
 export function renderVariant(base, v) {
   let html = base;
   html = once(html, /<title>[^<]*<\/title>/, () => `<title>${esc(v.meta.title)}</title>`, '<title>');
@@ -94,6 +108,12 @@ export function renderVariant(base, v) {
   html = setMarked(html, 'sub', 'p', esc(v.hero.sub));
   if (v.sidebarNote) html = setMarked(html, 'sidebar-note', 'span', esc(v.sidebarNote));
   if (v.contactLine) html = setMarked(html, 'contact-line', 'p', esc(v.contactLine));
+  if (v.years) {
+    html = setMarked(html, 'status-years', 'span', `${esc(v.years)} yrs · DevEx`);
+    // home.js reads this for the terminal, which is shared with the main site.
+    html = once(html, /<html lang="en">/, () => `<html lang="en" data-years="${esc(v.years)}">`, '<html lang="en">');
+  }
+  if (v.leadership) html = tailorLeadership(html, v.leadership);
   if (v.sectionOrder) html = reorder(html, v.sectionOrder);
   for (const id of v.extraSections || []) {
     if (!EXTRA_SECTIONS.includes(id)) throw new Error(`variant: unknown extra section "${id}"`);

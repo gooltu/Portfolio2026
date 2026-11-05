@@ -9,7 +9,7 @@ Goal: a letter that reads like Mayukh wrote it for this role, using only facts f
    (for example Terraform adoption 33% to 80%+, or Memory Profiler support calls down 50%).
 3. **Second angle.** What the JD asks for that is different: leadership scale, design systems, data-rich work, AI prototyping.
    Pick the claim that fits. If the JD asks for something with no evidence in the fact bank, say nothing about it.
-4. **Close.** Where to see the work (the variant portfolio URL once live, otherwise mayukhonline.in), and one line of availability.
+4. **Close.** Where to see the work, and one line of availability. Write `[portfolio]` in the sentence, never the URL: `build-letter.mjs` turns the word into a link to the job's portfolio URL in `resume.json` (the variant once live, otherwise the main site). Rebuild the letter after the variant goes live.
 
 ## Rules
 - Numbers only from `profile.json`; run `check.mjs`.

@@ -91,12 +91,15 @@
   ],
   "counting_rules": {
     "ux_experience_years": "Count from CitiTalk (2013-01). Do not count Wipro engineering or the MDes. As of Nov 2026 this is 13 years 10 months: say '13+ years', and '14 years' from Jan 2027. Never round up.",
+    "total_experience_years": "Decision by Mayukh, 2026-11-05: 17+ years of professional experience including Wipro. '14+ years of experience' may be used on résumés when a JD asks for it. Do not write '14+ years in UX' or '14+ years of UX' before Jan 2027.",
     "design_leadership_years": "Progress Manager (Nov 2020 to Jun 2025, about 4.6 yrs) plus Healers at Home (2 yrs, team of 6) is about 6.6 years. '5+ years of design leadership' is supported. If a JD asks for people management specifically, state the Progress figure (about 4.5 yrs) and the Healers team separately.",
     "title_rule": "Progress is always shown as three roles (Senior, Principal, Manager), never as one Manager role from 2018.",
     "allowed_year_phrases": [
+      "10+ years",
       "13+ years",
       "14 years",
       "14+ years",
+      "17+ years",
       "5+ years",
       "4.6 years",
       "4.5 years",
@@ -158,6 +161,20 @@
       "metric": "1000s",
       "where": "progress-mgr",
       "source": "oecc-case-study.html",
+      "status": "stated"
+    },
+    {
+      "id": "arc-analytics",
+      "text": "Integrated analytics tools (Pendo/CUJ metrics); used data analysis to identify and redesign a critical user-flow bottleneck in the ARC Configuration Manager, improving key conversion rates. No conversion figure is on record, so do not state one.",
+      "where": "progress-mgr",
+      "source": "base resume, re-stated by Mayukh 2026-11-05",
+      "status": "stated"
+    },
+    {
+      "id": "customer-webinars",
+      "text": "Hosted webinars via the Customer Validation Portal and User Group (PUG) conferences, establishing continuous feedback loops that fed product roadmap improvements and design validation.",
+      "where": "progress-mgr",
+      "source": "base resume, re-stated by Mayukh 2026-11-05",
       "status": "stated"
     },
     {
@@ -366,6 +383,28 @@
       "status": "stated"
     },
     {
+      "id": "progress-team-seniority",
+      "text": "At Progress, managed Principal and senior designers and senior researchers.",
+      "where": "progress-mgr",
+      "source": "Mayukh, 2026-11-05",
+      "status": "confirmed"
+    },
+    {
+      "id": "progress-recruiting",
+      "text": "At Progress, recruited 2 senior and one junior UX designers.",
+      "metric": "2 senior, 1 junior",
+      "where": "progress-mgr",
+      "source": "Mayukh, 2026-11-05",
+      "status": "confirmed"
+    },
+    {
+      "id": "healers-web-seo",
+      "text": "At Healers at Home, did website design, brochures, Facebook ads and SEO landing pages, and worked closely with a marketing/SEO/SEM agency.",
+      "where": "healers",
+      "source": "Mayukh, 2026-11-05",
+      "status": "confirmed"
+    },
+    {
       "id": "cititalk-marketing",
       "text": "At CitiTalk, designed marketing material: posters, brochures, Facebook and Instagram ads, YouTube ads.",
       "where": "cititalk",
@@ -378,6 +417,69 @@
       "where": "education",
       "source": "user, 2026-11-05",
       "status": "stated"
+    },
+    {
+      "id": "total-experience",
+      "text": "17+ years of professional experience, counting Wipro (designing and building developer tools) and design roles from 2013. Résumés may say '14+ years of experience'. Keep the word UX out of that figure: the UX-only figure stays '13+ years'.",
+      "metric": "17+ years",
+      "source": "Mayukh, 2026-11-05",
+      "status": "confirmed"
+    },
+    {
+      "id": "wipro-devtools",
+      "text": "At Wipro, designed developer tools, under the real title Senior Software Engineer.",
+      "where": "wipro",
+      "source": "Mayukh, 2026-11-05",
+      "status": "confirmed"
+    },
+    {
+      "id": "promoted-hands-on",
+      "text": "Promoted from Principal UX Designer to Manager, User Experience, and kept doing hands-on design work.",
+      "where": "progress-mgr",
+      "source": "Mayukh, 2026-11-05",
+      "status": "confirmed"
+    },
+    {
+      "id": "arc-growth",
+      "text": "Found the bottleneck in the ARC (Autonomous REST Connector) UI through analytics; the UI was changed and ARC business improved a lot afterwards. No figure is on record, so do not state one.",
+      "where": "progress-mgr",
+      "source": "Mayukh, 2026-11-05",
+      "status": "confirmed"
+    },
+    {
+      "id": "iam-rbac",
+      "text": "OECC and Progress HDP had many identity and access management features; spent a lot of time designing IAM and RBAC.",
+      "where": "progress",
+      "source": "Mayukh, 2026-11-05",
+      "status": "confirmed"
+    },
+    {
+      "id": "self-service",
+      "text": "OECC and the Memory Profiler enabled self-service, reducing support ticket volume. The 50% figure belongs to the Memory Profiler only; no figure is on record for OECC.",
+      "where": "progress-mgr",
+      "source": "Mayukh, 2026-11-05",
+      "status": "confirmed"
+    },
+    {
+      "id": "exec-comms",
+      "text": "Reported to the Vice President of Product Management; regularly communicated and presented to Directors and senior engineering Fellows.",
+      "where": "progress-mgr",
+      "source": "Mayukh, 2026-11-05",
+      "status": "confirmed"
+    },
+    {
+      "id": "upgrade-revenue",
+      "text": "OECC and the Memory Profiler helped OpenEdge customers upgrade to the latest version, increasing Progress revenue. No revenue figure is on record, so do not state one.",
+      "where": "progress-mgr",
+      "source": "Mayukh, 2026-11-05",
+      "status": "confirmed"
+    },
+    {
+      "id": "pug-pendo",
+      "text": "Hosted webinars in Progress User Groups and implemented Pendo analytics in OpenEdge products.",
+      "where": "progress-mgr",
+      "source": "Mayukh, 2026-11-05",
+      "status": "confirmed"
     }
   ],
   "open_conflicts": [

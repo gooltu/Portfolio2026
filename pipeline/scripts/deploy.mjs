@@ -11,6 +11,10 @@ import { resolve } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { root } from './lib/facts.mjs';
 import { buildVariant } from './build-variant.mjs';
+import { writePages } from './list-pages.mjs';
+
+// Refresh the local page list on every way out, since a run can change which variants are live.
+process.on('exit', writePages);
 
 const repo = resolve(root, '..');
 const flags = new Set(process.argv.slice(2));
@@ -97,7 +101,8 @@ async function verifyAll(variantSlugs) {
 function explainDns() {
   console.log(`
 Variants are deployed but not reachable yet, and each resume keeps linking to the main site.
-Do not switch the nameservers to fix this without reading "DNS setup" in pipeline/README.md: a switch before Vercel activates the zone takes the whole domain down.
+Each variant needs its own CNAME: follow "DNS for each variant" in pipeline/README.md.
+Do not switch the nameservers to fix this: before Vercel activates the zone, that takes the whole domain down (see "Wildcard DNS").
 Once DNS is ready, run:  node pipeline/scripts/deploy.mjs --verify`);
 }
 
