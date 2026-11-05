@@ -18,3 +18,14 @@ A static, no-build-step portfolio site: a landing page (`index.html`) and three 
 - **`home.js`** — landing-page-only behavior: the fake terminal REPL (a small command interpreter — `help`, `whoami`, `terraform plan|apply`, `hire`, etc.), the Cmd+K command palette, the animated canvas "infra graph," and the sidebar/topbar active-file tracking tied to scroll position. Case-study pages don't load this file; they only need `initExplorerNav`.
 - **Case-study pages** each have their own sidebar nav list (`id="explorerNav"`) whose `data-section-id` values must match real section `id`s on that page — if you add/remove/rename a section, update both.
 - **`design-source/`** holds the original high-fidelity design spec this site was built from (`.dc.html` prototype files in a proprietary templating format, plus `DESIGN_HANDOFF.md`). These are reference-only, not served by the site — don't link to them or treat their `{{ }}`/`sc-for`/`sc-if` syntax as something to reproduce elsewhere.
+
+## Job application pipeline
+
+`pipeline/` generates a tailored résumé and cover letter for each job description (portfolio variants and deployment come in later phases). Read `pipeline/README.md` before touching it.
+
+- **`pipeline/profile.json` is the only source of facts.** Résumés and letters may select, reorder and rephrase its claims, never add one. When a fact changes, edit `profile.json` first.
+- **Per job:** `node pipeline/scripts/new-job.mjs "<label>" "<Company>" "<Role>"`, paste the JD into `jobs/<slug>/jd.txt`, then write `jd.json`, `match.md`, `resume.json` (start from `pipeline/resume/data/base.json`) and `cover-letter.md`. Run `node pipeline/scripts/check.mjs <slug>` and `build-job.mjs <slug>`.
+- **Never claim what the fact bank does not support.** Report gaps in `match.md` instead. Follow the counting rules in `profile.json` (13+ years UX, 5+ years design leadership, Progress shown as three roles, CSAT +25% is platform-level, 250K is "across Progress and HashiCorp", Wipro framed case by case).
+- `pipeline/jobs/` is git-ignored (it names the companies applied to). Do not commit it or paste its contents anywhere public.
+- Variant subdomains use random neutral slugs, never company names. Do not use company logos or branding on any page.
+- PDFs need Google Chrome (the builder finds it on macOS).

@@ -1,0 +1,475 @@
+{
+  "_readme": "Single source of truth for every resume, cover letter and portfolio variant. The pipeline may select, reorder and rephrase facts from here but must never add a claim that is not here. status: confirmed = you verified it; stated = appears in your own documents, not yet re-confirmed; conflict = documents disagree, see open_conflicts. Do not put phone numbers or other private data in this file (the repo is on GitHub).",
+  "person": {
+    "name": "Mayukh Chakraborty",
+    "email": "mayukhchakraborty1984@gmail.com",
+    "location": "Bengaluru, India",
+    "linkedin": "https://www.linkedin.com/in/mayukh-chakraborty-b329652/",
+    "github": "https://github.com/gooltu",
+    "portfolio": "https://mayukhonline.in"
+  },
+  "timeline": [
+    {
+      "id": "hashicorp",
+      "org": "IBM HashiCorp",
+      "role": "Senior Product Designer",
+      "start": "2026-01",
+      "end": "2026-07",
+      "type": "IC",
+      "status": "stated"
+    },
+    {
+      "id": "progress-mgr",
+      "org": "Progress Software",
+      "role": "Manager, User Experience",
+      "start": "2020-11",
+      "end": "2025-06",
+      "type": "manager",
+      "note": "Promoted Nov 2020, four months after becoming Principal. About 4.6 years.",
+      "status": "confirmed"
+    },
+    {
+      "id": "progress-principal",
+      "org": "Progress Software",
+      "role": "Principal UX Designer",
+      "start": "2020-07",
+      "end": "2020-11",
+      "type": "IC",
+      "note": "Promoted Jul 2020.",
+      "status": "confirmed"
+    },
+    {
+      "id": "progress-senior",
+      "org": "Progress Software",
+      "role": "Senior UX Designer",
+      "start": "2018-05",
+      "end": "2020-07",
+      "type": "IC",
+      "note": "Joined as individual contributor; worked on DataDirect HDP and ARC Configuration Manager.",
+      "status": "confirmed"
+    },
+    {
+      "id": "healers",
+      "org": "Healers at Home",
+      "role": "Head of Product Design",
+      "start": "2016-05",
+      "end": "2018-04",
+      "type": "head-of-design",
+      "team": "6 designers and front-end developers",
+      "note": "IIT Kanpur incubated, funded by Hyderabad Angels.",
+      "status": "confirmed"
+    },
+    {
+      "id": "cititalk",
+      "org": "CitiTalk",
+      "role": "Co-Founder, Head of Product Design",
+      "start": "2013-01",
+      "end": "2016-04",
+      "type": "founder",
+      "note": "IIT Kanpur incubated, funded by SIDBI.",
+      "status": "stated"
+    },
+    {
+      "id": "iitk",
+      "org": "IIT Kanpur",
+      "role": "Master in Design (MDes)",
+      "start": "2011-08",
+      "end": "2013-07",
+      "type": "education",
+      "status": "stated"
+    },
+    {
+      "id": "wipro",
+      "org": "Wipro Technologies",
+      "role": "Senior Software Engineer",
+      "start": "2007-08",
+      "end": "2011-04",
+      "type": "engineering",
+      "status": "stated",
+      "note": "Innovation projects for the dev-tools group; Hercules Award. This is what led to the MDes in 2011. See wipro_framing."
+    }
+  ],
+  "counting_rules": {
+    "ux_experience_years": "Count from CitiTalk (2013-01). Do not count Wipro engineering or the MDes. As of Nov 2026 this is 13 years 10 months: say '13+ years', and '14 years' from Jan 2027. Never round up.",
+    "design_leadership_years": "Progress Manager (Nov 2020 to Jun 2025, about 4.6 yrs) plus Healers at Home (2 yrs, team of 6) is about 6.6 years. '5+ years of design leadership' is supported. If a JD asks for people management specifically, state the Progress figure (about 4.5 yrs) and the Healers team separately.",
+    "title_rule": "Progress is always shown as three roles (Senior, Principal, Manager), never as one Manager role from 2018.",
+    "allowed_year_phrases": [
+      "13+ years",
+      "14 years",
+      "14+ years",
+      "5+ years",
+      "4.6 years",
+      "4.5 years",
+      "6.6 years",
+      "7 years",
+      "2 years",
+      "3 years",
+      "4 years"
+    ]
+  },
+  "claims": [
+    {
+      "id": "tf-adoption",
+      "text": "Latest-Terraform adoption across HCP workspaces rose from 33% to 80%+ within two months of the bulk version update release, increasing RUM and business revenue.",
+      "metric": "33% to 80%+",
+      "where": "hashicorp",
+      "source": "portfolio terraform case study",
+      "status": "stated"
+    },
+    {
+      "id": "tf-claude-code",
+      "text": "Designed and prototyped the agentic upgrade flow using Claude Code and the Helios Design System MCP server.",
+      "where": "hashicorp",
+      "source": "portfolio, resume",
+      "status": "stated"
+    },
+    {
+      "id": "tf-research",
+      "text": "Foundational research with technical stakeholders at Tier-1 financial institutions (JPMC, DBS Bank).",
+      "where": "hashicorp",
+      "source": "resume",
+      "status": "stated"
+    },
+    {
+      "id": "consul-wcag",
+      "text": "Redesigned HashiCorp Consul UI on the Helios design system, meeting WCAG 2.2 AA.",
+      "where": "hashicorp",
+      "source": "resume",
+      "status": "stated"
+    },
+    {
+      "id": "northstar-vscode",
+      "text": "Defined the North Star interaction model for a Terraform infrastructure visualization VS Code extension.",
+      "where": "hashicorp",
+      "source": "resume",
+      "status": "stated"
+    },
+    {
+      "id": "oecc-adoption",
+      "text": "OECC (zero-to-one) managing IT security and operations across cloud and on-premise: 80% increase in adoption of the latest OpenEdge version.",
+      "metric": "80%",
+      "where": "progress-mgr",
+      "source": "portfolio, resume",
+      "status": "stated"
+    },
+    {
+      "id": "csat",
+      "text": "OpenEdge platform CSAT improved by 25%. OECC and the Memory Profiler are parts of that platform. Always attribute to the platform, never to one project.",
+      "metric": "25%",
+      "where": "progress-mgr",
+      "source": "portfolio, resume",
+      "status": "confirmed"
+    },
+    {
+      "id": "memprof-support",
+      "text": "AI-enabled Memory Profiler cut memory-related support calls and forum inquiries by 50%.",
+      "metric": "50%",
+      "where": "progress-mgr",
+      "source": "portfolio, resume",
+      "status": "stated"
+    },
+    {
+      "id": "ds-delivery",
+      "text": "WCAG 2.2 AA design system with Dark, Light and Classic themes accelerated delivery by 30%.",
+      "metric": "30%",
+      "where": "progress-mgr",
+      "source": "portfolio, resume",
+      "status": "stated"
+    },
+    {
+      "id": "ds-pipeline",
+      "text": "Connected Figma style variables to Kendo ThemeBuilder; generated stylesheets stored in GitHub for developers.",
+      "where": "progress-mgr",
+      "source": "mayukh.net design system case study",
+      "status": "stated"
+    },
+    {
+      "id": "team-growth",
+      "text": "Grew the Progress ADP UX team from 2 to 7 across the US, Bulgaria and India, including integrating designers from the Ipswitch and Kemp acquisitions.",
+      "metric": "2 to 7",
+      "where": "progress-mgr",
+      "source": "mayukh.net leadership page",
+      "status": "stated"
+    },
+    {
+      "id": "ux-maturity",
+      "text": "UX maturity survey moved Progress ADP teams from 'Interested' to 'Committed' (2019 to 2024).",
+      "where": "progress-mgr",
+      "source": "portfolio",
+      "status": "stated"
+    },
+    {
+      "id": "personas-jira",
+      "text": "UX-built personas are included in every JIRA story for Progress ADP; Design Thinking courses became mandatory for ADP engineers.",
+      "where": "progress-mgr",
+      "source": "mayukh.net leadership page",
+      "status": "stated"
+    },
+    {
+      "id": "healers-conv",
+      "text": "A/B-tested landing pages lifted lead conversion.",
+      "metric": "75%",
+      "where": "healers",
+      "source": "resume, portfolio",
+      "status": "confirmed"
+    },
+    {
+      "id": "healers-team",
+      "text": "Led a team of six designers and front-end developers and architected the Healer Management System UX.",
+      "where": "healers",
+      "source": "you, Nov 2026",
+      "status": "confirmed"
+    },
+    {
+      "id": "wipro-tool",
+      "text": "Led an 11-person automation team onsite in Ohio; built a tool that cut manual test scripting by 90%; won the Hercules Award.",
+      "where": "wipro",
+      "source": "resume",
+      "status": "stated"
+    },
+    {
+      "id": "awards",
+      "text": "Patent awarded for medical device design; Samsung App Contest winner 2012.",
+      "source": "resume",
+      "status": "stated"
+    },
+    {
+      "id": "interviews",
+      "text": "50+ customer interviews across 25 customers, including financial institutions (DSK Bank, AmBank Group, Associated Bank).",
+      "metric": "50+ interviews, 25 customers",
+      "where": "progress-mgr",
+      "source": "you, Nov 2026",
+      "status": "confirmed"
+    },
+    {
+      "id": "businesses",
+      "text": "250K businesses impacted across my work at Progress (OpenEdge, about 100K+ businesses) and HashiCorp. Always say 'across Progress and HashiCorp'; never attach 250K to a single employer.",
+      "metric": "250K",
+      "source": "you, Nov 2026",
+      "status": "confirmed"
+    },
+    {
+      "id": "cititalk-users",
+      "text": "CitiTalk reached 31,000+ users and 1.6M+ messages in 9 weeks, and 50,000+ installs within 6 months.",
+      "metric": "31,000+ users in 9 weeks; 50,000+ installs in 6 months",
+      "where": "cititalk",
+      "source": "you, Nov 2026",
+      "status": "confirmed",
+      "note": "1.6M+ messages comes from the DevRev resume. 5,000+ DAU was reached over about 6 months (you, Nov 2026)."
+    },
+    {
+      "id": "memprof-role",
+      "text": "On the Memory Profiler I worked as a manager who also shipped: Manager, UX and hands-on lead designer.",
+      "where": "progress-mgr",
+      "source": "you, Nov 2026",
+      "status": "confirmed"
+    },
+    {
+      "id": "wipro-innovation",
+      "text": "At Wipro, built an automatic test-script generation tool used by client Cardinal Health (cut manual scripting by 90%) and received the Hercules Award; this led to design education at IIT Kanpur in 2011.",
+      "where": "wipro",
+      "source": "you, Nov 2026",
+      "status": "confirmed",
+      "note": "Only this one project is recorded. Say 'innovation projects' (plural) only after more specifics are added."
+    },
+    {
+      "id": "cititalk-cac",
+      "text": "CitiTalk's customer acquisition cost was around ₹15.",
+      "metric": "~₹15 CAC",
+      "where": "cititalk",
+      "source": "portfolio, resumes",
+      "status": "stated"
+    },
+    {
+      "id": "memprof-data",
+      "text": "The Memory Profiler is a data-dense developer tool: live memory graphs, AI-enabled snapshot comparison, and Tags, Requests and Objects explorers for tracing slow memory leaks.",
+      "where": "progress-mgr",
+      "source": "portfolio memory profiler case study",
+      "status": "stated"
+    },
+    {
+      "id": "instana-standards",
+      "text": "Led design strategy for HashiCorp's move from Datadog to IBM Instana and defined shared monitoring and dashboard standards.",
+      "where": "hashicorp",
+      "source": "portfolio leadership section",
+      "status": "stated"
+    },
+    {
+      "id": "otel-oecc",
+      "text": "Designed OpenTelemetry configuration in OECC so telemetry exports to New Relic, Datadog and other platforms.",
+      "where": "progress-mgr",
+      "source": "portfolio leadership section",
+      "status": "stated"
+    },
+    {
+      "id": "personas-four",
+      "text": "Developed four key OpenEdge user personas, based on customer interviews, that are now used across the company.",
+      "where": "progress-mgr",
+      "source": "portfolio user interviews case study",
+      "status": "stated"
+    },
+    {
+      "id": "team-rituals",
+      "text": "Ran weekly design reviews, weekly 1:1s, team meetings and Fun Friday for a distributed team; every designer owned a product area and ran their own user studies.",
+      "where": "progress-mgr",
+      "source": "portfolio leadership case study",
+      "status": "stated"
+    },
+    {
+      "id": "ia-pas",
+      "text": "Redesigned the information architecture of PAS administration in OECC (previously 5-6 levels deep) by splitting it by persona: DevOps Engineer and ABL Developer.",
+      "where": "progress-mgr",
+      "source": "portfolio PAS case study",
+      "status": "stated"
+    },
+    {
+      "id": "cititalk-team",
+      "text": "As co-founder of CitiTalk, recruited the designers, engineers and interns.",
+      "where": "cititalk",
+      "source": "user, 2026-11-05",
+      "status": "stated"
+    },
+    {
+      "id": "healers-setup",
+      "text": "At Healers at Home, worked directly with the founder, set up the product design function single-handedly and built the team.",
+      "where": "healers",
+      "source": "user, 2026-11-05",
+      "status": "stated"
+    },
+    {
+      "id": "memprof-dataviz",
+      "text": "The Memory Profiler involved extensive data visualization.",
+      "where": "progress-mgr",
+      "source": "user, 2026-11-05",
+      "status": "stated"
+    },
+    {
+      "id": "ds-visual",
+      "text": "Setting up the Progress design system required visual design skills (visual language, themes).",
+      "where": "progress-mgr",
+      "source": "user, 2026-11-05",
+      "status": "stated"
+    },
+    {
+      "id": "healers-marketing",
+      "text": "At Healers at Home, built the company website from scratch and designed marketing material: posters, brochures, Facebook and Instagram ads, YouTube ads.",
+      "where": "healers",
+      "source": "user, 2026-11-05",
+      "status": "stated"
+    },
+    {
+      "id": "cititalk-marketing",
+      "text": "At CitiTalk, designed marketing material: posters, brochures, Facebook and Instagram ads, YouTube ads.",
+      "where": "cititalk",
+      "source": "user, 2026-11-05 (list applied to both startups; confirm)",
+      "status": "stated"
+    },
+    {
+      "id": "samsung-game",
+      "text": "Won the Samsung game design contest in 2012. (Existing awards claim says 'Samsung App Contest winner 2012'; wording to be confirmed.)",
+      "where": "education",
+      "source": "user, 2026-11-05",
+      "status": "stated"
+    }
+  ],
+  "open_conflicts": [
+    {
+      "id": "resumes-stale",
+      "issue": "The existing resume PDFs still show Progress as one Manager role from 2018, 100,000 businesses, and CSAT credited to OECC.",
+      "need": "Nothing from you; the Phase 1 builder will regenerate them from this file."
+    }
+  ],
+  "wipro_framing": {
+    "allowed": "Use case by case when a JD values engineering depth or dev-tools experience: 'Before design school I spent four years as a software engineer at Wipro, where I built an automatic test-script generation tool used by client Cardinal Health (90% less manual scripting, Hercules Award); that led me to the MDes at IIT Kanpur.' May be listed under experience with its real title (Senior Software Engineer).",
+    "not_allowed": "Do not give it a designer job title, and do not add Wipro years into a UX or design years figure without labeling it. When a JD's years threshold is met only by counting Wipro, say '13+ years in UX, plus 4 years in engineering building developer tools', and let the pipeline flag the gap.",
+    "todo": "Optional: add more dev-tools innovation projects. Until then, describe one project, not several."
+  },
+  "resolved_conflicts": [
+    {
+      "id": "promotion-months",
+      "decision": "Principal July 2020; Manager November 2020."
+    },
+    {
+      "id": "interview-count",
+      "decision": "50+ interviews across 25 customers."
+    },
+    {
+      "id": "businesses-impacted",
+      "decision": "250K total across Progress and HashiCorp work."
+    },
+    {
+      "id": "lead-conversion",
+      "decision": "75% (the 100% on mayukh.net is wrong)."
+    },
+    {
+      "id": "cititalk-metrics",
+      "decision": "Both correct: 31,000+ users in 9 weeks, 50,000+ installs in 6 months."
+    },
+    {
+      "id": "csat-attribution",
+      "decision": "+25% CSAT is for the whole OpenEdge platform; OECC and Memory Profiler are parts of it."
+    },
+    {
+      "id": "memprof-role",
+      "decision": "Manager who also shipped (hands-on lead designer)."
+    },
+    {
+      "id": "memprof-team",
+      "decision": "2 senior designers."
+    },
+    {
+      "id": "cititalk-dau",
+      "decision": "5,000+ DAU over about 6 months."
+    },
+    {
+      "id": "wipro-specifics",
+      "decision": "Automatic test-script generation tool used by client Cardinal Health. One project recorded."
+    }
+  ],
+  "rules": [
+    {
+      "all": [
+        "OECC",
+        "25%"
+      ],
+      "unless": [
+        "platform"
+      ],
+      "why": "+25% CSAT belongs to the whole OpenEdge platform, not to OECC alone."
+    },
+    {
+      "all": [
+        "250K"
+      ],
+      "unless": [
+        "Progress and HashiCorp"
+      ],
+      "why": "250K must always be stated as 'across Progress and HashiCorp'."
+    },
+    {
+      "all": [
+        "Memory Profiler",
+        "Principal"
+      ],
+      "why": "On the Memory Profiler the role was Manager who also shipped; do not call it a Principal role."
+    },
+    {
+      "docPattern": "MAY 2018 - JUNE 2025",
+      "why": "Progress must not show one 2018-2025 Manager range; use NOV 2020 - JUNE 2025 plus the earlier roles."
+    },
+    {
+      "docPattern": "\\b12\\+ ?(years|yrs)",
+      "why": "UX experience is 13+ years (Jan 2013 start). Never round up."
+    }
+  ],
+  "required_when": [
+    {
+      "if": "Progress Software",
+      "contains": [
+        "Principal UX Designer",
+        "Senior UX Designer"
+      ],
+      "why": "Progress is always shown with its three roles."
+    }
+  ]
+}

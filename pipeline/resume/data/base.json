@@ -1,0 +1,164 @@
+{
+  "header": {
+    "name": "Mayukh Chakraborty",
+    "title": "Manager, Product Design",
+    "lines": [
+      "Master in Design(MDes) - IIT Kanpur",
+      "**Build with Claude Code - ByteByteAI** (course completed 2026)"
+    ],
+    "tagline": [
+      "UX Strategist. Human-AI Orchestrator. Global Design Manager.",
+      "Passionate about creating amazing experiences."
+    ],
+    "summary": [
+      "EXPERIENCE (13+ years)",
+      "DESIGN LEADERSHIP (5+ years)",
+      "IMPACT (250K businesses across Progress and HashiCorp)"
+    ]
+  },
+  "contact": {
+    "phone": "+91 9005835708",
+    "email": "mayukhchakraborty1984@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/mayukh-chakraborty-b329652/",
+    "github": "https://github.com/gooltu",
+    "portfolio": "https://mayukhonline.in"
+  },
+  "experience": [
+    {
+      "company": "IBM HashiCorp",
+      "role": "Senior Product Designer",
+      "dates": "JANUARY 2026 - JULY 2026",
+      "bullets": [
+        "**Agentic AI & Workflow Innovation:** Spearheaded the end-to-end design of an automated Terraform upgrade experience. Leveraged agentic AI flows to guide DevOps engineers through high-risk migrations across core, modules, and providers. This initiative resulted in 80% of HCP Terraform workspaces migrating to the latest version, increasing Resources Under Management (RUM) and driving business revenue. Prototyped using **Claude code and Helios Design System MCP server**. Also played an important role in developing the design system MCP server.",
+        "**North Star Visioning & Technical Prototyping:** Defined the North Star interaction model for a Terraform infrastructure visualization VS Code extension. Empowered developers to validate complex cloud architectures directly within their IDE. Accelerated the design-to-development cycle by using Claude and AI-assisted coding to build high-fidelity, functional prototypes.",
+        "**Enterprise-Grade User Research:** Directed foundational research with technical stakeholders at Tier-1 financial institutions (e.g., JPMC, DBS Bank). Translated complex friction points in Infrastructure-as-Code (IaC) workflows into a streamlined, low-risk upgrade roadmap for large-scale enterprise environments.",
+        "Redesigned HashiCorp Consul UI to align with the **HashiCorp Helios design system** and achieve **WCAG 2.2 AA accessibility compliance**, improving consistency, usability across the product."
+      ]
+    },
+    {
+      "company": "Progress Software",
+      "role": "Manager, User Experience",
+      "dates": "NOV 2020 - JUNE 2025 • 4.6 years",
+      "bullets": [
+        "**Strategically led and scaled a high-performing, geographically distributed UX organization** (Design, Research, Content Strategy), growing the team from 2 to 7 designers across the US, Bulgaria and India and collaborating with Senior Executive stakeholders (VP/Sr. Director/Fellows) to align initiatives with business, technical, and Developer Experience (DevEx) objectives across platforms serving over 100,000 global businesses.",
+        "**Spearheaded a comprehensive UX strategy** applied to the end-to-end design of the **OpenEdge Command Center (OECC)**. By enabling seamless management of **IT Security and Operations** across **hybrid cloud environments**, this initiative drove an **80% increase in adoption** of the latest OpenEdge version and cloud migration.",
+        "**Launched the AI-Enabled Memory Profiler tool** as a hands-on design manager, a critical DevEx solution that **reduced inbound support calls and forum inquiries by 50%** by enabling users to efficiently identify and resolve complex memory issues.",
+        "Drove a **25% increase in OpenEdge platform CSAT**, the platform that OECC and the Memory Profiler are part of.",
+        "**Established a WCAG 2.2 AA-compliant design system**, including its visual design, and UX best practices, accelerating **product delivery timelines by 30%** through the reduction of design debt and implementation of accessible Dark, Light, and Classic themes across core product suites.",
+        "**Drove data-informed design decisions** by directing **50+ customer interviews across 25 customers**, usability testing, and integrating analytics tools (Pendo/CUJ metrics); interviewed customers from **financial institutions (DSK Bank, AmBank Group, Associated Bank)** and leveraged data analysis to identify and redesign a critical user-flow bottleneck in the ARC Configuration Manager, improving key conversion rates.",
+        "**Hosted engaging webinars** via the Customer Validation Portal and User Group (PUG) conferences, establishing continuous feedback loops that directly fuelled product roadmap improvements and design validation."
+      ],
+      "subtitle": "Joined May 2018 as Senior UX Designer; Principal UX Designer from July 2020 (7 years at Progress)"
+    },
+    {
+      "company": "Healers at Home",
+      "role": "Head of Product Design",
+      "dates": "MAY 2016 - APRIL 2018 • 2 years",
+      "subtitle": "(IIT Kanpur incubated startup funded by Hyderabad Angels)",
+      "pageBreakBefore": true,
+      "bullets": [
+        "Worked directly with the founder to set up the product design function single-handedly and build the team, then led six designers and front-end developers as Head of Design, acting as the lead architect for the end-to-end UX/UI design of the Healer Management System (HMS).",
+        "Spearheaded digital growth: built the corporate website from scratch, designed marketing material (posters, brochures, Facebook, Instagram and YouTube ads), optimized SEO/SEM with external agencies, and designed A/B tested landing pages that resulted in a 75% increase in lead conversion."
+      ]
+    },
+    {
+      "company": "CitiTalk",
+      "role": "Co-Founder, Head of Product Design",
+      "dates": "JAN 2013 - APRIL 2016",
+      "subtitle": "(IIT Kanpur incubated startup funded by SIDBI)",
+      "bullets": [
+        "As co-founder, recruited the designers, engineers and interns and led the end-to-end product design and gamification strategy for a first-of-its-kind local social networking app from ideation to launch. Designed marketing material: posters, brochures, Facebook, Instagram and YouTube ads.",
+        "Designed optimized user flows and onboarding journeys that drove **31,000+ users and 1.6M+ messages in 9 weeks**, then 50,000+ installs and 5,000+ DAUs in about six months, at a low CAC of ~₹15."
+      ],
+      "tight": true
+    },
+    {
+      "company": "Wipro Technologies",
+      "role": "Senior Software Engineer",
+      "dates": "AUG 2007 - APRIL 2011",
+      "bullets": [
+        "Lead an 11-person team of software engineers from onsite (Ohio, US) in the full automation testing of the mission-critical Cardinal Health OrderExpress B2B e-commerce platform.",
+        "Designed and deployed an automatic test-script generation tool used by client Cardinal Health, cutting manual work by 90%.",
+        "Recognized for innovation by receiving the esteemed Hercules Award."
+      ],
+      "tight": true
+    }
+  ],
+  "education": [
+    {
+      "org": "IIT Kanpur",
+      "detail": "Master in Design (MDES)",
+      "dates": "Aug 2011 - July 2013"
+    },
+    {
+      "org": "ISB Executive Education",
+      "detail": "Product Management",
+      "dates": "Feb 2022 - May 2022"
+    },
+    {
+      "org": "ByteByteAI",
+      "detail": "Build with Claude Code course",
+      "dates": "May 2026"
+    },
+    {
+      "org": "Pragmatic Institute",
+      "detail": "Business Strategy & Design",
+      "dates": "November 2022"
+    },
+    {
+      "org": "Leading People",
+      "detail": "Harvard ManageMentor",
+      "dates": "April 2023"
+    },
+    {
+      "org": "Decision Making",
+      "detail": "Harvard ManageMentor",
+      "dates": "April 2023"
+    },
+    {
+      "org": "BTech, Information Technology",
+      "detail": "Techno India, Kolkata",
+      "dates": "2003-2007"
+    },
+    {
+      "org": "Digital Accessibility Workshop",
+      "detail": "",
+      "dates": "October 2021"
+    }
+  ],
+  "skills": "UX & Product Strategy, AI & Automation Design, Cross-Functional Collaboration, Design Leadership & Mentorship, Customer-Centric Innovation, Metrics & Data-Driven UX, Enterprise SaaS & LCNC, Design Thinking & Workshop Facilitation, UX Research & Usability Testing, Agile & Lean UX, Process Optimization, Stakeholder Management",
+  "technicalSkills": [
+    {
+      "label": "Design Tools:",
+      "text": "Figma, Adobe XD, Miro"
+    },
+    {
+      "label": "Technologies:",
+      "text": "HTML, CSS, Javascript, Nodejs, React, React Native, Java"
+    },
+    {
+      "label": "Project Management Tools:",
+      "text": "Jira, Asana, Aha"
+    },
+    {
+      "label": "Analytics Tool:",
+      "text": "Pendo Analytics, Google Analytics"
+    },
+    {
+      "label": "Server Backend Technologies (Basic Knowledge) :",
+      "text": "AWS, GCP, Azure, Heroku, Spinnaker, HashiCorp Vault, HashiCorp Terraform, Progress Chef, YourKit Memory Profiler, Grafana profiler, GCP profiler, Git, Database tools, Docker, Kubernetes"
+    },
+    {
+      "label": "Integrated Development Environment(IDE) :",
+      "text": "VSCode, n8n, Cursor, Android Studio, Google Antigravity"
+    },
+    {
+      "label": "AI tools :",
+      "text": "Claude Code, Gemini Code Assist, IBM Bob, Google Stitch"
+    }
+  ],
+  "honors": [
+    "Patent awarded for Medical Device design",
+    "Samsung App Contest Winner 2012"
+  ]
+}
